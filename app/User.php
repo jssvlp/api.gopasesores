@@ -29,6 +29,14 @@ class User extends Authenticatable implements JWTSubject
         'password', 'remember_token',
     ];
 
+    public function employee(){
+        return $this->hasOne(App\Employee::class);
+    }
+
+    public function client(){
+        return $this->hasOne(App\Client::class);
+    }
+
     /**
      * The attributes that should be cast to native types.
      *

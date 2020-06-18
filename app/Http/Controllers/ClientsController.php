@@ -2,10 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\Interfaces\ClientRepositoryInterface;
+use App\User;
 use Illuminate\Http\Request;
 
 class ClientsController extends Controller
 {
+
+    /** @var ClientRepositoryInterface */
+    private $repository;
+
+    public function __construct(ClientRepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,17 +24,7 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return $this->repository->all();
     }
 
     /**
@@ -34,7 +35,7 @@ class ClientsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->repository->create($request);
     }
 
     /**
@@ -45,18 +46,7 @@ class ClientsController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return $this->repository->find($id);
     }
 
     /**
@@ -68,7 +58,7 @@ class ClientsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return $this->repository->update($request,$id);
     }
 
     /**
@@ -79,6 +69,6 @@ class ClientsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return  $this->repository->delete($id);
     }
 }
