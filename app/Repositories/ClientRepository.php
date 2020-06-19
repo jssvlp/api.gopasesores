@@ -30,6 +30,10 @@ class ClientRepository implements ClientRepositoryInterface
 
     public function create(array $data)
     {
+        //1.Create the user
+        $user = User::create([
+
+        ]);
         return $this->model->create($data);
     }
 
