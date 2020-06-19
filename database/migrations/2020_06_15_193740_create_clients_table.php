@@ -18,7 +18,7 @@ class CreateClientsTable extends Migration
             $table->date('date_of_admission');
             $table->enum('status',['Activo','Inactivo']);
 
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('contact_employee_id')->nullable();
             $table->unsignedBigInteger('referred_by_id')->nullable();
 

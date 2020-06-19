@@ -4,7 +4,9 @@
 namespace App\Repositories\Interfaces;
 
 
-class UserRepositoryInterface
+use App\User;
+
+interface UserRepositoryInterface extends RepositoryInterface
 {
 
 }

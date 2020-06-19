@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Client;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
+use App\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class ClientRepository implements ClientRepositoryInterface
@@ -15,32 +16,40 @@ class ClientRepository implements ClientRepositoryInterface
     /**
      * PostRepository constructor.
      *
-     * @param Post $post
+     * @param Client $client
      */
     public function __construct(Client $client)
     {
+
         $this->model = $client;
     }
 
 
     public function all()
     {
-        $this->model->all();
+//        $this->user->with('salutation')->all();
+        return $this->model->with('user')->get();
     }
 
     public function create(array $data)
     {
-        //1.Create the user
-        $user = User::create([
+        $client = new Client();
+        $client->date_of_admission = date('Y-m-d');
+        $client->status = 'Activo';
+        $client->referredBy()->associate($data['referred_by_id']);
+        $client->contactEmployee()->associate($data['contact_employee_id']);
+        $client->user()->associate($data['user_id']);
 
-        ]);
-        return $this->model->create($data);
+        $client->save();
+
+        return $client;
+
     }
 
     public function update(array $data, $id)
     {
-        return $this->model->where('id', $id)
-            ->update($data);
+        return tap($this->model->where('id', $id))
+            ->update($data)->first();
     }
 
     public function delete($id)
@@ -51,7 +60,7 @@ class ClientRepository implements ClientRepositoryInterface
     public function find($id)
     {
         if (null == $post = $this->model->find($id)) {
-            throw new ModelNotFoundException("Post not found");
+            return null;
         }
 
         return $post;

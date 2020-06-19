@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
-    protected  $fillable = [];
-
+    protected  $fillable = ['date_of_admission','status'];
     public function user(){
         return $this->belongsTo(User::class);
     }
@@ -19,4 +18,5 @@ class Client extends Model
     public function contactEmployee(){
         return $this->belongsTo(Employee::class);
     }
+
 }

@@ -21,14 +21,15 @@ class AuthController extends Controller
 
     public function register(RegisterAuthRequest $request)
     {
-        $user = User::create([
-            'first_name' => $request->first_name,
-            'first_lastname' => $request->first_lastname,
-            'email' => $request->email,
-            'status' => 'Activo',
-            'password' => bcrypt($request->password),
-        ]);
-
+        $user = new User();
+        $user->first_name = $request->first_name;
+        $user->first_lastname = $request->first_lastname;
+        $user->email = $request->email;
+        $user->status = 'Activo';
+        $user->password = bcrypt($request->password);
+        $user->birth_date = $request->birth_date;
+        $user->phone = $request->phone;
+        $user->save();
 
         $token = auth()->login($user);
 
