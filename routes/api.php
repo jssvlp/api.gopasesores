@@ -28,3 +28,5 @@ Route::group([
     Route::post('register','AuthController@register');
     Route::post('me', 'AuthController@me');
 });
+
+Route::resource('clients','ClientsController');
