@@ -74,7 +74,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Global "From" Address
+    | Global "From" Contact
     |--------------------------------------------------------------------------
     |
     | You may wish for all e-mails sent by your application to be sent from

@@ -9,7 +9,7 @@ use App\Repositories\Interfaces\ClientRepositoryInterface;
 use App\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-class ClientRepository implements ClientRepositoryInterface
+class ClientPeopleRepository implements ClientRepositoryInterface
 {
     protected $model;
 
@@ -33,6 +33,7 @@ class ClientRepository implements ClientRepositoryInterface
 
     public function create(array $data)
     {
+        dd('Desde Repositorio Cliente Persona');
         $client = new Client();
         $client->date_of_admission = date('Y-m-d');
         $client->status = 'Activo';

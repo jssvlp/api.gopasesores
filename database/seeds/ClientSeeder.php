@@ -14,23 +14,51 @@ class ClientSeeder extends Seeder
     public function run()
     {
         $user = User::create([
-            'first_name' => 'Juan',
-            'first_lastname' => 'De los palotes',
             'email' => 'j.palotes@gmail.com',
             'status' => 'Activo',
             'password' => bcrypt('123456'),
         ]);
 
-        $referred = \App\Employee::first();
+        //Client data
+        $client = new \App\Client();
 
-        $client = new Client();
-        $client->user()->associate($user);
-        $client->date_of_admission = date('Y-m-d');
-        $client->status = 'Activo';
+        $client->date_of_admission = date("Y-m-d");
+        $client->authorize_data_processing = 1;
+        $client->comment = 'Este es un cliente tipo persona';
+        $employee = \App\Employee::first();
 
-        $client->referredBy()->associate($referred);
-        $client->contactEmployee()->associate($referred);
+        //ClientPeople data
+        $clientPeople = new \App\ClientPeople();
+        $clientPeople->user()->associate($user);
+        $clientPeople->first_name = "Eladio";
+        $clientPeople->last_name = "Salamanca";
+
+        $clientPeople->document_type = "Cedula";
+        $clientPeople->document_number = "40224190501";
+        $clientPeople->document_expire_date = "2024-05-17";
+        $clientPeople->document_expedition_date = "2020-01-23";
+        $clientPeople->gender = "Masculino";
+        $clientPeople->client_code = "C001";
+        $clientPeople->birth_date = "1995-05-22";
+        $clientPeople->save();
+
+        $category = new \App\Category();
+        $category->name = 'Educación';
+        $category->color = 'blue';
+        $category->save();
+
+        $clientPeople->categories()->sync($category);
+
+        //TODO: client contact data
+
+        $clientPeople->status = 'Activo';
+
+        $client->authorize_data_processing = 1;
+        $client->referredBy()->associate($employee);
+        $client->contactEmployee()->associate($employee);
+        $client->clientPeople()->associate($clientPeople);
 
         $client->save();
+        $clientPeople->save();
     }
 }

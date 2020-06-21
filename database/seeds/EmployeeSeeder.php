@@ -16,8 +16,6 @@ class EmployeeSeeder extends Seeder
     {
 
         $user = User::create([
-            'first_name' => 'Anibal',
-            'first_lastname' => 'Guzman',
             'email' => 'a.guzman@gopasesores.com',
             'status' => 'Activo',
             'password' => bcrypt('123456'),
@@ -25,6 +23,8 @@ class EmployeeSeeder extends Seeder
         $position = Position::first();
 
         $employee = new Employee();
+        $employee->first_name = "Anibal";
+        $employee->last_name = "Guzman";
         $employee->user()->associate($user);
         $employee->position()->associate($position);
 

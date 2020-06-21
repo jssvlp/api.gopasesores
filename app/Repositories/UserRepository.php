@@ -24,16 +24,24 @@ class UserRepository implements UserRepositoryInterface
     public function create(array $data)
     {
         $user = new User();
-        $user->first_name = $data['first_name'];
-        $user->first_lastname = $data['first_lastname'];
-        $user->second_lastname = $data['second_lastname'];
         $user->email =  $data['email'];
         $user->status = 'Activo';
-        $user->password = bcrypt('123456');
+        $user->password = bcrypt($data['password']);
         $user->save();
 
         return $user;
     }
+
+    public function activate(int $id)
+    {
+        $this->model->update(['status'=> 'Activo'], $id);
+    }
+
+    public function deActivate(int $id)
+    {
+        $this->model->update(['status'=> 'Inactivo'], $id);
+    }
+
 
 
 
