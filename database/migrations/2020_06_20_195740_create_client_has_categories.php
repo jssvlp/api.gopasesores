@@ -21,7 +21,7 @@ class CreateClientHasCategories extends Migration
             //Foreign
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('client_people_id')->references('id')->on('client_people');
-            $table->foreign('client_company_id')->references('id')->on('client_company');
+            $table->foreign('client_company_id')->references('id')->on('client_companies');
 
             $table->timestamps();
         });

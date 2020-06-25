@@ -17,12 +17,10 @@ class CreateFilesTable extends Migration
             $table->id();
             $table->string('name');
             $table->enum('type',['General']);
-            $table->unsignedBigInteger('client_id_people')->nullable();
-            $table->unsignedBigInteger('client_id_company')->nullable();
+            $table->unsignedBigInteger('client_id')->nullable();
 
             //Foreings
-            $table->foreign('client_id_people')->references('id')->on('client_people');
-            $table->foreign('client_id_company')->references('id')->on('client_company');
+            $table->foreign('client_id')->references('id')->on('clients');
 
             $table->timestamps();
         });

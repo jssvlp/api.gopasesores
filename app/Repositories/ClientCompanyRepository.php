@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 
+use App\Client;
 use App\ClientCompany;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
 
@@ -23,7 +24,15 @@ class ClientCompanyRepository implements ClientRepositoryInterface
 
     public function create(array $data)
     {
-        dd('Desde Repositorio Cliente Persona');
+        $company = $data['company'];
+        $clientCompany = $this->client::create($company);
+
+        $clientRepo = new ClientRepository(new Client());
+        $client = $clientRepo->create($data);
+
+        $client->clientCompany()->associate($clientCompany);
+        $client->save();
+        return $client;
         // TODO: Implement create() method.
     }
 

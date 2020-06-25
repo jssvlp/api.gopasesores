@@ -15,6 +15,7 @@ class CreateEconomicActivitiesTable extends Migration
     {
         Schema::create('economic_activities', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }

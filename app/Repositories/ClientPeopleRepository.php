@@ -60,7 +60,7 @@ class ClientPeopleRepository implements ClientRepositoryInterface
 
         $client->clientPeople()->associate($clientPeople);
 
-        return $clientPeople;
+        return $client;
 
     }
 

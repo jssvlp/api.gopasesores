@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClientCompanyTable extends Migration
+class CreateClientCompaniesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateClientCompanyTable extends Migration
      */
     public function up()
     {
-        Schema::create('client_company', function (Blueprint $table) {
+        Schema::create('client_companies', function (Blueprint $table) {
             $table->id();
             $table->string('business_name');
             $table->string('rnc')->unique();
@@ -24,11 +24,10 @@ class CreateClientCompanyTable extends Migration
             $table->unsignedBigInteger('economic_activity_id');
 
             $table->unsignedBigInteger('user_id')->nullable()->unique();
-            $table->unsignedBigInteger('contact_info_id')->nullable();
+
 
             //Foreign
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('contact_info_id')->references('id')->on('contacts');
             $table->foreign('economic_activity_id')->references('id')->on('economic_activities');
 
             $table->timestamps();

@@ -25,7 +25,7 @@ class ClientRepository implements ClientRepositoryInterface
     }
     public function all()
     {
-
+        //TODO: get records from client people and company type
     }
 
     public function create(array $data)
@@ -35,7 +35,7 @@ class ClientRepository implements ClientRepositoryInterface
         $client->contactEmployee()->associate($data['contact_employee_id']);
 
         $contactRepo = new ContactRespository(new Contact());
-        $contact = $contactRepo->create($data['people']['contact_info']);
+        $contact = $contactRepo->create($data['contact_info']);
         $client->contact()->associate($contact);
 
         $client->date_of_admission = date('Y-m-d');

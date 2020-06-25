@@ -35,7 +35,7 @@ class CreateClientsTable extends Migration
             $table->foreign('referred_by_id')->references('id')->on('employees');
             $table->foreign('contact_id')->references('id')->on('contacts');
             $table->foreign('client_people_id')->references('id')->on('client_people');
-            $table->foreign('client_company_id')->references('id')->on('client_company');
+            $table->foreign('client_company_id')->references('id')->on('client_companies');
             $table->timestamps();
         });
     }

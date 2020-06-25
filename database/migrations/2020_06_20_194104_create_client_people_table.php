@@ -34,12 +34,10 @@ class CreateClientPeopleTable extends Migration
 
             $table->unsignedBigInteger('occupation_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable()->unique();
-            $table->unsignedBigInteger('contact_info_id')->nullable();
 
             //Foreign
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('occupation_id')->references('id')->on('occupations');
-            $table->foreign('contact_info_id')->references('id')->on('contacts');
 
             $table->timestamps();
         });
