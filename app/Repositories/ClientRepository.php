@@ -5,12 +5,12 @@ namespace App\Repositories;
 
 
 use App\Client;
+use App\Contact;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
-use App\User;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class ClientRepository implements ClientRepositoryInterface
 {
+
     protected $model;
 
     /**
@@ -23,46 +23,40 @@ class ClientRepository implements ClientRepositoryInterface
 
         $this->model = $client;
     }
-
-
     public function all()
     {
-//        $this->user->with('salutation')->all();
-        return $this->model->with('user')->get();
+        //TODO: get records from client people and company type
     }
 
     public function create(array $data)
     {
         $client = new Client();
-        $client->date_of_admission = date('Y-m-d');
-        $client->status = 'Activo';
         $client->referredBy()->associate($data['referred_by_id']);
         $client->contactEmployee()->associate($data['contact_employee_id']);
-        $client->user()->associate($data['user_id']);
 
+        $contactRepo = new ContactRespository(new Contact());
+        $contact = $contactRepo->create($data['contact_info']);
+        $client->contact()->associate($contact);
+
+        $client->date_of_admission = date('Y-m-d');
+        $client->authorize_data_processing = $data['authorize_data_processing'];
         $client->save();
 
         return $client;
-
     }
 
     public function update(array $data, $id)
     {
-        return tap($this->model->where('id', $id))
-            ->update($data)->first();
+        // TODO: Implement update() method.
     }
 
     public function delete($id)
     {
-        return $this->model->destroy($id);
+        // TODO: Implement delete() method.
     }
 
     public function find($id)
     {
-        if (null == $post = $this->model->find($id)) {
-            return null;
-        }
-
-        return $post;
+        // TODO: Implement find() method.
     }
 }

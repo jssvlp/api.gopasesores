@@ -3,18 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterAuthRequest;
+use App\Repositories\UserRepository;
 use App\User;
 use Illuminate\Http\Request;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
+    /**
+     * @var UserRepository
+     */
+    private $userRepository;
+
     /**
      * Create a new AuthController instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UserRepository $userRepository)
     {
+        $this->userRepository = $userRepository;
         $this->middleware('auth:api', ['except' => ['login','register']]);
     }
 
@@ -22,13 +30,11 @@ class AuthController extends Controller
     public function register(RegisterAuthRequest $request)
     {
         $user = new User();
-        $user->first_name = $request->first_name;
-        $user->first_lastname = $request->first_lastname;
         $user->email = $request->email;
+        $user->username = $request->username;
         $user->status = 'Activo';
         $user->password = bcrypt($request->password);
-        $user->birth_date = $request->birth_date;
-        $user->phone = $request->phone;
+
         $user->save();
 
         $token = auth()->login($user);
@@ -41,11 +47,21 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login()
+    public function login(Request $request)
     {
-        $credentials = request(['email', 'password']);
+        if( !$request->email && !$request->username )
+        {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+        $credentials = $request->only(['email', 'password']);
 
-        if (! $token = auth()->attempt($credentials)) {
+        if($request->username)
+        {
+            $user = $this->userRepository->findByUsername($request->username);
+            $credentials['email'] = $user->email;
+        }
+
+        if (! $token = JWTAuth::attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 

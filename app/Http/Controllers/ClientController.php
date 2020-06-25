@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Factories\ClientFactory;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\User;
 use Illuminate\Http\Request;
 
-class ClientsController extends Controller
+class ClientController extends Controller
 {
 
     /** @var ClientRepositoryInterface */
@@ -15,7 +16,7 @@ class ClientsController extends Controller
     private $userRepository;
 
     /**
-     * ClientsController constructor.
+     * ClientController constructor.
      * @param ClientRepositoryInterface $clientRepository
      * @param UserRepositoryInterface $userRepository
      */
@@ -44,12 +45,20 @@ class ClientsController extends Controller
      */
     public function store(Request $request)
     {
-        $user = $this->userRepository->create($request->all());
-        $user = $user->toArray();
-        $data = $request->all();
-        $data['user_id'] = $user['id'];
+        //TODO: aplicar factory patther because there are 3 types of clients
+        $clientRepository = ClientFactory::getRepository($request->type);
+        if($clientRepository == null)
+        {
+            return response()->json(['status' =>'failure','message' =>'Tipo de cliente incorrecto']);
+        }
+        $user = $this->userRepository->create($request->user)->toArray();
 
-        $client = $this->clientRepository->create($data);
+        $clientData = $request->all();
+
+        $clientData['user']['user_id'] = $user['id'];
+
+        $client = $clientRepository->create($clientData);
+
         return response()->json(['status' =>'success','client' => $client],201);
     }
 
