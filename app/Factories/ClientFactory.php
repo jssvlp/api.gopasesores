@@ -13,12 +13,6 @@ use App\Repositories\ClientPeopleRepository;
 
 class ClientFactory
 {
-    public function make($client)
-    {
-
-
-    }
-
     public static function getRepository($type)
     {
         if($type == "people")
@@ -29,11 +23,6 @@ class ClientFactory
         {
             return new ClientCompanyRepository(new ClientCompany());
         }
-        elseif($type == "partnership")
-        {
-            return new ClientPartnershipRepository(new ClientPartnership());
-        }
-
         return null;
 
 

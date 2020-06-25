@@ -2,50 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ClientCompany.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ClientPartnership.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ClientPeople.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Contact.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/EconomicActivity.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Factories/ClientFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/File.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Occupation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/ClientCompanyRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/ClientPartnershipRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_14_195513_create_categories_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_14_200525_create_contacts_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_16_024657_create_economic_activities_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_19_202210_create_occupations_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_20_194104_create_client_people_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_20_194356_create_client_company_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_20_194626_create_client_partnership_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_20_195740_create_client_has_categories.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_20_203340_create_files_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_20_231332_create_partnership_associate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/ClientRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/ContactRespository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/OccupationSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientPartnership.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClientPeople.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientPeople.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Factories/ClientFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Factories/ClientFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClientsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/RegisterAuthRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/RegisterAuthRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/ClientRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ClientPeopleRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/RepositoryServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/RepositoryServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Occupation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Occupation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ClientPartnershipRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ClientPeopleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ClientPeopleRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_14_173602_create_employees_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_14_173602_create_employees_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_15_193740_create_clients_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_21_014559_create_clients_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ClientSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ClientSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_15_195023_create_policies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_23_195023_create_policies_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_20_194104_create_client_people_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_20_194104_create_client_people_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_20_194626_create_client_partnership_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_20_203340_create_files_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_20_203340_create_files_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_20_231332_create_partnership_associate.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_21_014559_create_clients_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_22_014559_create_clients_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/EmployeeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/EmployeeSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -217,7 +199,8 @@
       <workItem from="1592249767691" duration="6814000" />
       <workItem from="1592493445113" duration="11000000" />
       <workItem from="1592506970071" duration="53000" />
-      <workItem from="1592593474777" duration="38833000" />
+      <workItem from="1592593474777" duration="41478000" />
+      <workItem from="1592955526606" duration="10078000" />
     </task>
     <servers />
   </component>
@@ -236,34 +219,34 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="189" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1592713998200" />
-    <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1592602892329">
+    <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1593043018778">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1592602892329" />
-    <state x="333" y="179" key="NewPhpClassDialog" timestamp="1592693253119">
+    <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1593043018778" />
+    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1593032831926">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="333" y="179" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1592693253119" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1592506995654">
+    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593032831926" />
+    <state x="333" y="179" key="NewPhpClassDialog" timestamp="1593043848265">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1592506995654" />
+    <state x="333" y="179" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1593043848265" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1592955737767">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1592955737767" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1592598968342">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1592598968342" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1592717626679">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1593044766303">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1592717626679" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1593044766303" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/ClientPartnership.php</url>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Category.php</url>
           <line>11</line>

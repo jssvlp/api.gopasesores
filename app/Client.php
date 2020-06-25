@@ -12,6 +12,8 @@ class Client extends Model
         return $this->belongsTo(Employee::class);
     }
 
+
+
     public function contactEmployee()
     {
         return $this->belongsTo(Employee::class);
@@ -27,13 +29,9 @@ class Client extends Model
         return $this->belongsTo(ClientCompany::class);
     }
 
-    public function clientPartnership()
+    public function contact()
     {
-        return $this->belongsTo(ClientPartnership::class,'client_partnership_id','client_partnership');
+        return $this->belongsTo(Contact::class);
     }
 
-    public function clientData()
-    {
-        return $this->hasOne(Contact::class);
-    }
 }

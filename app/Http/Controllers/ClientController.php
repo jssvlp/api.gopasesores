@@ -52,13 +52,12 @@ class ClientController extends Controller
             return response()->json(['status' =>'failure','message' =>'Tipo de cliente incorrecto']);
         }
         $user = $this->userRepository->create($request->user)->toArray();
-        dd($user);
+
         $clientData = $request->all();
-        $clientData['user_id'] = $user['id'];
 
-        $clientRepository->create($request->all());
+        $clientData['user']['user_id'] = $user['id'];
 
-        $client = $this->clientRepository->create($clientData);
+        $client = $clientRepository->create($clientData);
 
         return response()->json(['status' =>'success','client' => $client],201);
     }

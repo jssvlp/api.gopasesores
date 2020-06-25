@@ -14,7 +14,6 @@ class EmployeeSeeder extends Seeder
      */
     public function run()
     {
-
         $user = User::create([
             'email' => 'a.guzman@gopasesores.com',
             'status' => 'Activo',

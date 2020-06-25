@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 
 use App\Client;
+use App\ClientPeople;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
 use App\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -33,17 +34,33 @@ class ClientPeopleRepository implements ClientRepositoryInterface
 
     public function create(array $data)
     {
-        dd('Desde Repositorio Cliente Persona');
-        $client = new Client();
-        $client->date_of_admission = date('Y-m-d');
-        $client->status = 'Activo';
-        $client->referredBy()->associate($data['referred_by_id']);
-        $client->contactEmployee()->associate($data['contact_employee_id']);
-        $client->user()->associate($data['user_id']);
+        $people = $data['people'];
 
-        $client->save();
+        $clientPeople = new ClientPeople();
 
-        return $client;
+        $clientPeople->first_name = $people['first_name'];
+        $clientPeople->last_name = $people['last_name'];
+        $clientPeople->document_type = $people['document_type'];
+        $clientPeople->document_number = $people['document_number'];
+        $clientPeople->document_expire_date = $people['document_expire_date'];
+        $clientPeople->document_expedition_date = $people['document_expedition_date'];
+        $clientPeople->gender = $people['gender'];
+        $clientPeople->client_code = $people['client_code'];
+        $clientPeople->birth_date = $people['birth_date'];
+        $clientPeople->marital_status = $people['marital_status'];
+        $clientPeople->monthly_income  = $people['monthly_income'];
+        $clientPeople->currency = $people['currency'];
+        $clientPeople->status = 'Activo';
+        $clientPeople->occupation()->associate($people['occupation_id']);
+        $clientPeople->user()->associate($data['user']['user_id']);
+        $clientPeople->save();
+
+        $clientRepo = new ClientRepository(new Client());
+        $client = $clientRepo->create($data);
+
+        $client->clientPeople()->associate($clientPeople);
+
+        return $clientPeople;
 
     }
 
@@ -60,10 +77,10 @@ class ClientPeopleRepository implements ClientRepositoryInterface
 
     public function find($id)
     {
-        if (null == $post = $this->model->find($id)) {
+        if (null == $client = $this->model->find($id)) {
             return null;
         }
 
-        return $post;
+        return $client;
     }
 }

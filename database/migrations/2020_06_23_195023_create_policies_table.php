@@ -31,13 +31,16 @@ class CreatePoliciesTable extends Migration
             $table->double('insurance_payment');
             $table->longText('comment');
 
-            //Foreings
             $table->unsignedBigInteger('policy_type_id');
             $table->unsignedBigInteger('insurance_id');
+            $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('client_people_related_id')->nullable();
 
+            //Foreign
             $table->foreign('insurance_id')->references('id')->on('insurances');
             $table->foreign('policy_type_id')->references('id')->on('policy_types')->onDelete('cascade');
-
+            $table->foreign('client_id')->references('id')->on('clients');
+            $table->foreign('client_people_related_id')->references('id')->on('client_people');
             $table->timestamps();
         });
     }

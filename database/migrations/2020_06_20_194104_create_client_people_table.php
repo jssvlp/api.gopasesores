@@ -27,13 +27,8 @@ class CreateClientPeopleTable extends Migration
             $table->date('birth_date')->nullable();
             //CRM DATA
             $table->enum('marital_status',['Soltero','Casado','Divorciado','Unión Libre','Viudo']);
-            $table->integer('monthly_income')->nullable();
-            $table->boolean('has_own_house')->default(0);
-            $table->integer('number_of_houses')->nullable();
-            $table->boolean('has_children')->default(0);
-            $table->integer('number_of_children')->nullable();
-            $table->boolean('has_own_car')->default(0);
-            $table->integer('number_of_cars')->nullable();
+            $table->double('monthly_income')->nullable();
+            $table->enum('currency',['RD','USD']);
 
             $table->enum('status',['Activo','Inactivo']);
 

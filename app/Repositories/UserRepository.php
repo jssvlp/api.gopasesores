@@ -42,9 +42,6 @@ class UserRepository implements UserRepositoryInterface
         $this->model->update(['status'=> 'Inactivo'], $id);
     }
 
-
-
-
     public function update(array $data, $id)
     {
         return $this->model->where('id', $id)
@@ -58,6 +55,18 @@ class UserRepository implements UserRepositoryInterface
 
     public function find($id)
     {
-        // TODO: Implement find() method.
+        if (null == $user = $this->model->find($id)) {
+            return null;
+        }
+        return $user;
+    }
+
+    public function findByUsername($username)
+    {
+
+        if (null == $user = $this->model->where('username',$username)->first()) {
+            return null;
+        }
+        return $user;
     }
 }
