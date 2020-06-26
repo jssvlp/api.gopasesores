@@ -28,6 +28,7 @@ class ClientPeopleRepository implements ClientRepositoryInterface
 
     public function all()
     {
+        dd('asdadsa');
 //        $this->user->with('salutation')->all();
         return $this->model->with('user')->get();
     }
@@ -50,15 +51,16 @@ class ClientPeopleRepository implements ClientRepositoryInterface
         $clientPeople->marital_status = $people['marital_status'];
         $clientPeople->monthly_income  = $people['monthly_income'];
         $clientPeople->currency = $people['currency'];
-        $clientPeople->status = 'Activo';
         $clientPeople->occupation()->associate($people['occupation_id']);
-        $clientPeople->user()->associate($data['user']['user_id']);
+
         $clientPeople->save();
 
         $clientRepo = new ClientRepository(new Client());
         $client = $clientRepo->create($data);
 
         $client->clientPeople()->associate($clientPeople);
+        $client->user()->associate($data['user']['user_id']);
+        $client->save();
 
         return $client;
 

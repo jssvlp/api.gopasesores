@@ -23,11 +23,7 @@ class CreateClientCompaniesTable extends Migration
             $table->string('client_code')->nullable();
             $table->unsignedBigInteger('economic_activity_id');
 
-            $table->unsignedBigInteger('user_id')->nullable()->unique();
-
-
             //Foreign
-            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('economic_activity_id')->references('id')->on('economic_activities');
 
             $table->timestamps();

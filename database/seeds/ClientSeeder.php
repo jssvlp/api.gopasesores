@@ -29,7 +29,7 @@ class ClientSeeder extends Seeder
 
         //ClientPeople data
         $clientPeople = new \App\ClientPeople();
-        $clientPeople->user()->associate($user);
+
         $clientPeople->first_name = "Eladio";
         $clientPeople->last_name = "Salamanca";
 
@@ -48,17 +48,19 @@ class ClientSeeder extends Seeder
         $category->save();
 
         $clientPeople->categories()->sync($category);
+        $clientPeople->save();
 
         //TODO: client contact data
-
-        $clientPeople->status = 'Activo';
 
         $client->authorize_data_processing = 1;
         $client->referredBy()->associate($employee);
         $client->contactEmployee()->associate($employee);
         $client->clientPeople()->associate($clientPeople);
-
+        $client->user()->associate($user);
         $client->save();
-        $clientPeople->save();
+
+
+
+        //TODO: create company client type
     }
 }

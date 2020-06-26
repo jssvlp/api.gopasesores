@@ -31,9 +31,11 @@ class ClientCompanyRepository implements ClientRepositoryInterface
         $client = $clientRepo->create($data);
 
         $client->clientCompany()->associate($clientCompany);
+        $client->user()->associate($data['user']['user_id']);
         $client->save();
+
         return $client;
-        // TODO: Implement create() method.
+
     }
 
     public function update(array $data, $id)
