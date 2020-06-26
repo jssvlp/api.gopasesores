@@ -25,12 +25,15 @@ class CreateClientsTable extends Migration
             $table->unsignedBigInteger('contact_employee_id')->nullable();
             $table->unsignedBigInteger('referred_by_id')->nullable();
             $table->unsignedBigInteger('contact_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable()->unique();
 
             $table->unsignedBigInteger('client_people_id')->nullable();
             $table->unsignedBigInteger('client_company_id')->nullable();
+            $table->enum('status',['Prospecto','Concretado'])->default('Prospecto');
 
             //TODO: Notification config
             //Foreign
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('contact_employee_id')->references('id')->on('employees');
             $table->foreign('referred_by_id')->references('id')->on('employees');
             $table->foreign('contact_id')->references('id')->on('contacts');

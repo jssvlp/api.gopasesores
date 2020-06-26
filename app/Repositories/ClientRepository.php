@@ -7,6 +7,7 @@ namespace App\Repositories;
 use App\Client;
 use App\Contact;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
+use Illuminate\Support\Facades\DB;
 
 class ClientRepository implements ClientRepositoryInterface
 {
@@ -20,12 +21,15 @@ class ClientRepository implements ClientRepositoryInterface
      */
     public function __construct(Client $client)
     {
-
         $this->model = $client;
     }
     public function all()
     {
-        //TODO: get records from client people and company type
+        $query = "SELECT  cp.id,'people' as type,cp.first_name as name, cp.last_name,cp.document_number,cp.birth_date,cs.cell_phone_number,cs.email,c.status FROM gopasesores.clients c INNER JOIN gopasesores.client_people cp ON (c.client_people_id = cp.id) LEFT JOIN gopasesores.contacts cs ON (cs.id = c.contact_id)
+                UNION ALL
+                SELECT  cc.id,'company' as type,cc.business_name as name, '' as last_name,cc.rnc as document_number,cc.constitution_date as birth_date,cs.cell_phone_number,cs.email,c.status FROM gopasesores.clients c INNER JOIN gopasesores.client_companies cc ON (c.client_people_id = cc.id) LEFT JOIN gopasesores.contacts cs ON (cs.id = c.contact_id)	";
+
+        return  DB::select($query);
     }
 
     public function create(array $data)

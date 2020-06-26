@@ -30,13 +30,9 @@ class CreateClientPeopleTable extends Migration
             $table->double('monthly_income')->nullable();
             $table->enum('currency',['RD','USD']);
 
-            $table->enum('status',['Activo','Inactivo']);
-
             $table->unsignedBigInteger('occupation_id')->nullable();
-            $table->unsignedBigInteger('user_id')->nullable()->unique();
 
             //Foreign
-            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('occupation_id')->references('id')->on('occupations');
 
             $table->timestamps();
