@@ -34,7 +34,8 @@ class ClientController extends Controller
     public function index()
     {
         $clients = $this->clientRepository->all();
-        return response()->json(['status' =>'success','clients' => $clients],200);
+        return $clients->paginate(10);
+        //return response()->json(['status' =>'success',cli],200);
     }
 
     /**
