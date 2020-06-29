@@ -58,11 +58,15 @@ class AuthController extends Controller
         if($request->username)
         {
             $user = $this->userRepository->findByUsername($request->username);
+            if(!$user)
+            {
+                return response()->json(['success'=> false, 'error' => 'Usuario o contraseña incorrecto']);
+            }
             $credentials['email'] = $user->email;
         }
 
         if (! $token = JWTAuth::attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['success'=> false, 'error' => 'Usuario o contraseña incorrecto']);
         }
 
         return $this->respondWithToken($token);
