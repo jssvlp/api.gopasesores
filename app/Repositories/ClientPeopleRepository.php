@@ -26,7 +26,7 @@ class ClientPeopleRepository implements ClientRepositoryInterface
     }
 
 
-    public function all()
+    public function all($per_page)
     {
         dd('asdadsa');
 //        $this->user->with('salutation')->all();

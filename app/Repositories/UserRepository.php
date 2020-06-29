@@ -16,9 +16,9 @@ class UserRepository implements UserRepositoryInterface
         $this->model = $user;
     }
 
-    public function all()
+    public function all($per_page)
     {
-       return $this->model->all();
+       return $this->model->paginate(is_null($per_page) ? 10 : $per_page);
     }
 
     public function create(array $data)
@@ -34,12 +34,12 @@ class UserRepository implements UserRepositoryInterface
 
     public function activate(int $id)
     {
-        $this->model->update(['status'=> 'Activo'], $id);
+        return $this->update(['status'=> 'Activo'], $id);
     }
 
-    public function deActivate(int $id)
+    public function deactivate(int $id)
     {
-        $this->model->update(['status'=> 'Inactivo'], $id);
+       return  $this->update(['status'=> 'Inactivo'], $id);
     }
 
     public function update(array $data, $id)
@@ -50,7 +50,7 @@ class UserRepository implements UserRepositoryInterface
 
     public function delete($id)
     {
-        // TODO: Implement delete() method.
+        return $this->model->destroy($id);
     }
 
     public function find($id)

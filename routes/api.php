@@ -29,6 +29,18 @@ Route::group([
     Route::post('me', 'AuthController@me');
 });
 
+//Resources
 Route::resource('clients','ClientController');
-Route::resource('users','UserController');
 Route::resource('employees','EmployeeController');
+
+Route::group([
+    'prefix' => 'auth'
+],function($router){
+    Route::get('/users','UserController@index');
+    Route::get('/users/{id}','UserController@show');
+    Route::put('/users/activate/{id}','UserController@activate');
+    Route::put('/users/deactivate/{id}','UserController@deactivate');
+    Route::put('/users/{id}','UserController@update');
+    Route::delete('/users/{id}','UserController@destroy');
+});
+

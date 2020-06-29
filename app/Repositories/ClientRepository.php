@@ -23,7 +23,7 @@ class ClientRepository implements ClientRepositoryInterface
     {
         $this->model = $client;
     }
-    public function all()
+    public function all($per_page)
     {
         $clientsPeople = DB::table('clients')
             ->join('client_people', 'clients.client_people_id', '=', 'client_people.id')
@@ -34,7 +34,7 @@ class ClientRepository implements ClientRepositoryInterface
             ->join('client_companies', 'clients.client_company_id', '=', 'client_companies.id')
             ->leftJoin('contacts', 'clients.contact_id', '=', 'contacts.id')
             ->select(DB::raw('client_companies.id, "company" as type, client_companies.business_name as name,"" as last_name,client_companies.rnc as document_number,client_companies.constitution_date as birth_date,contacts.cell_phone_number,contacts.email,clients.status'))
-            ->unionAll($clientsPeople);
+            ->unionAll($clientsPeople)->paginate(is_null($per_page) ? 10 : $per_page);
     }
 
     public function create(array $data)

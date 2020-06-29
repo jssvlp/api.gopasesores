@@ -34,7 +34,7 @@ class ClientController extends Controller
     public function index()
     {
         $per_page = request('per_page');
-        $clients = $this->clientRepository->all();
+        $clients = $this->clientRepository->all($per_page);
         return $clients->paginate(is_null($per_page) ? 10 : $per_page);
         //return response()->json(['status' =>'success',cli],200);
     }
@@ -51,7 +51,7 @@ class ClientController extends Controller
         $clientRepository = ClientFactory::getRepository($request->type);
         if($clientRepository == null)
         {
-            return response()->json(['success' =>false,'error' =>'Tipo de cliente incorrecto']);
+            return response()->json(['success' =>false,'message' =>'Tipo de cliente incorrecto']);
         }
         $user = $this->userRepository->create($request->user)->toArray();
 
@@ -76,7 +76,7 @@ class ClientController extends Controller
         if($result){
             return response()->json(['success' =>true, 'client' =>$result],200);
         }
-        return  response()->json(['success' =>false,'error' =>'Cliente no encontrado'],200);
+        return  response()->json(['success' =>false,'message' =>'Cliente no encontrado'],200);
     }
 
     /**
@@ -110,6 +110,6 @@ class ClientController extends Controller
             return response()->json(['success' =>true,'message' =>'Record deleted correctly'],200);
 
         }
-        return response()->json(['success'=> false,'error' =>'There was an error trying to delete the record'],200);
+        return response()->json(['success'=> false,'message' =>'There was an error trying to delete the record'],200);
     }
 }

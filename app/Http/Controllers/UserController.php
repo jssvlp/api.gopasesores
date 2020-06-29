@@ -22,31 +22,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->repository->all();
-        return response()->json(['status' =>'success', 'users' =>$users]);
+        $per_page = request('per_page');
+        $users = $this->repository->all($per_page);
+        return $users;
+//        return $users->paginate(is_null($per_page) ? 10 : $per_page);
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -56,18 +38,42 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return $this->repository->find($id);
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function activate($id)
+    {
+        $result = $this->repository->activate($id);
+        if($result == 1)
+        {
+            return response()->json(['success' => true, 'message' =>'Usuario activado exitosamente']);
+        }
+        return response()->json(['success' => false, 'message' =>'Ocurrió un error al activar el usuario']);
+
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Update the specified resource in storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function edit($id)
+    public function deactivate($id)
     {
-        //
+        $result = $this->repository->deactivate($id);
+        if($result == 1)
+        {
+            return response()->json(['success' => true, 'message' =>'Usuario desactivado exitosamente']);
+        }
+        return response()->json(['success' => false, 'message' =>'Ocurrió un error al desactivar el usuario']);
+
     }
 
     /**
@@ -75,21 +81,33 @@ class UserController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        $result = $this->repository->update($request->all(),$id);
+        if($result === 1)
+        {
+            return response()->json(['success' => true,'message' =>'Usuario modificado correctamente']);
+        }
+        return response()->json(['success' => false,'message' =>'Usuario modificado correctamente']);
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        //
+        if( $this->repository->delete($id) === 1)
+        {
+            return response()->json(['success' =>true,'message' =>'Record deleted correctly'],200);
+
+        }
+        return response()->json(['success'=> false,'error' =>'There was an error trying to delete the record'],200);
+
     }
 }
