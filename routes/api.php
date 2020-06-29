@@ -31,3 +31,4 @@ Route::group([
 
 Route::resource('clients','ClientController');
 Route::resource('users','UserController');
+Route::resource('employees','EmployeeController');
