@@ -19,8 +19,8 @@ class CreateClientPeopleTable extends Migration
             $table->string('last_name');
             $table->enum('document_type',['Cedula','Passaporte','RNC','Cedula de Extranjería']);
             $table->string('document_number');
-            $table->date('document_expire_date');
-            $table->date('document_expedition_date');
+            $table->date('document_expire_date')->nullable();
+            $table->date('document_expedition_date')->nullable();
             $table->enum('gender',['Masculino','Femenino']);
             $table->string('client_code')->nullable();
 
@@ -28,7 +28,7 @@ class CreateClientPeopleTable extends Migration
             //CRM DATA
             $table->enum('marital_status',['Soltero','Casado','Divorciado','Unión Libre','Viudo']);
             $table->double('monthly_income')->nullable();
-            $table->enum('currency',['RD','USD']);
+            $table->enum('currency',['RD','USD'])->nullable();
 
             $table->unsignedBigInteger('occupation_id')->nullable();
 

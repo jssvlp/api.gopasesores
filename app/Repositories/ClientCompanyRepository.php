@@ -17,7 +17,7 @@ class ClientCompanyRepository implements ClientRepositoryInterface
         $this->client = $clientCompany;
     }
 
-    public function all()
+    public function all($per_page)
     {
         // TODO: Implement all() method.
     }

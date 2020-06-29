@@ -19,9 +19,9 @@ class EmployeeRepository implements EmployeeRepositoryInterface
         $this->model = $model;
     }
 
-    public function all()
+    public function all($per_page)
     {
-        return $this->model->paginate(10);
+        return $this->model->paginate(is_null($per_page) ? 10 : $per_page);
     }
 
     public function create(array $data)

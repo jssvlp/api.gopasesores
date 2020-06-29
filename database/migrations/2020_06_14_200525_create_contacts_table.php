@@ -18,8 +18,7 @@ class CreateContactsTable extends Migration
             $table->string('city');
             $table->string('nationality');
             $table->string('province_of_birth');
-            $table->string('postal_code');
-            $table->enum('economic_activity',['Profesional independiente', 'Empleado'])->nullable();
+            $table->string('postal_code')->nullable();
             $table->string('address_line1');
             $table->string('address_line2')->nullable();
             $table->string('cell_phone_number');

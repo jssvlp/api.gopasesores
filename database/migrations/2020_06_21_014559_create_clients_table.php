@@ -33,12 +33,12 @@ class CreateClientsTable extends Migration
 
             //TODO: Notification config
             //Foreign
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('contact_employee_id')->references('id')->on('employees');
-            $table->foreign('referred_by_id')->references('id')->on('employees');
-            $table->foreign('contact_id')->references('id')->on('contacts');
-            $table->foreign('client_people_id')->references('id')->on('client_people');
-            $table->foreign('client_company_id')->references('id')->on('client_companies');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreign('contact_employee_id')->references('id')->on('employees')->onDelete('set null');
+            $table->foreign('referred_by_id')->references('id')->on('employees')->onDelete('set null');
+            $table->foreign('contact_id')->references('id')->on('contacts')->onDelete('set null');
+            $table->foreign('client_people_id')->references('id')->on('client_people')->onDelete('set null');
+            $table->foreign('client_company_id')->references('id')->on('client_companies')->onDelete('set null');
             $table->timestamps();
         });
     }
