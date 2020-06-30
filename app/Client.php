@@ -37,6 +37,10 @@ class Client extends Model
         return $this->belongsTo(Contact::class);
     }
 
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class,'client_has_categories','category_id','client_id');
+    }
 
 
 }

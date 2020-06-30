@@ -15,13 +15,11 @@ class CreateClientHasCategories extends Migration
     {
         Schema::create('client_has_categories', function (Blueprint $table) {
             $table->unsignedBigInteger('category_id')->nullable();
-            $table->unsignedBigInteger('client_people_id')->nullable();
-            $table->unsignedBigInteger('client_company_id')->nullable();
+            $table->unsignedBigInteger('client_id')->nullable();
 
             //Foreign
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('client_people_id')->references('id')->on('client_people');
-            $table->foreign('client_company_id')->references('id')->on('client_companies');
+            $table->foreign('client_id')->references('id')->on('clients');
 
             $table->timestamps();
         });

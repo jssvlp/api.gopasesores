@@ -13,10 +13,7 @@ class ClientPeople extends Model
         return $this->belongsTo(Occupation::class);
     }
 
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class,'client_has_categories','category_id','client_people_id');
-    }
+
 
     public function client()
     {
