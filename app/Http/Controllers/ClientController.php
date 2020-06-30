@@ -39,6 +39,8 @@ class ClientController extends Controller
         //return response()->json(['status' =>'success',cli],200);
     }
 
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -112,4 +114,7 @@ class ClientController extends Controller
         }
         return response()->json(['success'=> false,'message' =>'There was an error trying to delete the record'],200);
     }
+
+
+
 }

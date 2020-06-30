@@ -51,7 +51,7 @@ class AuthController extends Controller
     {
         if( !$request->email && !$request->username )
         {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['success'=> false, 'message' => 'Usuario o contraseña incorrecto']);
         }
         $credentials = $request->only(['email', 'password']);
 
@@ -60,7 +60,7 @@ class AuthController extends Controller
             $user = $this->userRepository->findByUsername($request->username);
             if(!$user)
             {
-                return response()->json(['success'=> false, 'error' => 'Usuario o contraseña incorrecto']);
+                return response()->json(['success'=> false, 'message' => 'Usuario o contraseña incorrecto']);
             }
             $credentials['email'] = $user->email;
         }
