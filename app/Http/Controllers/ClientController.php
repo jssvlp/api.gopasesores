@@ -34,10 +34,22 @@ class ClientController extends Controller
     public function index()
     {
         $per_page = request('per_page');
-        $clients = $this->clientRepository->all($per_page);
-        return $clients->paginate(is_null($per_page) ? 10 : $per_page);
+
+        return $clients = $this->clientRepository->all($per_page);
+        
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function indexLike($column,$value)
+    {
+        return $this->clientRepository->allLike($column,$value);
         //return response()->json(['status' =>'success',cli],200);
     }
+
 
 
 
