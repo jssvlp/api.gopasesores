@@ -35,6 +35,8 @@ Route::resource('employees','EmployeeController');
 
 //orphan routes
 Route::get('clients/{column}/like/{value}','ClientController@indexLike');
+Route::get('occupations','OccupationController@index');
+Route::get('economicActivities','EconomicActivityController@index');
 
 Route::group([
     'prefix' => 'auth'

@@ -25,7 +25,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return $this->repository->all();
+        $per_page = request('per_page');
+        return $this->repository->all($per_page);
     }
 
     /**

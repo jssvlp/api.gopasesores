@@ -13,53 +13,36 @@ class ClientSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::create([
-            'email' => 'j.palotes@gmail.com',
-            'status' => 'Activo',
-            'password' => bcrypt('123456'),
-        ]);
+        factory(\App\ClientPeople::class,20)->create();
+        factory(\App\ClientCompany::class,20)->create();
 
-        //Client data
-        $client = new \App\Client();
+        factory(\App\Client::class,40)->create();
 
-        $client->date_of_admission = date("Y-m-d");
-        $client->authorize_data_processing = 1;
-        $client->comment = 'Este es un cliente tipo persona';
-        $employee = \App\Employee::first();
+        $clients = App\Client::all();
+        $counterClient = 1;
+        $counterUser = 2;
+        $nowCompany = false;
+        foreach ($clients as  $client )
+        {
+            if($counterClient <= 20 && $nowCompany == false)
+            {
+                $client->clientPeople()->associate($counterClient);
+            }
+            else
+            {
+                $nowCompany = true;
+                $counterClient = 1;
+                $client->clientCompany()->associate($counterClient);
+            }
+            $client->user()->associate($counterUser+1);
+            $client->referredBy()->associate(1);
+            $client->contactEmployee()->associate(1);
+            $client->contact()->associate(1);
 
-        //ClientPeople data
-        $clientPeople = new \App\ClientPeople();
-
-        $clientPeople->first_name = "Eladio";
-        $clientPeople->last_name = "Salamanca";
-
-        $clientPeople->document_type = "Cedula";
-        $clientPeople->document_number = "40224190501";
-        $clientPeople->document_expire_date = "2024-05-17";
-        $clientPeople->document_expedition_date = "2020-01-23";
-        $clientPeople->gender = "Masculino";
-        $clientPeople->client_code = "C001";
-        $clientPeople->birth_date = "1995-05-22";
-        $clientPeople->save();
-
-        $category = new \App\Category();
-        $category->name = 'Educación';
-        $category->color = 'blue';
-        $category->save();
-
-        $clientPeople->categories()->sync($category);
-        $clientPeople->save();
-
-        //TODO: client contact data
-
-        $client->authorize_data_processing = 1;
-        $client->referredBy()->associate($employee);
-        $client->contactEmployee()->associate($employee);
-        $client->clientPeople()->associate($clientPeople);
-        $client->user()->associate($user);
-        $client->save();
-
-
+            $client->save();
+            $counterUser++;
+            $counterClient++;
+        }
 
         //TODO: create company client type
     }

@@ -18,5 +18,8 @@ class UserSeeder extends Seeder
             'username' =>'josha',
             'password' => bcrypt('123456'),
         ]);
+
+
+        factory(App\User::class,40)->create();
     }
 }
