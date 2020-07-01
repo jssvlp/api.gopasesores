@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/factories/ModelFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/CategorySeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/ContactSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Helpers/General/CollectionHelper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ClientPeople.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClientPeople.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EconomicActivityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EconomicActivityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OccupationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OccupationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_20_195740_create_client_has_categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_21_195740_create_client_has_categories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ClientSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ClientSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ClientCompanyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ClientCompanyRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ClientPeopleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ClientPeopleRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ClientRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ClientRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/ClientRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/ClientRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_20_194104_create_client_people_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_20_194104_create_client_people_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,6 +173,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Concentra\Documents\pprojects\Serius\api.geopasesores.com\app\Helpers\General" />
       <recent name="C:\Users\Concentra\Documents\pprojects\Serius\api.geopasesores.com\app\Repositories\Interfaces" />
     </key>
   </component>
@@ -204,7 +198,7 @@
       <workItem from="1592506970071" duration="53000" />
       <workItem from="1592593474777" duration="41478000" />
       <workItem from="1592955526606" duration="14537000" />
-      <workItem from="1593136523469" duration="39866000" />
+      <workItem from="1593136523469" duration="50564000" />
     </task>
     <servers />
   </component>
@@ -247,6 +241,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="333" y="179" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1593489514786" />
+    <state x="517" y="288" key="NewPhpFileDialog" timestamp="1593563850426">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="517" y="288" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1593563850426" />
     <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1593136537019">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -255,10 +253,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1593485013676" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1593497389134">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1593564253907">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1593497389134" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1593564253907" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

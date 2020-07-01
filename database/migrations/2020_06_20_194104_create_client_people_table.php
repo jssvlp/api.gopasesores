@@ -17,7 +17,7 @@ class CreateClientPeopleTable extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->enum('document_type',['Cedula','Passaporte','RNC','Cedula de Extranjería']);
+            $table->enum('document_type',['Cedula','Pasaporte','RNC','Cedula de Extranjería']);
             $table->string('document_number');
             $table->date('document_expire_date')->nullable();
             $table->date('document_expedition_date')->nullable();
