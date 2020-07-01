@@ -53,7 +53,7 @@ class ClientCompanyRepository implements ClientRepositoryInterface
         // TODO: Implement find() method.
     }
 
-    public function allLike(string $column, $value)
+    public function allLike(string $column, $value,$per_page)
     {
         // TODO: Implement allLike() method.
     }

@@ -86,7 +86,7 @@ class ClientPeopleRepository implements ClientRepositoryInterface
         return $client;
     }
 
-    public function allLike(string $column, $value)
+    public function allLike(string $column, $value,$per_page)
     {
         // TODO: Implement allLike() method.
     }

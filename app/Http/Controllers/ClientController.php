@@ -36,7 +36,7 @@ class ClientController extends Controller
         $per_page = request('per_page');
 
         return $clients = $this->clientRepository->all($per_page);
-        
+
     }
 
     /**
@@ -127,6 +127,10 @@ class ClientController extends Controller
         return response()->json(['success'=> false,'message' =>'There was an error trying to delete the record'],200);
     }
 
-
+    public function filterBy($column,Request $request)
+    {
+        $per_page = request('per_page');
+        return $this->clientRepository->filterBy($column,$request->filter_values,$per_page);
+    }
 
 }
