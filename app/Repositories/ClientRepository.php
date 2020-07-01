@@ -55,13 +55,6 @@ class ClientRepository implements ClientRepositoryInterface
             dd($e);
         }
 
-//        dd($clientsPeople->get());
-//        return  DB::table('clients')
-//            ->join('client_companies', 'clients.client_company_id', '=', 'client_companies.id')
-//            ->leftJoin('contacts', 'clients.contact_id', '=', 'contacts.id')
-//            ->where($column,'like','%'.$value.'%')
-//            ->select(DB::raw('client_companies.id, "company" as type, client_companies.business_name as name,"" as last_name,client_companies.rnc as document_number,client_companies.constitution_date as birth_date,contacts.cell_phone_number,contacts.email,clients.status'))
-//            ->get();
     }
 
     public function create(array $data)

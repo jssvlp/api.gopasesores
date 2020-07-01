@@ -57,4 +57,9 @@ class ClientCompanyRepository implements ClientRepositoryInterface
     {
         // TODO: Implement allLike() method.
     }
+
+    public function filterBy(string $column, $value, $per_page)
+    {
+        // TODO: Implement filterBy() method.
+    }
 }
