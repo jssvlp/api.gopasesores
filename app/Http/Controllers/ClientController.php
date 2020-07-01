@@ -61,17 +61,28 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //TODO: aplicar factory patther because there are 3 types of clients
         $clientRepository = ClientFactory::getRepository($request->type);
         if($clientRepository == null)
         {
             return response()->json(['success' =>false,'message' =>'Tipo de cliente incorrecto']);
         }
-        $user = $this->userRepository->create($request->user)->toArray();
+        try {
+            $user = $this->userRepository->create($request->user)->toArray();
+        }
+        catch (\Exception $exception)
+        {
+            if($exception->getCode() == 23000)
+            {
+                return response()->json(['success' => false,'message' =>'Correo electrónico en uso']);
+            }
+        }
+
+        //TODO: validate if there is an error while creating the client, if  happenened THEN delete the created user
 
         $clientData = $request->all();
 
         $clientData['user']['user_id'] = $user['id'];
+        $clientData['contact_info']['email'] = $user['email'];
 
         $client = $clientRepository->create($clientData);
 

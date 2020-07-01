@@ -9,6 +9,7 @@ use App\ClientPeople;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
 use App\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Arr;
 
 class ClientPeopleRepository implements ClientRepositoryInterface
 {
@@ -36,22 +37,21 @@ class ClientPeopleRepository implements ClientRepositoryInterface
     public function create(array $data)
     {
         $people = $data['people'];
-
         $clientPeople = new ClientPeople();
 
-        $clientPeople->first_name = $people['first_name'];
-        $clientPeople->last_name = $people['last_name'];
-        $clientPeople->document_type = $people['document_type'];
-        $clientPeople->document_number = $people['document_number'];
-        $clientPeople->document_expire_date = $people['document_expire_date'];
-        $clientPeople->document_expedition_date = $people['document_expedition_date'];
-        $clientPeople->gender = $people['gender'];
-        $clientPeople->client_code = $people['client_code'];
-        $clientPeople->birth_date = $people['birth_date'];
-        $clientPeople->marital_status = $people['marital_status'];
-        $clientPeople->monthly_income  = $people['monthly_income'];
-        $clientPeople->currency = $people['currency'];
-        $clientPeople->occupation()->associate($people['occupation_id']);
+        $clientPeople->first_name = Arr::exists($people, 'first_name') ? $people['first_name'] : null;
+        $clientPeople->last_name = Arr::exists($people, 'last_name') ? $people['last_name'] : null;
+        $clientPeople->document_type = Arr::exists($people, 'document_type') ? $people['document_type'] : null;
+        $clientPeople->document_number = Arr::exists($people, 'document_number') ? $people['document_number'] : null;
+        $clientPeople->document_expire_date = Arr::exists($people, 'document_expire_date') ? $people['document_expire_date'] : null;
+        $clientPeople->document_expedition_date =  Arr::exists($people, 'document_expedition_date') ? $people['document_expedition_date'] : null;
+        $clientPeople->gender = Arr::exists($people, 'gender') ? $people['gender'] : null;
+        $clientPeople->client_code = Arr::exists($people, 'client_code') ? $people['client_code'] : null;
+        $clientPeople->birth_date = Arr::exists($people, 'birth_date') ? $people['birth_date'] : null;
+        $clientPeople->marital_status = Arr::exists($people, 'marital_status') ? $people['marital_status'] : null;
+        $clientPeople->monthly_income  = Arr::exists($people, 'monthly_income') ? $people['monthly_income'] : null;
+        $clientPeople->currency = Arr::exists($people, 'currency') ? $people['currency'] : null;
+        $clientPeople->occupation()->associate(Arr::exists($people, 'occupation_id') ? $people['occupation_id'] : null);
 
         $clientPeople->save();
 
