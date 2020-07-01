@@ -20,7 +20,7 @@ class ClientPeopleRepository implements ClientRepositoryInterface
      *
      * @param Client $client
      */
-    public function __construct(Client $client)
+    public function __construct(ClientPeople $client)
     {
 
         $this->model = $client;
