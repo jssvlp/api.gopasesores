@@ -115,9 +115,7 @@ class ClientRepository implements ClientRepositoryInterface
         }
 
 
-
-
-        return CollectionHelper::paginate($filtered_collection,$per_page);
+        return CollectionHelper::paginate($filtered_collection,is_null($per_page) ? 10 : $per_page);
     }
 
     private function getAllClients()
