@@ -22,14 +22,14 @@ class Client extends Model
         return $this->belongsTo(Employee::class);
     }
 
-    public function clientPeople()
+    public function people()
     {
-        return $this->belongsTo(ClientPeople::class);
+        return $this->belongsTo(People::class);
     }
 
-    public function clientCompany()
+    public function company()
     {
-        return $this->belongsTo(ClientCompany::class);
+        return $this->belongsTo(Company::class);
     }
 
     public function contact()

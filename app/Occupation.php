@@ -8,6 +8,6 @@ class Occupation extends Model
 {
     public function clientsPeople()
     {
-        return $this->hasMany(ClientPeople::class);
+        return $this->hasMany(People::class);
     }
 }

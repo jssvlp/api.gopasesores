@@ -27,8 +27,8 @@ class CreateClientsTable extends Migration
             $table->unsignedBigInteger('contact_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable()->unique();
 
-            $table->unsignedBigInteger('client_people_id')->nullable();
-            $table->unsignedBigInteger('client_company_id')->nullable();
+            $table->unsignedBigInteger('people_id')->nullable();
+            $table->unsignedBigInteger('company_id')->nullable();
             $table->enum('status',['Prospecto','Concretado'])->default('Prospecto');
 
             //TODO: Notification config
@@ -37,8 +37,8 @@ class CreateClientsTable extends Migration
             $table->foreign('contact_employee_id')->references('id')->on('employees')->onDelete('set null');
             $table->foreign('referred_by_id')->references('id')->on('employees')->onDelete('set null');
             $table->foreign('contact_id')->references('id')->on('contacts')->onDelete('set null');
-            $table->foreign('client_people_id')->references('id')->on('client_people')->onDelete('set null');
-            $table->foreign('client_company_id')->references('id')->on('client_companies')->onDelete('set null');
+            $table->foreign('people_id')->references('id')->on('people')->onDelete('set null');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('set null');
             $table->timestamps();
         });
     }

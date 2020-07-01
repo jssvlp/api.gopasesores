@@ -5,7 +5,7 @@ namespace App\Repositories;
 
 
 use App\Client;
-use App\ClientPeople;
+use App\People;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
 use App\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -20,7 +20,7 @@ class ClientPeopleRepository implements ClientRepositoryInterface
      *
      * @param Client $client
      */
-    public function __construct(ClientPeople $client)
+    public function __construct(People $client)
     {
 
         $this->model = $client;
@@ -37,7 +37,7 @@ class ClientPeopleRepository implements ClientRepositoryInterface
     public function create(array $data)
     {
         $people = $data['people'];
-        $clientPeople = new ClientPeople();
+        $clientPeople = new People();
 
         $clientPeople->first_name = Arr::exists($people, 'first_name') ? $people['first_name'] : null;
         $clientPeople->last_name = Arr::exists($people, 'last_name') ? $people['last_name'] : null;
@@ -58,7 +58,7 @@ class ClientPeopleRepository implements ClientRepositoryInterface
         $clientRepo = new ClientRepository(new Client());
         $client = $clientRepo->create($data);
 
-        $client->clientPeople()->associate($clientPeople);
+        $client->people()->associate($clientPeople);
         $client->user()->associate($data['user']['user_id']);
         $client->save();
 

@@ -22,7 +22,7 @@ $factory->define(\App\Client::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(\App\ClientPeople::class, function (Faker $faker){
+$factory->define(\App\People::class, function (Faker $faker){
    return [
         'first_name' => $faker->name,
         'last_name' =>$faker->lastName,
@@ -37,7 +37,7 @@ $factory->define(\App\ClientPeople::class, function (Faker $faker){
    ];
 });
 
-$factory->define(\App\ClientCompany::class, function (Faker $faker){
+$factory->define(\App\Company::class, function (Faker $faker){
     return [
         'business_name' => $faker->company,
         'rnc' =>  $faker->randomNumber(9). $faker->randomNumber(4),

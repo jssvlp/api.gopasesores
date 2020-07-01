@@ -13,8 +13,8 @@ class ClientSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\ClientPeople::class,20)->create();
-        factory(\App\ClientCompany::class,20)->create();
+        factory(\App\People::class,20)->create();
+        factory(\App\Company::class,20)->create();
 
         factory(\App\Client::class,40)->create();
 
@@ -26,13 +26,13 @@ class ClientSeeder extends Seeder
         {
             if($counterClient <= 20 && $nowCompany == false)
             {
-                $client->clientPeople()->associate($counterClient);
+                $client->people()->associate($counterClient);
             }
             else
             {
                 $nowCompany = true;
                 $counterClient = 1;
-                $client->clientCompany()->associate($counterClient);
+                $client->company()->associate($counterClient);
             }
             $client->user()->associate($counterUser+1);
             $client->referredBy()->associate(1);

@@ -5,14 +5,14 @@ namespace App\Repositories;
 
 
 use App\Client;
-use App\ClientCompany;
+use App\Company;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
 
 class ClientCompanyRepository implements ClientRepositoryInterface
 {
     protected  $client;
 
-    public function __construct(ClientCompany $clientCompany)
+    public function __construct(Company $clientCompany)
     {
         $this->client = $clientCompany;
     }
@@ -30,7 +30,7 @@ class ClientCompanyRepository implements ClientRepositoryInterface
         $clientRepo = new ClientRepository(new Client());
         $client = $clientRepo->create($data);
 
-        $client->clientCompany()->associate($clientCompany);
+        $client->company()->associate($clientCompany);
         $client->user()->associate($data['user']['user_id']);
         $client->save();
 
