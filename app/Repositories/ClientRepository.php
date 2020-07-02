@@ -105,8 +105,8 @@ class ClientRepository implements ClientRepositoryInterface
         else
         {
             $filtered_collection = $collection->filter(function ($item) use ($filter,$column) {
-                dd($item->$column);
-                return $item->$column == $filter;
+                $itemToArray = json_decode(json_encode($item), true);
+                return $itemToArray[$column] == $filter;
             })->values();
         }
 
