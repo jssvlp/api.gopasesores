@@ -36,6 +36,7 @@ class ClientRepository implements ClientRepositoryInterface
 
     public function allLike(string $column, $value,$per_page)
     {
+        //TODO:
         try{
             $clientsPeople = DB::table('clients')
                 ->join('people', 'clients.people_id', '=', 'people.id')
@@ -93,6 +94,7 @@ class ClientRepository implements ClientRepositoryInterface
     {
         $collection = collect($this->getAllClients());
         $filter = $values[0];
+        //dd($filter);
 
         if(Str::contains($column,'_at'))
         {
@@ -102,8 +104,9 @@ class ClientRepository implements ClientRepositoryInterface
         }
         else
         {
-            $filtered_collection = $collection->filter(function ($item) use ($filter) {
-                return $item->type == $filter;
+            $filtered_collection = $collection->filter(function ($item) use ($filter,$column) {
+                dd($item->$column);
+                return $item->$column == $filter;
             })->values();
         }
 

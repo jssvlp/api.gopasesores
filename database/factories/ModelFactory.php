@@ -20,6 +20,7 @@ $factory->define(\App\Client::class, function (Faker $faker) {
         'date_of_admission' => date('Y-m-d'),
         'authorize_data_processing' => 1,
         'comment' => $faker->sentence($nbWords = 6, $variableNbWords = true),
+        'status' => $faker->randomElement(['Prospecto', 'Cliente'])
     ];
 });
 

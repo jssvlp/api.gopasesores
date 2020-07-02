@@ -30,11 +30,11 @@ class CreateClientsTable extends Migration
 
             $table->unsignedBigInteger('people_id')->nullable();
             $table->unsignedBigInteger('company_id')->nullable();
-            $table->enum('status',['Prospecto','Concretado'])->default('Prospecto');
+            $table->enum('status',['Prospecto','Cliente'])->default('Prospecto');
 
             //TODO: Notification config
             //Foreign
-            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $table->foreign('contact_employee_id')->references('id')->on('employees')->onDelete('set null');
             $table->foreign('referred_by_id')->references('id')->on('employees')->onDelete('set null');
             $table->foreign('contact_id')->references('id')->on('contacts')->onDelete('set null');
