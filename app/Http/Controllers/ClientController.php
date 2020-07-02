@@ -132,7 +132,15 @@ class ClientController extends Controller
 
         $clientTypeUpdateResult = $clientTypeRepository->update($dataTypeData,$clientTypeId);
 
-        $contactUpdateResult = $this->contactRepository->update($request->contact_info, $client->contact_id);
+        if($client->contact_id)
+        {
+            $contactUpdateResult = $this->contactRepository->update($request->contact_info, $client->contact_id);
+        }
+        else{
+            $contact = $this->contactRepository->create($request->contact_info);
+            $client->contact()->associate($contact);
+            $client->save();
+        }
         $userUpdateResult = $this->userRepository->update($request->user,$client->user_id);
 
         $user_data = $request->only(['first_name','first_lastname','email','birth_date','phone']);
@@ -152,14 +160,10 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        /*
-         * 1. Destroy client
-         * 2. Destroy contact
-         * 3. Destroy people
-         * 4. Destroy company
-         * 5. Destroy user
-         */
-
+        if($client == null)
+        {
+            return response()->json(['succcess' => false, 'message' =>'Este cliente no existe']);
+        }
 
         if( $this->clientRepository->delete($client->id) === 1)
         {
@@ -175,14 +179,21 @@ class ClientController extends Controller
 
     public function activate(Client $client)
     {
-        if($client == null)
-        {
-            return response()->json(['success' =>false, 'message' =>'Cliente no encontrado']);
-        }
-        $result = $this->clientRepository->update(['status' =>'Cliente'],$client->id);
 
+        $this->changeClientStatus($client,'Cliente');
         return response()->json(['status' => true,'message']);
 
+    }
+
+    private function changeClientStatus(Client $client, $status)
+    {
+        $result = $this->clientRepository->update(['status' =>$status],$client->id);
+    }
+
+    public function deactivate(Client $client)
+    {
+        $this->changeClientStatus($client,'Prospecto');
+        return response()->json(['status' => true,'message']);
     }
     public function filterBy($column,Request $request)
     {

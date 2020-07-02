@@ -36,6 +36,7 @@ Route::resource('employees','EmployeeController');
 //orphan routes
 Route::get('clients/{column}/like/{value}','ClientController@indexLike');
 Route::get('clients/filterby/{column}','ClientController@filterBy');
+Route::put('clients/{client}/activate','ClientController@activate');
 Route::get('occupations','OccupationController@index');
 Route::get('economicActivities','EconomicActivityController@index');
 Route::get('files/{client}','FileController@index');
