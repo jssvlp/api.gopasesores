@@ -132,12 +132,15 @@ class ClientController extends Controller
 
         $clientTypeUpdateResult = $clientTypeRepository->update($dataTypeData,$clientTypeId);
 
+        $contact_info = $request->contact_info;
+        $contact_info['email'] = $request->user['email'];
+
         if($client->contact_id)
         {
-            $contactUpdateResult = $this->contactRepository->update($request->contact_info, $client->contact_id);
+            $contactUpdateResult = $this->contactRepository->update($contact_info, $client->contact_id);
         }
         else{
-            $contact = $this->contactRepository->create($request->contact_info);
+            $contact = $this->contactRepository->create($contact_info);
             $client->contact()->associate($contact);
             $client->save();
         }
@@ -147,6 +150,7 @@ class ClientController extends Controller
         $client_data = $request->only(['contact_employee_id','referred_by_id','status']);
 
         $client = $this->clientRepository->update($client_data,$id);
+
         $user = $this->userRepository->update($user_data,$client->user_id);
 
         return response()->json(['success' =>true,'message' =>'Cliente modificado con éxito'],200);
