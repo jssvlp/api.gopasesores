@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\User;
+use Illuminate\Support\Arr;
 
 class UserRepository implements UserRepositoryInterface
 {
@@ -26,6 +27,7 @@ class UserRepository implements UserRepositoryInterface
         $user = new User();
         $user->email =  $data['email'];
         $user->status = 'Activo';
+        $user->picture = 'https://n8d.at/wp-content/plugins/aioseop-pro-2.4.11.1/images/default-user-image.png';
         $user->password = bcrypt($data['password']);
         $user->save();
 
@@ -44,6 +46,16 @@ class UserRepository implements UserRepositoryInterface
 
     public function update(array $data, $id)
     {
+        if(Arr::exists($data,'password'))
+        {
+            if($data['password'] != '')
+            {
+                $data['password'] = bcrypt($data['password']);
+            }
+            else{
+                unset($data['password']);
+            }
+        }
         return $this->model->where('id', $id)
             ->update($data);
     }

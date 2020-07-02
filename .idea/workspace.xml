@@ -2,8 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Country.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FileController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/FileRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/FileRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/State.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_07_01_201512_create_countries_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_07_01_204911_create_states_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/File.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/ClientRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ClientRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ContactRespository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ContactRespository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/RepositoryServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/RepositoryServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/ModelFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ModelFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_21_014559_create_clients_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_21_014559_create_clients_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_22_203340_create_files_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_22_203340_create_files_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/EmployeeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/EmployeeSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +211,8 @@
       <workItem from="1592506970071" duration="53000" />
       <workItem from="1592593474777" duration="41478000" />
       <workItem from="1592955526606" duration="14537000" />
-      <workItem from="1593136523469" duration="65909000" />
+      <workItem from="1593136523469" duration="70472000" />
+      <workItem from="1593643916332" duration="11050000" />
     </task>
     <servers />
   </component>
@@ -218,10 +239,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1593143374954" />
-    <state x="189" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593628697987">
+    <state x="189" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593637099616">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="189" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1593628697987" />
+    <state x="189" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1593637099616" />
     <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1593493431383">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -230,10 +251,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593032831926" />
-    <state x="333" y="179" key="NewPhpClassDialog" timestamp="1593489514786">
+    <state x="333" y="179" key="NewPhpClassDialog" timestamp="1593636844779">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="333" y="179" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1593489514786" />
+    <state x="333" y="179" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1593636844779" />
     <state x="517" y="288" key="NewPhpFileDialog" timestamp="1593563850426">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -246,10 +267,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1593485013676" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1593631166822">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1593711900302">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1593631166822" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1593711900302" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -262,6 +283,15 @@
             <option name="methodName" value="user" />
           </properties>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/app/Repositories/ClientRepository.php</url>
+          <line>131</line>
+          <properties>
+            <option name="className" value="\App\Repositories\ClientRepository" />
+            <option name="methodName" value="people" />
+          </properties>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

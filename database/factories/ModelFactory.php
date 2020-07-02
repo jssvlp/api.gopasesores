@@ -9,6 +9,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'status' =>'Activo',
         'username' =>$faker->userName,
+        'picture' => 'https://n8d.at/wp-content/plugins/aioseop-pro-2.4.11.1/images/default-user-image.png',
         'password' => bcrypt('123456'), // password
     ];
 });

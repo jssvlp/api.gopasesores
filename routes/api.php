@@ -38,6 +38,7 @@ Route::get('clients/{column}/like/{value}','ClientController@indexLike');
 Route::get('clients/filterby/{column}','ClientController@filterBy');
 Route::get('occupations','OccupationController@index');
 Route::get('economicActivities','EconomicActivityController@index');
+Route::get('files/{client}','FileController@index');
 
 Route::group([
     'prefix' => 'auth'

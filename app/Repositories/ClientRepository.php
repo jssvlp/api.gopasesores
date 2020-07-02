@@ -28,17 +28,10 @@ class ClientRepository implements ClientRepositoryInterface
 
     public function all($per_page)
     {
-        $clientsPeople = DB::table('clients')
-            ->join('people', 'clients.people_id', '=', 'people.id')
-            ->leftJoin('contacts', 'clients.contact_id', '=', 'contacts.id')
-            ->select(DB::raw('clients.id, "people" as type, people.first_name as name,people.last_name,people.document_number,people.birth_date,contacts.cell_phone_number,contacts.email,clients.status,clients.created_at'));
+        $allClient = $this->getAllClients();
+        $collection = collect($allClient);
 
-        return  DB::table('clients')
-            ->join('companies', 'clients.company_id', '=', 'companies.id')
-            ->leftJoin('contacts', 'clients.contact_id', '=', 'contacts.id')
-            ->select(DB::raw('clients.id, "company" as type, companies.business_name as name,"" as last_name,companies.rnc as document_number,companies.constitution_date as birth_date,contacts.cell_phone_number,contacts.email,clients.status,clients.created_at'))
-            ->unionAll($clientsPeople)
-            ->paginate(is_null($per_page) ? 10 : $per_page);
+        return CollectionHelper::paginate($collection,is_null($per_page) ? 10 : $per_page );
     }
 
     public function allLike(string $column, $value,$per_page)
@@ -76,7 +69,8 @@ class ClientRepository implements ClientRepositoryInterface
 
     public function update(array $data, $id)
     {
-        // TODO: Implement update() method.
+        return tap($this->model->where('id', $id))
+            ->update($data)->first();
     }
 
     public function delete($id)
@@ -129,7 +123,9 @@ class ClientRepository implements ClientRepositoryInterface
             ->join('companies', 'clients.company_id', '=', 'companies.id')
             ->leftJoin('contacts', 'clients.contact_id', '=', 'contacts.id')
             ->select(DB::raw('clients.id, "company" as type, companies.business_name as name,"" as last_name,companies.rnc as document_number,companies.constitution_date as birth_date,contacts.cell_phone_number,contacts.email,clients.status,clients.created_at'))
-            ->unionAll($clientsPeople)->get();
+            ->unionAll($clientsPeople)
+            ->orderBy('id','DESC')
+            ->get();
     }
 
 
