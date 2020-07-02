@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use App\Factories\ClientFactory;
 use App\Repositories\ContactRespository;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\User;
+use http\Env\Response;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -115,12 +117,6 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        /*
-         * 1. Actualizar datos del cliente
-         * 2. Actualizar datos del cliente segun tipo
-         * 3. Actualizar datos de contacto
-         * 4. Actualizar datos de usuario
-         */
         $clientData = $request->all();
         unset($clientData['people']);
         unset($clientData['type']);
@@ -154,16 +150,40 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy($id)
+    public function destroy(Client $client)
     {
-        if( $this->clientRepository->delete($id) === 1)
-        {
-            return response()->json(['success' =>true,'message' =>'Record deleted correctly'],200);
+        /*
+         * 1. Destroy client
+         * 2. Destroy contact
+         * 3. Destroy people
+         * 4. Destroy company
+         * 5. Destroy user
+         */
 
+
+        if( $this->clientRepository->delete($client->id) === 1)
+        {
+            $clientTypeRepository = ClientFactory::getRepository(($client->people == null ? 'company' : 'people'));
+            $this->contactRepository->delete($client->contact_id);
+            $clientTypeRepository->delete(($client->people == null ? $client->company_id : $client->people_id));
+            $this->userRepository->delete($client->user_id);
+
+            return response()->json(['success' =>true,'message' =>'Record deleted correctly'],200);
         }
         return response()->json(['success'=> false,'message' =>'There was an error trying to delete the record'],200);
     }
 
+    public function activate(Client $client)
+    {
+        if($client == null)
+        {
+            return response()->json(['success' =>false, 'message' =>'Cliente no encontrado']);
+        }
+        $result = $this->clientRepository->update(['status' =>'Cliente'],$client->id);
+
+        return response()->json(['status' => true,'message']);
+
+    }
     public function filterBy($column,Request $request)
     {
         $per_page = request('per_page');
