@@ -21,6 +21,7 @@ class CreateClientsTable extends Migration
             $table->boolean('authorize_data_processing')->default(1);
             $table->date('date_of_admission');
             $table->longText('comment')->nullable();
+            $table->string('picture')->nullable();
 
             $table->unsignedBigInteger('contact_employee_id')->nullable();
             $table->unsignedBigInteger('referred_by_id')->nullable();

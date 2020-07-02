@@ -17,6 +17,7 @@ class EmployeeSeeder extends Seeder
         $user = User::create([
             'email' => 'a.guzman@gopasesores.com',
             'status' => 'Activo',
+            'picture' => 'https://n8d.at/wp-content/plugins/aioseop-pro-2.4.11.1/images/default-user-image.png',
             'password' => bcrypt('123456'),
         ]);
         $position = Position::first();

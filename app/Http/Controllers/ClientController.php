@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Factories\ClientFactory;
+use App\Repositories\ContactRespository;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\User;
@@ -14,16 +15,21 @@ class ClientController extends Controller
     /** @var ClientRepositoryInterface */
     private $clientRepository;
     private $userRepository;
+    /**
+     * @var ContactRespository
+     */
+    private $contactRepository;
 
     /**
      * ClientController constructor.
      * @param ClientRepositoryInterface $clientRepository
      * @param UserRepositoryInterface $userRepository
      */
-    public function __construct(ClientRepositoryInterface $clientRepository, UserRepositoryInterface $userRepository)
+    public function __construct(ClientRepositoryInterface $clientRepository, UserRepositoryInterface $userRepository, ContactRespository $contactRespository)
     {
         $this->clientRepository = $clientRepository;
         $this->userRepository = $userRepository;
+        $this->contactRepository = $contactRespository;
     }
 
     /**
@@ -36,7 +42,6 @@ class ClientController extends Controller
         $per_page = request('per_page');
 
         return $clients = $this->clientRepository->all($per_page);
-
     }
 
     /**
@@ -49,9 +54,6 @@ class ClientController extends Controller
         return $this->clientRepository->allLike($column,$value);
         //return response()->json(['status' =>'success',cli],200);
     }
-
-
-
 
     /**
      * Store a newly created resource in storage.
@@ -113,6 +115,30 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
+        /*
+         * 1. Actualizar datos del cliente
+         * 2. Actualizar datos del cliente segun tipo
+         * 3. Actualizar datos de contacto
+         * 4. Actualizar datos de usuario
+         */
+        $clientData = $request->all();
+        unset($clientData['people']);
+        unset($clientData['type']);
+        unset($clientData['user']);
+        unset($clientData['company']);
+        unset($clientData['contact_info']);
+
+        $client = $this->clientRepository->update($clientData,$id);
+        $clientTypeRepository = ClientFactory::getRepository($request->type);
+
+        $dataTypeData = $request->type === 'people' ? $request->people : $request->company;
+        $clientTypeId = $client->people_id ? $client->people_id : $client->company_id;
+
+        $clientTypeUpdateResult = $clientTypeRepository->update($dataTypeData,$clientTypeId);
+
+        $contactUpdateResult = $this->contactRepository->update($request->contact_info, $client->contact_id);
+        $userUpdateResult = $this->userRepository->update($request->user,$client->user_id);
+
         $user_data = $request->only(['first_name','first_lastname','email','birth_date','phone']);
         $client_data = $request->only(['contact_employee_id','referred_by_id','status']);
 

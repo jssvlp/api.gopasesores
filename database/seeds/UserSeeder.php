@@ -16,6 +16,7 @@ class UserSeeder extends Seeder
             'email' => 'jossias.vel@gmail.com',
             'status' => 'Activo',
             'username' =>'josha',
+            'picture' => 'https://n8d.at/wp-content/plugins/aioseop-pro-2.4.11.1/images/default-user-image.png',
             'password' => bcrypt('123456'),
         ]);
 

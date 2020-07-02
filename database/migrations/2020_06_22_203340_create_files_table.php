@@ -15,12 +15,13 @@ class CreateFilesTable extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->enum('type',['General']);
+            $table->string('name')->unique();
+            $table->string('extension');
+            $table->enum('type',['General','Documento Identidad']);
             $table->unsignedBigInteger('client_id')->nullable();
 
-            //Foreings
-            $table->foreign('client_id')->references('id')->on('clients');
+            //Foreign
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
 
             $table->timestamps();
         });

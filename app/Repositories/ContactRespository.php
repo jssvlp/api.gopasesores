@@ -32,7 +32,8 @@ class ContactRespository implements RepositoryInterface
 
     public function update(array $data, $id)
     {
-        // TODO: Implement update() method.
+        return $this->model->where('id', $id)
+            ->update($data);
     }
 
     public function delete($id)

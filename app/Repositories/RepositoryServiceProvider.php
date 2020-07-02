@@ -22,5 +22,10 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repositories\Interfaces\EmployeeRepositoryInterface',
             'App\Repositories\EmployeeRepository'
         );
+
+        $this->app->bind(
+            'App\Repositories\Interfaces\FileRepositoryInterface',
+            'App\Repositories\FileRepository'
+        );
     }
 }
