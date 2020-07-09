@@ -205,6 +205,5 @@ class ClientController extends Controller
         $per_page = request('per_page');
         return $this->clientRepository->filterBy($column,$request->filter_values,$per_page);
     }
-
-
+//TODO:
 }
