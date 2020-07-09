@@ -41,6 +41,8 @@ Route::put('clients/{client}/deactivate','ClientController@deactivate');
 Route::get('occupations','OccupationController@index');
 Route::get('economicActivities','EconomicActivityController@index');
 Route::get('files/{client}','FileController@index');
+Route::get('positions','PositionController@index');
+
 
 Route::group([
     'prefix' => 'auth'

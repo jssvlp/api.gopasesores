@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Employee;
 use App\Repositories\Interfaces\EmployeeRepositoryInterface;
+use App\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -16,9 +17,10 @@ class EmployeeController extends Controller
      */
     private $repository;
 
-    public function __construct(EmployeeRepositoryInterface $repository)
+    public function __construct(EmployeeRepositoryInterface $repository, UserRepositoryInterface $userRepository)
     {
         $this->repository = $repository;
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -34,6 +36,7 @@ class EmployeeController extends Controller
 
 
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -42,7 +45,18 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        $this->repository->create($request->all());
+        $user = $this->userRepository->create($request->user);
+        $employee_data = $request->except('user');
+
+        $employee_data['user_id'] = $user['id'];
+
+        $create_employee = $this->repository->create($employee_data);
+        dd($create_employee);
+
+
+        $this->repository->associateUser($user['id']);
+
+
         return response()->json(['success' =>true, 'message' =>'Empleado creado correctamente']);
     }
 
@@ -52,8 +66,9 @@ class EmployeeController extends Controller
      * @param Employee $employee
      * @return JsonResponse
      */
-    public function show(Employee $employee)
+    public function show($id)
     {
+        $employee = $this->repository->find($id);
         return response()->json(['success' =>true, 'employee' =>$employee]);
     }
 

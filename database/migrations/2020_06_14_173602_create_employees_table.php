@@ -17,16 +17,16 @@ class CreateEmployeesTable extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->unsignedBigInteger('position_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('position_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->enum('type',['administrative','referrer','partner'])->default('administrative');
-            $table->boolean('commissionable')->default(0);
+            $table->boolean('commissioner')->default(0);
             $table->double('default_commission_percentage')->nullable()->default(0);
 
 
             //Foreing
-            $table->foreign('position_id')->references('id')->on('positions');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('position_id')->references('id')->on('positions')->onDelete('set null');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $table->timestamps();
         });
     }
