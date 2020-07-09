@@ -26,7 +26,8 @@ class EmployeeRepository implements EmployeeRepositoryInterface
 
     public function create(array $data)
     {
-        return $this->model->create($data);
+        return $employee = $this->model->create($data);
+
     }
 
     public function update(array $data, $id)
@@ -43,9 +44,13 @@ class EmployeeRepository implements EmployeeRepositoryInterface
 
     public function find($id)
     {
-        if (null == $employee = $this->model->find($id)) {
+        $employee = $this->model::with(['user','position','referredClients'])->whereIn('id', [$id])->first();
+
+        if (null == $employee) {
             return null;
         }
+
         return $employee;
     }
+
 }

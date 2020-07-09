@@ -16,5 +16,20 @@ class PositionSeeder extends Seeder
             'name' => 'Asesor',
             'description' =>'Asesor de seguros'
         ]);
+
+        $position = Position::create([
+            'name' => 'Socio',
+            'description' =>'Socio'
+        ]);
+
+        $position = Position::create([
+            'name' => 'Secretaria',
+            'description' =>'Secretaria'
+        ]);
+
+        $position = Position::create([
+            'name' => 'Vendedor',
+            'description' =>'Vendedor'
+        ]);
     }
 }

@@ -9,7 +9,8 @@ class Client extends Model
 
     public function referredBy()
     {
-        return $this->belongsTo(Employee::class);
+        return $this->belongsTo('App\Employee', 'referred_by_id');
+        //return $this->belongsTo(Employee::class,'referred_by_id');
     }
 
     public function user()
@@ -19,7 +20,7 @@ class Client extends Model
 
     public function contactEmployee()
     {
-        return $this->belongsTo(Employee::class);
+        return $this->belongsTo(Employee::class,'contact_employee_id');
     }
 
     public function people()
