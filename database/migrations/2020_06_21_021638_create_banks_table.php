@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFilesTable extends Migration
+class CreateBanksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,9 @@ class CreateFilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('files', function (Blueprint $table) {
+        Schema::create('banks', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('extension');
-            $table->enum('type',['General','Documento Identidad']);
-            $table->unsignedBigInteger('client_id')->nullable();
-
-            //Foreign
-            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
-
             $table->timestamps();
         });
     }
@@ -34,6 +27,6 @@ class CreateFilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('files');
+        Schema::dropIfExists('banks');
     }
 }

@@ -199,10 +199,12 @@ class ClientController extends Controller
         $this->changeClientStatus($client,'Prospecto');
         return response()->json(['status' => true,'message']);
     }
+
     public function filterBy($column,Request $request)
     {
         $per_page = request('per_page');
         return $this->clientRepository->filterBy($column,$request->filter_values,$per_page);
     }
+
 
 }

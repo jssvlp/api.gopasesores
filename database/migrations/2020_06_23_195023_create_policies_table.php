@@ -20,7 +20,7 @@ class CreatePoliciesTable extends Migration
             $table->enum('type',['Nueva','Renovada']);
             $table->date('validity_start_date');
             $table->date('validity_end_date');
-            $table->boolean('renovated');
+            $table->boolean('renewable');
             $table->string('description_insure_property');
             $table->double('prime_total');
             $table->integer('amount_of_fees')->default(1);
@@ -29,8 +29,15 @@ class CreatePoliciesTable extends Migration
             $table->double('pending_balance');
             $table->double('commission');
             $table->double('insurance_payment');
+            $table->enum('branch',['Autos']);
             $table->longText('comment');
 
+            //Payments config
+            $table->integer('frequency_months_of_payment')->default(1);
+            $table->enum('payment_type',['Contado','Financiado','Fraccionado']);
+            $table->enum('payment_method',['Efectivo','Tarjeta crédito','']);
+
+            $table->unsignedBigInteger('bank_id');
             $table->unsignedBigInteger('policy_type_id');
             $table->unsignedBigInteger('insurance_id');
             $table->unsignedBigInteger('client_id');
@@ -41,6 +48,8 @@ class CreatePoliciesTable extends Migration
             $table->foreign('policy_type_id')->references('id')->on('policy_types')->onDelete('cascade');
             $table->foreign('client_id')->references('id')->on('clients');
             $table->foreign('people_id')->references('id')->on('people');
+            $table->foreign('bank_id')->references('id')->on('banks');
+
             $table->timestamps();
         });
     }

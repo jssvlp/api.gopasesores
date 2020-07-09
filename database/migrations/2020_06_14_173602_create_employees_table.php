@@ -19,6 +19,10 @@ class CreateEmployeesTable extends Migration
             $table->string('last_name');
             $table->unsignedBigInteger('position_id');
             $table->unsignedBigInteger('user_id');
+            $table->enum('type',['administrative','referrer','partner'])->default('administrative');
+            $table->boolean('commissionable')->default(0);
+            $table->double('default_commission_percentage')->nullable()->default(0);
+
 
             //Foreing
             $table->foreign('position_id')->references('id')->on('positions');
