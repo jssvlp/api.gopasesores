@@ -38,7 +38,7 @@ class EmployeeRepository implements EmployeeRepositoryInterface
 
     public function delete($id)
     {
-
+        return $this->model->destroy($id);
     }
 
     public function find($id)
