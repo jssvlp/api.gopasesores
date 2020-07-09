@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/ClientRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ClientRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,6 +138,7 @@
       <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
       <path value="$PROJECT_DIR$/vendor/tymon/jwt-auth" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
     </include_path>
   </component>
   <component name="ProjectId" id="1dMzUdURY9WFtpxig7CyzeWGWIw" />
@@ -192,7 +192,9 @@
       <workItem from="1592593474777" duration="41478000" />
       <workItem from="1592955526606" duration="14537000" />
       <workItem from="1593136523469" duration="70472000" />
-      <workItem from="1593643916332" duration="22834000" />
+      <workItem from="1593643916332" duration="29151000" />
+      <workItem from="1594098161525" duration="3073000" />
+      <workItem from="1594167661024" duration="8662000" />
     </task>
     <servers />
   </component>
@@ -231,26 +233,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593032831926" />
-    <state x="333" y="179" key="NewPhpClassDialog" timestamp="1593636844779">
+    <state x="333" y="179" key="NewPhpClassDialog" timestamp="1593912754605">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="333" y="179" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1593636844779" />
+    <state x="333" y="179" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1593912754605" />
     <state x="517" y="288" key="NewPhpFileDialog" timestamp="1593563850426">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="517" y="288" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1593563850426" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1593136537019">
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1594098160963">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1593136537019" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1594098160963" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1593485013676">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1593485013676" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1593733656143">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1594266847073">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1593733656143" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1594266847073" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

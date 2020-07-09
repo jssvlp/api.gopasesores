@@ -33,4 +33,33 @@ class FileController extends Controller
         return $this->repository->all($client,is_null($records_per_page) ? 10 : $records_per_page);
 
     }
+
+    public function storePolicyFiles(Request $request)
+    {
+
+    }
+
+    public function storeSinisterFile(Request $request)
+    {
+
+    }
+
+    public function storeClientFiles(Request $request)
+    {
+        $this->validate($request, [
+            'filenames' => 'required',
+            'filenames.*' => 'mimes:doc,pdf,docx,zip'
+        ]);
+
+
+        if($request->hasfile('filenames'))
+        {
+            foreach($request->file('filenames') as $file)
+            {
+                $name = time().'.'.$file->extension();
+                $file->move(public_path().'/files/', $name);
+                $data[] = $name;
+            }
+        }
+    }
 }
