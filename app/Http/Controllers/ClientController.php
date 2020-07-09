@@ -185,7 +185,7 @@ class ClientController extends Controller
     {
 
         $this->changeClientStatus($client,'Cliente');
-        return response()->json(['status' => true,'message']);
+        return response()->json(['status' => true,'message' =>'Estado del cliente modificado']);
 
     }
 
@@ -197,7 +197,7 @@ class ClientController extends Controller
     public function deactivate(Client $client)
     {
         $this->changeClientStatus($client,'Prospecto');
-        return response()->json(['status' => true,'message']);
+        return response()->json(['status' => true,'message' =>'Estado del cliente modificado']);
     }
 
     public function filterBy($column,Request $request)
