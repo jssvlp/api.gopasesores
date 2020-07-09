@@ -37,6 +37,7 @@ Route::resource('employees','EmployeeController');
 Route::get('clients/{column}/like/{value}','ClientController@indexLike');
 Route::post('clients/filterby/{column}','ClientController@filterBy');
 Route::put('clients/{client}/activate','ClientController@activate');
+Route::put('clients/{client}/deactivate','ClientController@deactivate');
 Route::get('occupations','OccupationController@index');
 Route::get('economicActivities','EconomicActivityController@index');
 Route::get('files/{client}','FileController@index');
