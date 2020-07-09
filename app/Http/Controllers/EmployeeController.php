@@ -45,17 +45,20 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        $user = $this->userRepository->create($request->user);
+        try {
+            $user = $this->userRepository->create($request->user);
+        }catch (\Exception $exception){
+            if($exception->getCode() == 23000)
+            {
+                return response()->json(['success' => false,'message' =>'Correo electrónico en uso']);
+            }
+        }
+
         $employee_data = $request->except('user');
 
         $employee_data['user_id'] = $user['id'];
 
         $create_employee = $this->repository->create($employee_data);
-        dd($create_employee);
-
-
-        $this->repository->associateUser($user['id']);
-
 
         return response()->json(['success' =>true, 'message' =>'Empleado creado correctamente']);
     }
