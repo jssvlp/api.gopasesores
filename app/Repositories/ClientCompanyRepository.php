@@ -40,7 +40,7 @@ class ClientCompanyRepository implements ClientRepositoryInterface
 
     public function update(array $data, $id)
     {
-        return tap($this->model->where('id', $id))
+        return tap($this->client->where('id', $id))
             ->update($data)->first();
     }
 
