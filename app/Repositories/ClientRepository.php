@@ -61,6 +61,7 @@ class ClientRepository implements ClientRepositoryInterface
         $contact = $contactRepo->create($data['contact_info']);
         $client->contact()->associate($contact);
 
+        $client->user()->associate($data['user_id']);
         $client->date_of_admission = date('Y-m-d');
         $client->authorize_data_processing = $data['authorize_data_processing'];
         $client->save();
