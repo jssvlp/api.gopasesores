@@ -26,7 +26,11 @@ class EmployeeRepository implements EmployeeRepositoryInterface
 
     public function create(array $data)
     {
-        return $employee = $this->model->create($data);
+        $employee = $this->model::create($data);
+        $employee->save();
+
+        $employee->user()->associate($data['user_id']);
+        return $employee->save();
 
     }
 

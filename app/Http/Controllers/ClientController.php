@@ -85,7 +85,7 @@ class ClientController extends Controller
 
         $clientData = $request->all();
 
-        $clientData['user_id'] = $user['id'];
+        $clientData['user']['user_id'] = $user['id'];
         $clientData['contact_info']['email'] = $user['email'];
 
         $client = $clientRepository->create($clientData);

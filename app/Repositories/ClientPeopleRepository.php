@@ -59,7 +59,8 @@ class ClientPeopleRepository implements ClientRepositoryInterface
         $client = $clientRepo->create($data);
 
         $client->people()->associate($clientPeople);
-
+        $client->user()->associate($data['user']['user_id']);
+        $client->save();
 
         return $client;
 
