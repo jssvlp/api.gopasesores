@@ -40,12 +40,13 @@ class ClientCompanyRepository implements ClientRepositoryInterface
 
     public function update(array $data, $id)
     {
-        // TODO: Implement update() method.
+        return tap($this->model->where('id', $id))
+            ->update($data)->first();
     }
 
     public function delete($id)
     {
-        // TODO: Implement delete() method.
+        return $this->model->destroy($id);
     }
 
     public function find($id)

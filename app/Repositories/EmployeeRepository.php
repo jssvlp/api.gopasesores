@@ -36,9 +36,8 @@ class EmployeeRepository implements EmployeeRepositoryInterface
 
     public function update(array $data, $id)
     {
-        return $this->model->where($id)->update(
-          $data
-        );
+        return tap($this->model->where('id', $id))
+            ->update($data)->first();
     }
 
     public function delete($id)

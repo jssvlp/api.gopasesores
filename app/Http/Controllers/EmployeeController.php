@@ -84,9 +84,14 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Employee $employee)
     {
-        $this->repository->update($request->all(),$id);
+        $user_data = $request->only('user');
+        $employee_data = $request->except('user');
+
+        $employee_updated = $this->repository->update($employee_data,$employee->id);
+
+        $user_updated = $this->userRepository->update($request->user,$employee->user_id);
 
         return response()->json(['success'=>true,'message' =>'Employee updated correctly!']);
     }
