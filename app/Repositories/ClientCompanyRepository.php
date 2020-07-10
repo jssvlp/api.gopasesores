@@ -46,7 +46,7 @@ class ClientCompanyRepository implements ClientRepositoryInterface
 
     public function delete($id)
     {
-        return $this->model->destroy($id);
+        return $this->client->destroy($id);
     }
 
     public function find($id)
