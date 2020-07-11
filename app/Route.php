@@ -12,6 +12,6 @@ class Route extends Model
 
     private function users()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(User::class,'route_user','user_id','route_id');
     }
 }

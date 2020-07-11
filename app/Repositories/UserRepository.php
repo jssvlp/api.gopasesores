@@ -73,12 +73,48 @@ class UserRepository implements UserRepositoryInterface
         return $user;
     }
 
-    public function findByUsername($username)
+    public function findByUsernameOrEmail($usernameOrMail)
     {
-
-        if (null == $user = $this->model->where('username',$username)->first()) {
+        if (null == $user = $this->model->where('username',$usernameOrMail)->orWhere('email',$usernameOrMail)->first()) {
             return null;
         }
         return $user;
+    }
+
+    public function getPermissions(User $user)
+    {
+        return $this->format($user->getPermissionsViaRoles());
+    }
+
+    protected function format($permissions)
+    {
+        $collection = collect($permissions);
+        $paths = $this->getPaths($permissions);
+        $permissions_formatted = [];
+        foreach ($paths as $path)
+        {
+            $permission = [ 'path' => $path,'actions' => [] ];
+
+            $actions  = $collection->filter(function($item) use ($path){
+                            return $item['path']  == $path;
+                            });
+            $actions = $actions->map->only('action');
+            $flattened = $actions->flatten()->all();
+
+            $permission['actions'] = $flattened;
+            array_push($permissions_formatted,$permission);
+        }
+
+        return $permissions_formatted;
+
+    }
+
+    private function getPaths($permissions)
+    {
+        $uniques = $permissions->unique('path');
+        $uniques = $uniques->map->only('path');
+        $flattened = $uniques->flatten();
+
+        return $flattened->all();
     }
 }
