@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 
+use App\Helpers\General\CollectionHelper;
 use App\Repositories\Interfaces\RepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,12 +23,13 @@ class Repository implements RepositoryInterface
 
     public function all($per_page = 0)
     {
-        return $this->model->all();
+        $all =  $this->model->all();
+        return CollectionHelper::paginate($all,$per_page);
     }
 
     public function create(array $data)
     {
-        $this->model->create($data);
+        return $this->model->create($data);
     }
 
     public function update(array $data, $id)

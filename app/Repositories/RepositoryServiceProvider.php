@@ -27,5 +27,15 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repositories\Interfaces\FileRepositoryInterface',
             'App\Repositories\FileRepository'
         );
+
+        $this->app->bind(
+            'App\Repositories\Interfaces\RepositoryInterface',
+            'App\Repositories\PermissionRepository'
+        );
+
+        $this->app->bind(
+            'App\Repositories\Interfaces\RepositoryInterface',
+            'App\Repositories\RoleRepository'
+        );
     }
 }

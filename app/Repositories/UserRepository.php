@@ -70,6 +70,14 @@ class UserRepository implements UserRepositoryInterface
         if (null == $user = $this->model->find($id)) {
             return null;
         }
+
+        $permissions = $this->getPermissions($user);
+        $user['permissions'] = $permissions;
+        $roles = $user->getRoleNames();
+        unset($user['roles']);
+
+        $user['roles'] = $roles;
+
         return $user;
     }
 
