@@ -54,21 +54,18 @@ class AuthController extends Controller
             return response()->json(['success'=> false, 'message' => 'Usuario o contraseña incorrecto']);
         }
         $credentials = $request->only(['email', 'password']);
+        $userOrEmail = ($request->username ? $request->username : $request->email);
+        $user = $this->userRepository->findByUsernameOrEmail($userOrEmail );
 
-        if($request->username)
-        {
-            $user = $this->userRepository->findByUsername($request->username);
-            if(!$user)
-            {
-                return response()->json(['success'=> false, 'message' => 'Usuario o contraseña incorrecto']);
-            }
-            $credentials['email'] = $user->email;
-        }
+        $credentials['email'] = $user->email;
+
         if (! $token = JWTAuth::attempt($credentials)) {
             return response()->json(['success'=> false, 'error' => 'Usuario o contraseña incorrecto']);
         }
 
-        return $this->respondWithToken($token);
+        $permisions = $this->userRepository->getPermissions($user);
+
+        return $this->respondWithToken($token,$permisions);
     }
 
     /**
@@ -110,13 +107,19 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function respondWithToken($token)
+    protected function respondWithToken($token,$permissions)
     {
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60,
-
+            'permissions' => $permissions
         ]);
+    }
+
+
+    protected function findUser()
+    {
+
     }
 }

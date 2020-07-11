@@ -37,7 +37,7 @@ class User extends Authenticatable implements JWTSubject
     }
 
     public function routes(){
-        return $this->hasMany(Route::class);
+        return $this->belongsToMany(Route::class,'route_user','route_id','user_id');
     }
 
     public function client(){
