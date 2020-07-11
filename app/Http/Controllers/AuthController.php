@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegisterAuthRequest;
 use App\Repositories\UserRepository;
 use App\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
@@ -45,7 +46,7 @@ class AuthController extends Controller
     /**
      * Get a JWT via given credentials.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function login(Request $request)
     {
@@ -64,14 +65,15 @@ class AuthController extends Controller
         }
 
         $permisions = $this->userRepository->getPermissions($user);
+        $roles = $user->getRoleNames();
 
-        return $this->respondWithToken($token,$permisions);
+        return $this->respondWithToken($token,$permisions,$roles);
     }
 
     /**
      * Get the authenticated User.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function me()
     {
@@ -81,7 +83,7 @@ class AuthController extends Controller
     /**
      * Log the user out (Invalidate the token).
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function logout()
     {
@@ -93,7 +95,7 @@ class AuthController extends Controller
     /**
      * Refresh a token.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function refresh()
     {
@@ -103,23 +105,21 @@ class AuthController extends Controller
     /**
      * Get the token array structure.
      *
-     * @param  string $token
+     * @param string $token
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @param $permissions
+     * @param $roles
+     * @return JsonResponse
      */
-    protected function respondWithToken($token,$permissions)
+    protected function respondWithToken($token,$permissions,$roles)
     {
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60,
-            'permissions' => $permissions
+            'permissions' => $permissions,
+            'roles' => $roles
         ]);
     }
 
-
-    protected function findUser()
-    {
-
-    }
 }

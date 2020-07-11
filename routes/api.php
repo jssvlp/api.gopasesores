@@ -30,12 +30,16 @@ Route::group([
 });
 
 Route::group(['middleware' => 'auth:api'], function() {
-
     //Resources
     Route::resource('clients','ClientController');
     Route::resource('employees','EmployeeController');
+    Route::resource('permissions','PermissionController');
+    Route::resource('roles','RoleController');
 
-//orphan routes
+    //orphan routes
+    Route::post('roles/{role}/permission/{permission}','RoleController@givePermissionToRole');
+    Route::delete('roles/{role}/permission/{permission}','RoleController@revokePermissionToRole');
+
     Route::get('clients/{column}/like/{value}','ClientController@indexLike');
     Route::post('clients/filterby/{column}','ClientController@filterBy');
     Route::put('clients/{client}/activate','ClientController@activate');
@@ -44,6 +48,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('economicActivities','EconomicActivityController@index');
     Route::get('files/{client}','FileController@index');
     Route::get('positions','PositionController@index');
+
 
 
 });
