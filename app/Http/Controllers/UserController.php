@@ -25,7 +25,6 @@ class UserController extends Controller
         $per_page = request('per_page');
         $users = $this->repository->all($per_page);
         return $users;
-//        return $users->paginate(is_null($per_page) ? 10 : $per_page);
 
     }
 
@@ -110,4 +109,19 @@ class UserController extends Controller
         return response()->json(['success'=> false,'error' =>'There was an error trying to delete the record'],200);
 
     }
+
+    public function addUserToRole($user, $role)
+    {
+
+        $added = $this->repository->addUserToRole($user, $role);
+        return response()->json(['success' =>true,'message' =>'Usuario agregado al rol exitosamente'],200);
+
+    }
+
+    public function removeUserFromRole($user, $role)
+    {
+        $removed = $this->repository->removeUserFromRole($user, $role);
+        return response()->json(['success' =>true,'message' =>'Usuario removido del exitosamente'],200);
+    }
+
 }

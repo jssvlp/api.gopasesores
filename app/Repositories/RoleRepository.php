@@ -46,11 +46,11 @@ class RoleRepository implements RepositoryInterface
 
     public function find($id)
     {
-        $model = $this->model::with('permissions')->whereId($id)->get();
-        if (null == $model ) {
+        $role = $this->model::with('permissions')->where('id',$id)->get();
+        if (null == $role ) {
             return null;
         }
-        return $model;
+        return $role;
     }
 
     public function search($id)
