@@ -36,10 +36,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::resource('permissions','PermissionController');
     Route::resource('roles','RoleController');
 
-    //orphan routes
-    Route::post('roles/{role}/permission/{permission}','RoleController@givePermissionToRole');
-    Route::delete('roles/{role}/permission/{permission}','RoleController@revokePermissionToRole');
-
+    //1.orphan routes
     Route::get('clients/{column}/like/{value}','ClientController@indexLike');
     Route::post('clients/filterby/{column}','ClientController@filterBy');
     Route::put('clients/{client}/activate','ClientController@activate');
@@ -48,6 +45,10 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('economicActivities','EconomicActivityController@index');
     Route::get('files/{client}','FileController@index');
     Route::get('positions','PositionController@index');
+    //1.1Roles
+    Route::post('roles/{role}/permission/{permission}','RoleController@givePermissionToRole');
+    Route::delete('roles/{role}/permission/{permission}','RoleController@revokePermissionToRole');
+
 
 
 
@@ -57,7 +58,7 @@ Route::group(['middleware' => 'auth:api'], function() {
 
 
 Route::group([
-    'prefix' => 'auth'
+    'prefix' => 'auth','middleware' => 'auth:api'
 ],function($router){
     Route::get('/users','UserController@index');
     Route::get('/users/{id}','UserController@show');
@@ -65,5 +66,9 @@ Route::group([
     Route::put('/users/deactivate/{id}','UserController@deactivate');
     Route::put('/users/{id}','UserController@update');
     Route::delete('/users/{id}','UserController@destroy');
+
+    Route::post('/users/{user}/role/{role}','UserController@addUserToRole');
+    Route::delete('/users/{user}/role/{role}','UserController@removeUserFromRole');
+
 });
 

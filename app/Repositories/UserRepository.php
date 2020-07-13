@@ -7,6 +7,7 @@ namespace App\Repositories;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\User;
 use Illuminate\Support\Arr;
+use Spatie\Permission\Models\Role;
 
 class UserRepository implements UserRepositoryInterface
 {
@@ -124,5 +125,27 @@ class UserRepository implements UserRepositoryInterface
         $flattened = $uniques->flatten();
 
         return $flattened->all();
+    }
+
+    public function addUserToRole($user, $role)
+    {
+        $user = $this->model->find($user);
+
+        $roleRepository = new RoleRepository(new Role());
+
+        $role = $roleRepository->find($role);
+
+        return $user->assignRole($role);
+    }
+
+    public function removeUserFromRole($user, $role)
+    {
+        $user = $this->model->find($user);
+        //dd($user);
+        $roleRepository = new RoleRepository(new Role());
+
+        $role = $roleRepository->search($role);
+
+        return $user->removeRole($role);
     }
 }
