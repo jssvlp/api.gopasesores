@@ -6,9 +6,10 @@ namespace App\Repositories;
 
 use App\Helpers\General\CollectionHelper;
 use App\Repositories\Interfaces\RepositoryInterface;
+use App\Repositories\Interfaces\RoleRepositoryInterface;
 use Spatie\Permission\Models\Role;
 
-class RoleRepository implements RepositoryInterface
+class RoleRepository implements RoleRepositoryInterface
 {
 
     /**

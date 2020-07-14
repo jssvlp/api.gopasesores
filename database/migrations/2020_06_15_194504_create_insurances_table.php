@@ -16,8 +16,12 @@ class CreateInsurancesTable extends Migration
         Schema::create('insurances', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
+            $table->string('rnc')->unique();
             $table->string('phone')->unique();
             $table->string('email')->unique();
+            $table->string('account')->nullable();
+            $table->string('address')->nullable();
+            $table->string('payment_link')->nullable();
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBranchesTable extends Migration
+class CreateMainBranchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class CreateBranchesTable extends Migration
      */
     public function up()
     {
-        Schema::create('branches', function (Blueprint $table) {
+        Schema::create('main_branches', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->double('commission_percentage');
-            $table->double('itbis')->default(18);
-            $table->unsignedBigInteger('insurance_id');
-            $table->unsignedBigInteger('main_branch_id');
-
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ class CreateBranchesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('branches');
+        Schema::dropIfExists('main_branches');
     }
 }

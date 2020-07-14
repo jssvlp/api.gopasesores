@@ -29,13 +29,18 @@ class RepositoryServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
-            'App\Repositories\Interfaces\RepositoryInterface',
+            'App\Repositories\Interfaces\PermissionRepositoryInterface',
             'App\Repositories\PermissionRepository'
         );
 
         $this->app->bind(
-            'App\Repositories\Interfaces\RepositoryInterface',
+            'App\Repositories\Interfaces\RoleRepositoryInterface',
             'App\Repositories\RoleRepository'
+        );
+
+        $this->app->bind(
+            'App\Repositories\Interfaces\InsuranceRepositoryInterface',
+            'App\Repositories\InsuranceRepository'
         );
     }
 }

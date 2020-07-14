@@ -2,35 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Interfaces\PermissionRepositoryInterface;
+use App\Insurance;
+use App\Repositories\Interfaces\InsuranceRepositoryInterface;
 use App\Repositories\Interfaces\RepositoryInterface;
-use App\Repositories\PermissionRepository;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
-class PermissionController extends Controller
+class InsuranceController extends Controller
 {
 
     /**
      * @var RepositoryInterface
      */
-    private $repository;
+    private $insuranceRepository;
 
-    public function  __construct(PermissionRepositoryInterface $repository)
+    public function __construct(InsuranceRepositoryInterface $insuranceRepository)
     {
-        $this->repository = $repository;
+        $this->insuranceRepository = $insuranceRepository;
     }
 
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
         $per_page = request('per_page');
-        return  $this->repository->all($per_page ? $per_page: 10);
+        return $this->insuranceRepository->all($per_page ? $per_page : 10);
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -40,23 +41,20 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        $this->repository->create($request->all());
-        return response()->json(['success' => true, 'message' =>'Permiso creado correctamente']);
+        $this->insuranceRepository->create($request->all());
+        return response()->json(['success'=> true,'message' =>'Aseguradora creada correctamente']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param Insurance $insurance
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show($id)
+    public function show(Insurance $insurance)
     {
-        $permission = $this->repository->find($id);
-
-        return response()->json(['success' => true, 'permission' =>$permission]);
+        return response()->json(['success'=> true,'insurance' =>$insurance]);
     }
-
 
     /**
      * Update the specified resource in storage.
@@ -67,9 +65,8 @@ class PermissionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $updated = $this->repository->update($request->all(),$id);
-
-        return response()->json(['success' =>true, 'message' =>'Permiso actualizado correctamente']);
+        $insuranceUpdated = $this->insuranceRepository->update($request->all(),$id);
+        return response()->json(['success'=> true,'message' =>'Aseguradora actualizada correctamente']);
     }
 
     /**
@@ -80,7 +77,7 @@ class PermissionController extends Controller
      */
     public function destroy($id)
     {
-        $this->repository->delete($id);
-        return response()->json(['success' =>true, 'message' =>'Permiso eliminado correctamente']);
+        $insuranceDeleted = $this->insuranceRepository->delete($id);
+        return response()->json(['success'=> true,'message' =>'Aseguradora creada correctamente']);
     }
 }
