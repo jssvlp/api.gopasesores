@@ -67,7 +67,7 @@ class AuthController extends Controller
         $permisions = $this->userRepository->getPermissions($user);
         $roles = $user->getRoleNames();
 
-        return $this->respondWithToken($token,$permisions,$roles);
+        return $this->respondWithToken($token,$permisions,$roles,$user);
     }
 
     /**
@@ -101,7 +101,6 @@ class AuthController extends Controller
     {
         return $this->respondWithToken(auth()->refresh());
     }
-
     /**
      * Get the token array structure.
      *
@@ -111,11 +110,13 @@ class AuthController extends Controller
      * @param $roles
      * @return JsonResponse
      */
-    protected function respondWithToken($token,$permissions,$roles)
+    protected function respondWithToken($token,$permissions,$roles,$user)
     {
+        unset($user['roles']);
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
+            'user_data' => $user,
             'expires_in' => auth()->factory()->getTTL() * 60,
             'permissions' => $permissions,
             'roles' => $roles
