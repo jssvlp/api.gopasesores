@@ -40,7 +40,7 @@ class AuthController extends Controller
 
         $token = auth()->login($user);
 
-        return $this->respondWithToken($token);
+        return $this->respondWithToken($token,null,null,null);
     }
 
     /**
