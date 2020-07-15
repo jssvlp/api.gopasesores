@@ -47,7 +47,7 @@ class RoleRepository implements RoleRepositoryInterface
 
     public function find($id)
     {
-        $role = $this->model::with('permissions')->where('id',$id)->get();
+        $role = $this->model::with('permissions')->where('id',$id)->first();
         if (null == $role ) {
             return null;
         }

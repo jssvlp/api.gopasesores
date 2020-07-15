@@ -2,32 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/BranchController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/InsuranceController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/MainBranch.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/BranchRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/InsuranceRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/BranchRepositoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/InsuranceRepositoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/PermissionRepositoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/RoleRepositoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_15_002703_create_main_branches_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/BranchSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/InsuranceSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/MainBranchSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Branch.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Branch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PermissionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PermissionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Insurance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Insurance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/PermissionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/PermissionRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/RepositoryServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/RepositoryServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/RoleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/RoleRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_15_194504_create_insurances_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_15_194504_create_insurances_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_15_231942_create_branches_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_15_231942_create_branches_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/PermissionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PermissionSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +199,9 @@
       <workItem from="1594433784397" duration="478000" />
       <workItem from="1594434343346" duration="12721000" />
       <workItem from="1594516970787" duration="11347000" />
-      <workItem from="1594694184615" duration="1720000" />
+      <workItem from="1594694184615" duration="2528000" />
+      <workItem from="1594752252621" duration="151000" />
+      <workItem from="1594773330676" duration="57000" />
     </task>
     <servers />
   </component>
@@ -282,10 +260,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1593485013676" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1594695872537">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1594773371237">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1594695872537" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1594773371237" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
