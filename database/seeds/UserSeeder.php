@@ -14,9 +14,9 @@ class UserSeeder extends Seeder
     public function run()
     {
         $user = User::create([
-            'email' => 'jossias.vel@gmail.com',
+            'email' => 'pruebas@test.com',
             'status' => 'Activo',
-            'username' =>'josha',
+            'username' =>'Pruebas',
             'picture' => 'https://n8d.at/wp-content/plugins/aioseop-pro-2.4.11.1/images/default-user-image.png',
             'password' => bcrypt('123456'),
         ]);
