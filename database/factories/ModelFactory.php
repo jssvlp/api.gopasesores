@@ -26,7 +26,7 @@ $factory->define(\App\Client::class, function (Faker $faker) {
 
 $factory->define(\App\People::class, function (Faker $faker){
    return [
-        'first_name' => $faker->name,
+        'first_name' => $faker->firstName,
         'last_name' =>$faker->lastName,
         'document_type' =>'Cedula',
         'document_number' => $faker->randomElement(['40224190500', '4012578562','0012345846']),
