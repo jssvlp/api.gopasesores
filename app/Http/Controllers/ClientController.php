@@ -46,6 +46,13 @@ class ClientController extends Controller
         return $clients = $this->clientRepository->all($per_page);
     }
 
+
+    public function list()
+    {
+        $clients = $this->clientRepository->allNotPaginated();
+
+        return response()->json(['success' => true, 'clients' =>$clients]);
+    }
     /**
      * Display a listing of the resource.
      *

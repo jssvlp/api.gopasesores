@@ -12,14 +12,19 @@ class Client extends Model
         return $this->belongsTo('App\Employee', 'owner_id');
     }
 
+    public function related()
+    {
+        return $this->belongsTo('App\Client','related_client_id');
+    }
+
+    public function clients()
+    {
+        return $this->hasMany(Client::class,'related_client_id');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function contactEmployee()
-    {
-        return $this->belongsTo(Employee::class,'contact_employee_id');
     }
 
     public function people()

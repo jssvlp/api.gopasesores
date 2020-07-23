@@ -23,10 +23,10 @@ class CreateClientsTable extends Migration
             $table->longText('comment')->nullable();
             $table->string('picture')->nullable();
 
-            $table->unsignedBigInteger('contact_employee_id')->nullable();
             $table->unsignedBigInteger('owner_id')->nullable();
             $table->unsignedBigInteger('contact_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable()->unique();
+            $table->unsignedBigInteger('related_client_id')->nullable();
 
             $table->unsignedBigInteger('people_id')->nullable();
             $table->unsignedBigInteger('company_id')->nullable();
@@ -35,11 +35,12 @@ class CreateClientsTable extends Migration
             //TODO: Notification config
             //Foreign
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
-            $table->foreign('contact_employee_id')->references('id')->on('employees')->onDelete('set null');
             $table->foreign('owner_id')->references('id')->on('employees')->onDelete('set null');
             $table->foreign('contact_id')->references('id')->on('contacts')->onDelete('set null');
             $table->foreign('people_id')->references('id')->on('people')->onDelete('set null');
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('set null');
+            $table->foreign('related_client_id')->references('id')->on('clients')->onDelete('set null');
+
             $table->timestamps();
         });
     }

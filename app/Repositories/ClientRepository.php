@@ -55,7 +55,7 @@ class ClientRepository implements ClientRepositoryInterface
     {
         $client = new Client();
         $client->owner()->associate($data['owner_id']);
-        $client->contactEmployee()->associate($data['contact_employee_id']);
+        $client->related()->associate($data['related_client_id']);
 
         $contactRepo = new ContactRespository(new Contact());
         $contact = $contactRepo->create($data['contact_info']);
@@ -82,7 +82,7 @@ class ClientRepository implements ClientRepositoryInterface
 
     public function find($id)
     {
-        $client = $this->model::with(['people','company','contact','owner','user','contactEmployee','categories'])->whereIn('id', [$id])->first();
+        $client = $this->model::with(['people','company','contact','owner','user','categories','related','clients'])->whereIn('id', [$id])->first();
 
         if (null == $client) {
             return null;
@@ -145,5 +145,10 @@ class ClientRepository implements ClientRepositoryInterface
     private function filterByType($clients,$type)
     {
 
+    }
+
+    public function allNotPaginated()
+    {
+        return $this->getAllClients();
     }
 }
