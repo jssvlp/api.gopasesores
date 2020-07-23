@@ -17,6 +17,9 @@ class CreateEmployeesTable extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
+            $table->string('phone')->nullable();
+            $table->string('document_id')->nullable();
+            $table->mediumText('address')->nullable();
             $table->unsignedBigInteger('position_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->enum('type',['Administrativo','Referidor','Socio'])->default('Administrativo');
