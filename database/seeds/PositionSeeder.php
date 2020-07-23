@@ -31,5 +31,10 @@ class PositionSeeder extends Seeder
             'name' => 'Vendedor',
             'description' =>'Vendedor'
         ]);
+
+        $position = Position::create([
+            'name' => 'Referidor externo',
+            'description' =>'Referidor externo'
+        ]);
     }
 }

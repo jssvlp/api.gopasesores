@@ -99,8 +99,9 @@ class AuthController extends Controller
      */
     public function refresh()
     {
-        return $this->respondWithToken(auth()->refresh());
+        return $this->respondWithToken(auth()->refresh(),null,null,null);
     }
+
     /**
      * Get the token array structure.
      *
@@ -108,6 +109,7 @@ class AuthController extends Controller
      *
      * @param $permissions
      * @param $roles
+     * @param $user
      * @return JsonResponse
      */
     protected function respondWithToken($token,$permissions,$roles,$user)

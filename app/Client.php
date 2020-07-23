@@ -7,10 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
 
-    public function referredBy()
+    public function owner()
     {
-        return $this->belongsTo('App\Employee', 'referred_by_id');
-        //return $this->belongsTo(Employee::class,'referred_by_id');
+        return $this->belongsTo('App\Employee', 'owner_id');
     }
 
     public function user()
@@ -42,6 +41,5 @@ class Client extends Model
     {
         return $this->belongsToMany(Category::class,'client_has_categories','category_id','client_id');
     }
-
 
 }

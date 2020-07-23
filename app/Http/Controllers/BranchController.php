@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Branch;
+use App\MainBranch;
 use App\Repositories\BranchRepository;
 use Illuminate\Http\Request;
 
@@ -46,44 +48,44 @@ class BranchController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function show($id)
+    public function show(Branch $branch)
     {
-        //
+        return response()->json(['success' => true, 'branch' => $branch]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function main()
     {
-        //
+        $branches = MainBranch::all();
+        return response()->json(['success'=>true,'branches' => $branches]);
     }
+
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        $updated = $this->repository->update($request->all(),$id);
+
+        return response()->json(['success' =>true,'message' =>'Ramo actualizado corrrectamente']);
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        //
+        $this->repository->delete($id);
+        return response()->json(['success' =>true,'message' =>'Ramo borrado corrrectamente']);
     }
 }
