@@ -47,6 +47,9 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('economicActivities','EconomicActivityController@index');
     Route::get('files/{client}','FileController@index');
     Route::get('positions','PositionController@index');
+    Route::get('branches/main/get','BranchController@main');
+
+
     //1.1Roles
     Route::post('roles/{role}/permission/{permission}','RoleController@givePermissionToRole');
     Route::delete('roles/{role}/permission/{permission}','RoleController@revokePermissionToRole');

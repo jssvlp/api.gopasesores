@@ -24,7 +24,7 @@ class CreateClientsTable extends Migration
             $table->string('picture')->nullable();
 
             $table->unsignedBigInteger('contact_employee_id')->nullable();
-            $table->unsignedBigInteger('referred_by_id')->nullable();
+            $table->unsignedBigInteger('owner_id')->nullable();
             $table->unsignedBigInteger('contact_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable()->unique();
 
@@ -36,7 +36,7 @@ class CreateClientsTable extends Migration
             //Foreign
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $table->foreign('contact_employee_id')->references('id')->on('employees')->onDelete('set null');
-            $table->foreign('referred_by_id')->references('id')->on('employees')->onDelete('set null');
+            $table->foreign('owner_id')->references('id')->on('employees')->onDelete('set null');
             $table->foreign('contact_id')->references('id')->on('contacts')->onDelete('set null');
             $table->foreign('people_id')->references('id')->on('people')->onDelete('set null');
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('set null');

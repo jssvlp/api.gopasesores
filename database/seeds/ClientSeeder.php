@@ -35,7 +35,7 @@ class ClientSeeder extends Seeder
                 $client->company()->associate($counterClient);
             }
             $client->user()->associate($counterUser+1);
-            $client->referredBy()->associate(1);
+            $client->owner()->associate(1);
             $client->contactEmployee()->associate(1);
             $client->contact()->associate($counterClient);
 

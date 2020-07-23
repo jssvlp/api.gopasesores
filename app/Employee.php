@@ -19,7 +19,7 @@ class Employee extends Model
     }
 
     public function referredClients(){
-        return $this->hasMany(Client::class,'referred_by_id');
+        return $this->hasMany(Client::class,'owner_id');
     }
 
     public function clientsContact(){

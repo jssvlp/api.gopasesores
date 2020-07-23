@@ -19,7 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->string('last_name');
             $table->unsignedBigInteger('position_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->enum('type',['administrative','referrer','partner'])->default('administrative');
+            $table->enum('type',['Administrativo','Referidor','Socio'])->default('Administrativo');
             $table->boolean('commissioner')->default(0);
             $table->double('default_commission_percentage')->nullable()->default(0);
 
