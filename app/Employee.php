@@ -22,7 +22,4 @@ class Employee extends Model
         return $this->hasMany(Client::class,'owner_id');
     }
 
-    public function clientsContact(){
-        return $this->hasMany(Client::class,'contact_employee_id');
-    }
 }

@@ -82,7 +82,7 @@ class ClientRepository implements ClientRepositoryInterface
 
     public function find($id)
     {
-        $client = $this->model::with(['people','company','contact','owner','user','contactEmployee','categories'])->whereIn('id', [$id])->first();
+        $client = $this->model::with(['people','company','contact','owner','user','categories'])->whereIn('id', [$id])->first();
 
         if (null == $client) {
             return null;

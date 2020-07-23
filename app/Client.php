@@ -17,11 +17,6 @@ class Client extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function contactEmployee()
-    {
-        return $this->belongsTo(Employee::class,'contact_employee_id');
-    }
-
     public function people()
     {
         return $this->belongsTo(People::class);
