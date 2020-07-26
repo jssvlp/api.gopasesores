@@ -43,12 +43,13 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('clients/filterby/{column}','ClientController@filterBy');
     Route::put('clients/{client}/activate','ClientController@activate');
     Route::put('clients/{client}/deactivate','ClientController@deactivate');
-    Route::get('clients/list/get','ClientController@list');
+    Route::get('clients/list/all','ClientController@list');
     Route::get('occupations','OccupationController@index');
     Route::get('economicActivities','EconomicActivityController@index');
     Route::get('files/{client}','FileController@index');
     Route::get('positions','PositionController@index');
     Route::get('branches/main/get','BranchController@main');
+    Route::get('insurances/list/all','InsuranceController@list');
 
 
     //1.1Roles

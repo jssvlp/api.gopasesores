@@ -45,4 +45,9 @@ class ContactRespository implements RepositoryInterface
     {
         // TODO: Implement find() method.
     }
+
+    public function allNotPaginated()
+    {
+        // TODO: Implement allNotPaginated() method.
+    }
 }

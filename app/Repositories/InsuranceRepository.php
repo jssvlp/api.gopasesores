@@ -53,4 +53,9 @@ class InsuranceRepository implements  InsuranceRepositoryInterface
         }
         return $model;
     }
+
+    public function allNotPaginated()
+    {
+        return  $this->model::all();
+    }
 }

@@ -54,4 +54,9 @@ class BranchRepository implements BranchRepositoryInterface
         }
         return $model;
     }
+
+    public function allNotPaginated()
+    {
+        // TODO: Implement allNotPaginated() method.
+    }
 }

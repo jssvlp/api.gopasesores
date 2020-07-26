@@ -3,12 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/ClientRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ClientRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_14_173602_create_employees_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_14_173602_create_employees_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_21_014559_create_clients_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_21_014559_create_clients_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InsuranceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InsuranceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Insurance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Insurance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/BranchRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BranchRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ClientCompanyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ClientCompanyRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ClientPeopleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ClientPeopleRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ContactRespository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ContactRespository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/EmployeeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/EmployeeRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/InsuranceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/InsuranceRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/RepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/RepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/PermissionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/PermissionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Repository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Repository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/RoleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/RoleRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/UserRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -209,7 +216,9 @@
       <workItem from="1594752252621" duration="151000" />
       <workItem from="1594773330676" duration="2144000" />
       <workItem from="1595387976794" duration="597000" />
-      <workItem from="1595472833212" duration="10050000" />
+      <workItem from="1595472833212" duration="10672000" />
+      <workItem from="1595631032032" duration="601000" />
+      <workItem from="1595780711164" duration="2123000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' into development&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <created>1594841394525</created>
@@ -270,10 +279,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="517" y="288" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1593563850426" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1594694184683">
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1595780715678">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1594694184683" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1595780715678" />
     <state x="424" y="8" key="refactoring.ChangeSignatureDialog" timestamp="1594349563874">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -282,10 +291,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1595480561582" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1595482888314">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1595784324227">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1595482888314" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1595784324227" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

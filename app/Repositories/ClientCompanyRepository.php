@@ -63,4 +63,9 @@ class ClientCompanyRepository implements ClientRepositoryInterface
     {
         // TODO: Implement filterBy() method.
     }
+
+    public function allNotPaginated()
+    {
+        // TODO: Implement allNotPaginated() method.
+    }
 }

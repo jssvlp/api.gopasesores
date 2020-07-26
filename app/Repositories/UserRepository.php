@@ -148,4 +148,9 @@ class UserRepository implements UserRepositoryInterface
 
         return $user->removeRole($role);
     }
+
+    public function allNotPaginated()
+    {
+        // TODO: Implement allNotPaginated() method.
+    }
 }

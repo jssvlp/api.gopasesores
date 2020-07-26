@@ -50,4 +50,9 @@ class PermissionRepository implements PermissionRepositoryInterface
         }
         return $permission;
     }
+
+    public function allNotPaginated()
+    {
+        // TODO: Implement allNotPaginated() method.
+    }
 }
