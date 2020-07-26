@@ -51,4 +51,9 @@ class Repository implements RepositoryInterface
         }
         return $model;
     }
+
+    public function allNotPaginated()
+    {
+        // TODO: Implement allNotPaginated() method.
+    }
 }

@@ -13,6 +13,7 @@ class InsuranceController extends Controller
     /**
      * @var RepositoryInterface
      */
+
     private $insuranceRepository;
 
     public function __construct(InsuranceRepositoryInterface $insuranceRepository)
@@ -31,7 +32,10 @@ class InsuranceController extends Controller
         return $this->insuranceRepository->all($per_page ? $per_page : 10);
     }
 
-
+    public function list()
+    {
+        return $this->insuranceRepository->allNotPaginated();
+    }
 
     /**
      * Store a newly created resource in storage.

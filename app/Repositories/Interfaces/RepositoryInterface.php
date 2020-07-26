@@ -16,4 +16,6 @@ interface RepositoryInterface
 
     public function find($id);
 
+    public function allNotPaginated();
+
 }

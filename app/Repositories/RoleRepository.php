@@ -71,4 +71,9 @@ class RoleRepository implements RoleRepositoryInterface
     {
         return $role->revokePermissionTo($permission);
     }
+
+    public function allNotPaginated()
+    {
+        // TODO: Implement allNotPaginated() method.
+    }
 }

@@ -56,4 +56,8 @@ class EmployeeRepository implements EmployeeRepositoryInterface
         return $employee;
     }
 
+    public function allNotPaginated()
+    {
+        // TODO: Implement allNotPaginated() method.
+    }
 }

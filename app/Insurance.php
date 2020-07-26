@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Insurance extends Model
 {
-    protected  $fillable = ['name','address','phone','mail','account','rnc'];
+    protected  $fillable = ['name','address','phone','email','account','rnc'];
 
     public function branches()
     {
