@@ -55,6 +55,8 @@ class BranchController extends Controller
         return response()->json(['success' => true, 'branch' => $branch]);
     }
 
+
+
     public function main()
     {
         $branches = MainBranch::all();

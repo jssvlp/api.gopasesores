@@ -55,8 +55,9 @@ class InsuranceController extends Controller
      * @param Insurance $insurance
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show(Insurance $insurance)
+    public function show($id)
     {
+        $insurance = $this->insuranceRepository->find($id);
         return response()->json(['success'=> true,'insurance' =>$insurance]);
     }
 

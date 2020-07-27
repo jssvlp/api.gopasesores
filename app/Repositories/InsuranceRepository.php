@@ -47,7 +47,8 @@ class InsuranceRepository implements  InsuranceRepositoryInterface
 
     public function find($id)
     {
-        $model = $this->model->find($id);
+        $model = $this->model::with('branches')->where('id',$id)->first();
+
         if (null == $model ) {
             return null;
         }
