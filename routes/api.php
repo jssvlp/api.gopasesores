@@ -52,6 +52,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('insurances/list/all','InsuranceController@list');
 
 
+
     //1.1Roles
     Route::post('roles/{role}/permission/{permission}','RoleController@givePermissionToRole');
     Route::delete('roles/{role}/permission/{permission}','RoleController@revokePermissionToRole');

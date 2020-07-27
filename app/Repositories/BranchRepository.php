@@ -55,6 +55,13 @@ class BranchRepository implements BranchRepositoryInterface
         return $model;
     }
 
+    public function findByInsurance($id)
+    {
+        $insurances = $this->model->where('insurance_id',$id);
+
+        dd($insurances);
+    }
+
     public function allNotPaginated()
     {
         // TODO: Implement allNotPaginated() method.
