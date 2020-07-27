@@ -10,6 +10,11 @@ class Branch extends Model
 
     public function insurance()
     {
-        return $this->hasOne(Insurance::class);
+        return $this->belongsTo(Insurance::class);
+    }
+
+    public function mainBranch()
+    {
+        return $this->belongsTo(MainBranch::class);
     }
 }
