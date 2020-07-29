@@ -21,22 +21,25 @@ class ClientSeeder extends Seeder
         $clients = App\Client::all();
         $counterClient = 1;
         $counterUser = 2;
-        $nowCompany = false;
+
+        $clientCompanyCounter = 1;
+        $clientPeopleCounter = 1;
         foreach ($clients as  $client )
         {
-            if($counterClient <= 20 && $nowCompany == false)
+            if($counterClient <= 20 )
             {
-                $client->people()->associate($counterClient);
+                $client->people()->associate($clientPeopleCounter);
+                $client->save();
+                $clientPeopleCounter++;
             }
             else
             {
-                $nowCompany = true;
-                $counterClient = 1;
-                $client->company()->associate($counterClient);
+                $client->company()->associate($clientCompanyCounter);
+                $client->save();
+                $clientCompanyCounter++;
             }
             $client->user()->associate($counterUser+1);
             $client->owner()->associate(1);
-
 
             $client->save();
             $counterUser++;
