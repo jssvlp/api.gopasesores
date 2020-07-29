@@ -22,8 +22,8 @@ class RolSeeder extends Seeder
 
 
         $role = Role::findById(1);
-        $permision = Permission::findById(1);
+        $permisions = Permission::all();
 
-        $role->givePermissionTo([1,2,3,4,5,6,7,8,9,10]);
+        $role->givePermissionTo($permisions);
     }
 }

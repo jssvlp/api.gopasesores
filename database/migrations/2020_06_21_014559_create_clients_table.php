@@ -37,8 +37,8 @@ class CreateClientsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $table->foreign('owner_id')->references('id')->on('employees')->onDelete('set null');
             $table->foreign('contact_id')->references('id')->on('contacts')->onDelete('set null');
-            $table->foreign('people_id')->references('id')->on('people')->onDelete('set null');
-            $table->foreign('company_id')->references('id')->on('companies')->onDelete('set null');
+            $table->foreign('people_id')->references('id')->on('people');
+            $table->foreign('company_id')->references('id')->on('companies');
             $table->foreign('related_client_id')->references('id')->on('clients')->onDelete('set null');
 
             $table->timestamps();
