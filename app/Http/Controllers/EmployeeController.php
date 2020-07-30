@@ -46,7 +46,12 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         try {
-            $user = $this->userRepository->create($request->user);
+            $user_data = $request->user;
+            $full_name = $request->first_name .' '.$request->last_name;
+            $user_data['full_name'] = $full_name;
+            $user_data['status'] = 'Activo';
+
+            $user = $this->userRepository->create($user_data);
         }catch (\Exception $exception){
             if($exception->getCode() == 23000)
             {
