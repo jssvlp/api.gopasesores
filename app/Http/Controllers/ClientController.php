@@ -61,7 +61,6 @@ class ClientController extends Controller
     public function indexLike($column,$value)
     {
         return $this->clientRepository->allLike($column,$value);
-        //return response()->json(['status' =>'success',cli],200);
     }
 
     /**
@@ -73,12 +72,21 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $clientRepository = ClientFactory::getRepository($request->type);
+        $user = null;
         if($clientRepository == null)
         {
             return response()->json(['success' =>false,'message' =>'Tipo de cliente incorrecto']);
         }
         try {
-            $user = $this->userRepository->create($request->user)->toArray();
+            $user_data = $request->user;
+
+            $full_name = $this->getClientFullName($request);
+
+            $user_data['full_name'] = $full_name;
+
+            $user = $this->userRepository->create($user_data)->toArray();
+
+
         }
         catch (\Exception $exception)
         {
@@ -95,7 +103,16 @@ class ClientController extends Controller
         $clientData['user']['user_id'] = $user['id'];
         $clientData['contact_info']['email'] = $user['email'];
 
-        $client = $clientRepository->create($clientData);
+
+        try {
+            $client = $clientRepository->create($clientData);
+        }
+        catch (\Exception $exception)
+        {
+            $this->userRepository->delete($user['id']);
+            return response()->json(['success' =>false, 'message' => $exception->getMessage()]);
+        }
+
 
         return response()->json(['success' =>true,'client' => $client],201);
     }
@@ -212,5 +229,10 @@ class ClientController extends Controller
         $per_page = request('per_page');
         return $this->clientRepository->filterBy($column,$request->filter_values,$per_page);
     }
-//TODO:
+
+    private function getClientFullName($data)
+    {
+        return $data->type == 'people' ? $data->first_name .' '.$data->last_name : $data->company['business_name'];
+    }
+    //TODO:
 }

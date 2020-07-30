@@ -25,14 +25,11 @@ class UserRepository implements UserRepositoryInterface
 
     public function create(array $data)
     {
-        $user = new User();
-        $user->email =  $data['email'];
-        $user->status = 'Activo';
-        $user->picture = 'https://n8d.at/wp-content/plugins/aioseop-pro-2.4.11.1/images/default-user-image.png';
-        $user->password = bcrypt($data['password']);
-        $user->save();
+        $data['picture'] = 'https://n8d.at/wp-content/plugins/aioseop-pro-2.4.11.1/images/default-user-image.png';
+        $data['password'] = bcrypt($data['password']);
 
-        return $user;
+        return  $this->model::create($data);
+
     }
 
     public function activate(int $id)
