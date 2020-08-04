@@ -50,7 +50,8 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('positions','PositionController@index');
     Route::get('branches/main/get','BranchController@main');
     Route::get('insurances/list/all','InsuranceController@list');
-
+    Route::post('branches/add/insurance','BranchController@addToInsurance');
+    Route::get('insurances/{id}/branches','InsuranceController@getBranches');
 
 
     //1.1Roles

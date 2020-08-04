@@ -16,7 +16,7 @@ class CreatePolicyTypesTable extends Migration
         Schema::create('policy_types', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->mediumText('descripction');
+            $table->mediumText('description');
             $table->timestamps();
         });
     }

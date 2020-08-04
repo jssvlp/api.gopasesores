@@ -22,12 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call(EmployeeSeeder::class);
         $this->call(ClientSeeder::class);
 
-        $this->call(MainBranchSeeder::class);
-        $this->call(InsuranceSeeder::class);
         $this->call(BranchSeeder::class);
-
-
-
+        $this->call(InsuranceSeeder::class);
 
     }
 }

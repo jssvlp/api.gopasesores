@@ -61,6 +61,13 @@ class InsuranceController extends Controller
         return response()->json(['success'=> true,'insurance' =>$insurance]);
     }
 
+    public function getBranches($id)
+    {
+        $branches = $this->insuranceRepository->branches($id);
+
+        return response()->json(['success' => true, 'branches' => $branches]);
+    }
+
     /**
      * Update the specified resource in storage.
      *

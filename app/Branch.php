@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Branch extends Model
 {
-    protected $fillable = ['name','commission_percentage','insurance_id','main_branch_id'];
+    protected $fillable = ['name','main_branch_id'];
 
-    public function insurance()
+    public function insurances()
     {
-        return $this->belongsTo(Insurance::class);
+        return $this->belongsToMany(Insurance::class,'branch_insurance','insurance_id','branch_id');
     }
 
     public function mainBranch()

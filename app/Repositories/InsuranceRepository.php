@@ -55,6 +55,13 @@ class InsuranceRepository implements  InsuranceRepositoryInterface
         return $model;
     }
 
+    public function branches($insurance_id)
+    {
+        $insurance = $this->model::find($insurance_id);
+        return  $insurance->branches;
+
+    }
+
     public function allNotPaginated()
     {
         return  $this->model::all();
