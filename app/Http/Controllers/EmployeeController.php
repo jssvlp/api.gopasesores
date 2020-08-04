@@ -80,6 +80,12 @@ class EmployeeController extends Controller
         return response()->json(['success' =>true, 'employee' =>$employee]);
     }
 
+    public function getEmployeeByUser($id)
+    {
+        $employee = $this->repository->findByUser($id);
+        return response()->json(['success' =>true, 'employee' =>$employee]);
+    }
+
 
 
     /**
