@@ -52,6 +52,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('insurances/list/all','InsuranceController@list');
     Route::post('branches/add/insurance','BranchController@addToInsurance');
     Route::get('insurances/{id}/branches','InsuranceController@getBranches');
+    Route::get('employees/user/{id}','EmployeeController@getEmployeeByUser');
 
 
     //1.1Roles

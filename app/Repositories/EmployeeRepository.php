@@ -56,6 +56,17 @@ class EmployeeRepository implements EmployeeRepositoryInterface
         return $employee;
     }
 
+    public function findByUser($id)
+    {
+        $employee = $this->model::where('user_id',$id)->first();
+
+        if (null == $employee) {
+            return null;
+        }
+
+        return $employee;
+    }
+
     public function allNotPaginated()
     {
         // TODO: Implement allNotPaginated() method.
