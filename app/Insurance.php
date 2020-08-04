@@ -10,6 +10,6 @@ class Insurance extends Model
 
     public function branches()
     {
-        return $this->hasMany(Branch::class);
+        return $this->belongsToMany(Branch::class,'branch_insurance','insurance_id','branch_id');
     }
 }

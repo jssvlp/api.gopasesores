@@ -55,12 +55,12 @@ class BranchRepository implements BranchRepositoryInterface
         return $model;
     }
 
-    public function findByInsurance($id)
+    public function addToInsurance($insurance,$data)
     {
-        $insurances = $this->model->where('insurance_id',$id);
-
-        dd($insurances);
+        $this->model->insurances()->sync([$insurance => $data]);
     }
+
+
 
     public function allNotPaginated()
     {

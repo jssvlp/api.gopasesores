@@ -16,8 +16,7 @@ class CreatePoliciesTable extends Migration
         Schema::create('policies', function (Blueprint $table) {
             $table->id();
             $table->string('code');
-            $table->enum('status',['Vencida','Vigente']);
-            $table->enum('type',['Nueva','Renovada']);
+            $table->enum('status',['Vencida','Vigente','No renovada','Expedición','Devengada','Cancelada']);
             $table->date('validity_start_date');
             $table->date('validity_end_date');
             $table->boolean('renewable');

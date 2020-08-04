@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Branch;
 use App\MainBranch;
 use App\Repositories\BranchRepository;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class BranchController extends Controller
@@ -36,7 +37,7 @@ class BranchController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function store(Request $request)
     {
@@ -45,14 +46,30 @@ class BranchController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function addToInsurance(Request $request)
+    {
+        $this->repository->addToInsurance($request->insurance_id,$request->except(['insurance_id']));
+        return response()->json(['success'=> true,'message' =>'Comisión registrada  correctamente']);
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function show(Branch $branch)
     {
         return response()->json(['success' => true, 'branch' => $branch]);
+    }
+
+    public function getByInsurance($id)
+    {
+
+
     }
 
 
@@ -69,7 +86,7 @@ class BranchController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function update(Request $request, $id)
     {
@@ -83,7 +100,7 @@ class BranchController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function destroy($id)
     {

@@ -16,11 +16,7 @@ class CreateBranchesTable extends Migration
         Schema::create('branches', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->double('commission_percentage');
-            $table->double('itbis')->default(18);
-            $table->unsignedBigInteger('insurance_id');
             $table->unsignedBigInteger('main_branch_id');
-
             $table->timestamps();
         });
     }
