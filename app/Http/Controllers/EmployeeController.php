@@ -98,6 +98,7 @@ class EmployeeController extends Controller
     public function update(Request $request, Employee $employee)
     {
         $user_data = $request->only('user');
+        $user_data['full_name'] = $employee->first_name . " " . $employee->last_name;
         $employee_data = $request->except('user');
 
         $employee_updated = $this->repository->update($employee_data,$employee->id);

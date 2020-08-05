@@ -25,7 +25,7 @@ class BranchRepository implements BranchRepositoryInterface
 
     public function all($per_page)
     {
-        $all =  $this->model::with(['insurance:id,name','mainBranch:id,name'])->get();
+        $all =  $this->model->all();
         return CollectionHelper::paginate($all,$per_page);
     }
 
