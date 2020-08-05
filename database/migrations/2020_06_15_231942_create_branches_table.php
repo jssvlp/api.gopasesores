@@ -17,6 +17,8 @@ class CreateBranchesTable extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('main_branch_id');
+
+            $table->foreign('main_branch_id')->references('id')->on('main_branches');
             $table->timestamps();
         });
     }
