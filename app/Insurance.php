@@ -10,6 +10,8 @@ class Insurance extends Model
 
     public function branches()
     {
-        return $this->belongsToMany(Branch::class,'branch_insurance','insurance_id','branch_id');
+        return $this->belongsToMany(Branch::class)
+                    ->withPivot('isc_percent','multiple_beneficiaries','commission_percentage')
+                    ->withTimestamps();
     }
 }

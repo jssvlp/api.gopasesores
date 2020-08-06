@@ -55,6 +55,10 @@ class Handler extends ExceptionHandler
         if ($exception instanceof ModelNotFoundException && $request->wantsJson()) {
             return response()->json(['success' => false,'message' => 'Registro no encontrado'], 200);
         }
+        if($exception instanceof DuplicateRegistryException)
+        {
+            return response()->json(['success' => false, 'message' =>'Registro duplicado']);
+        }
         return parent::render($request, $exception);
     }
 }

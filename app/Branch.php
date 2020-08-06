@@ -8,9 +8,12 @@ class Branch extends Model
 {
     protected $fillable = ['name','main_branch_id'];
 
-    public function insurances()
+    public function commissions()
     {
-        return $this->belongsToMany(Insurance::class,'branch_insurance','insurance_id','branch_id');
+        return $this->belongsToMany('App\Insurance')
+                    ->using(BranchInsurance::class)
+                    ->withPivot('isc_percent','multiple_beneficiaries','commission_percentage')
+                    ->withTimestamps();
     }
 
     public function mainBranch()
