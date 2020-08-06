@@ -5,8 +5,12 @@ namespace App\Repositories;
 
 
 use App\Branch;
+use App\BranchInsurance;
+use App\Exceptions\DuplicateRegistryException;
 use App\Helpers\General\CollectionHelper;
+use App\Insurance;
 use App\Repositories\Interfaces\BranchRepositoryInterface;
+use Illuminate\Support\Facades\DB;
 
 
 class BranchRepository implements BranchRepositoryInterface
@@ -49,15 +53,43 @@ class BranchRepository implements BranchRepositoryInterface
     public function find($id)
     {
         $model = $this->model->find($id);
+
+        $commission = DB::table('branch_insurance')
+                        ->join('insurances','branch_insurance.insurance_id','=','insurances.id')
+                        ->where('branch_insurance.branch_id','=',$id)
+                        ->select(DB::raw('branch_insurance.id,insurances.name as insurance, branch_insurance.commission_percentage'))
+                        ->get();
+
         if (null == $model ) {
             return null;
         }
+
+        $model['commissions'] = $commission;
         return $model;
     }
 
-    public function addToInsurance($insurance,$data)
+    public function addInsuranceCommission($insurance, $data)
     {
-        $this->model->insurances()->sync([$insurance => $data]);
+        if(!$this->validateIfCommissionAlreadyExist($insurance,$data['branch_id']))
+        {
+            $this->model->commissions()->sync([$insurance => $data]);
+        }
+        throw new DuplicateRegistryException();
+
+    }
+
+    public function updateInsuranceCommission($commission,$data)
+    {
+        $commission = BranchInsurance::whereId($commission)->update(
+            $data
+        );
+
+        return $commission;
+    }
+
+    public function removeInsuranceCommission($id)
+    {
+        return BranchInsurance::destroy($id);
     }
 
 
@@ -65,5 +97,12 @@ class BranchRepository implements BranchRepositoryInterface
     public function allNotPaginated()
     {
         // TODO: Implement allNotPaginated() method.
+    }
+
+    private function validateIfCommissionAlreadyExist($insurance_id,$branch_id)
+    {
+        $result = BranchInsurance::where('insurance_id',$insurance_id)->where('branch_id',$branch_id)->first();
+
+        return  $result != null ? true: false;
     }
 }

@@ -13,7 +13,6 @@ class InsuranceController extends Controller
     /**
      * @var RepositoryInterface
      */
-
     private $insuranceRepository;
 
     public function __construct(InsuranceRepositoryInterface $insuranceRepository)

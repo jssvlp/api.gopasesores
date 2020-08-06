@@ -47,12 +47,27 @@ class BranchController extends Controller
 
     /**
      * @param Request $request
+     * @param $insurance_id
      * @return JsonResponse
+     * @throws \App\Exceptions\DuplicateRegistryException
      */
-    public function addToInsurance(Request $request)
+    public function addInsuranceCommission(Request $request,$insurance_id)
     {
-        $this->repository->addToInsurance($request->insurance_id,$request->except(['insurance_id']));
+
+        $this->repository->addInsuranceCommission($insurance_id,$request->except(['insurance_id']));
         return response()->json(['success'=> true,'message' =>'Comisión registrada  correctamente']);
+    }
+
+    public function updateInsuranceCommission(Request $request, $commission_id)
+    {
+        $this->repository->updateInsuranceCommission($commission_id, $request->all());
+        return response()->json(['success'=> true,'message' =>'Comisión actualizada  correctamente']);
+    }
+
+    public function removeInsuranceCommission($commision_id)
+    {
+        $this->repository->removeInsuranceCommission($commision_id);
+        return response()->json(['success'=> true,'message' =>'Comisión removida  correctamente']);
     }
 
     /**
@@ -63,6 +78,7 @@ class BranchController extends Controller
      */
     public function show(Branch $branch)
     {
+        $branch = $this->repository->find($branch->id);
         return response()->json(['success' => true, 'branch' => $branch]);
     }
 
