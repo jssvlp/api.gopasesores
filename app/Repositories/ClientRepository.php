@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Client;
 use App\Contact;
+use App\File;
 use App\Helpers\General\CollectionHelper;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
 use Illuminate\Support\Facades\DB;
@@ -88,6 +89,10 @@ class ClientRepository implements ClientRepositoryInterface
             return null;
         }
 
+        $filesRepository = new FileRepository(new File());
+        $files = $filesRepository->allByModel('client',$client->id);
+
+        $client['documents'] = $files;
         return $client;
     }
 

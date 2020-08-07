@@ -10,21 +10,26 @@ use App\Repositories\Interfaces\FileRepositoryInterface;
 
 class FileRepository implements FileRepositoryInterface
 {
-    public function __construct(File $file,Client $client)
+    /**
+     * @var File
+     */
+    private $file;
+
+    public function __construct(File $file)
     {
         $this->file = $file;
-        $this->client = $client;
     }
 
-    public function all(Client $client,$records_per_page)
+    public function all()
     {
-        return $this->file::where('client_id',$client->id)
-            ->orderBy('id', 'desc')->paginate($records_per_page);
+        return $this->file::all();
     }
+
+
 
     public function create($file)
     {
-        // TODO: Implement create() method.
+        return $this->file->create($file);
     }
 
     public function update($id, $data)
@@ -39,9 +44,17 @@ class FileRepository implements FileRepositoryInterface
 
 
 
-    public function getType($ext)
+    public function getType($document)
     {
-        // TODO: Implement getType() method.
+        $document['extension'] = pathinfo($document['name'], PATHINFO_EXTENSION);
+        $document['type'] = \GuzzleHttp\Psr7\mimetype_from_filename($document['name']);
+
+        return $document;
     }
 
+
+    public function allByModel($model, $model_id)
+    {
+        return $this->file::where('model',$model)->where('model_id',$model_id)->get();
+    }
 }

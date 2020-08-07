@@ -6,6 +6,7 @@ use App\Client;
 use App\Factories\ClientFactory;
 use App\Repositories\ContactRespository;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
+use App\Repositories\Interfaces\FileRepositoryInterface;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\User;
 use http\Env\Response;
@@ -21,17 +22,22 @@ class ClientController extends Controller
      * @var ContactRespository
      */
     private $contactRepository;
+    /**
+     * @var FileRepositoryInterface
+     */
+    private $filesrepository;
 
     /**
      * ClientController constructor.
      * @param ClientRepositoryInterface $clientRepository
      * @param UserRepositoryInterface $userRepository
      */
-    public function __construct(ClientRepositoryInterface $clientRepository, UserRepositoryInterface $userRepository, ContactRespository $contactRespository)
+    public function __construct(ClientRepositoryInterface $clientRepository, UserRepositoryInterface $userRepository, ContactRespository $contactRespository, FileRepositoryInterface $filesrepository)
     {
         $this->clientRepository = $clientRepository;
         $this->userRepository = $userRepository;
         $this->contactRepository = $contactRespository;
+        $this->filesrepository = $filesrepository;
     }
 
     /**
@@ -106,6 +112,17 @@ class ClientController extends Controller
 
         try {
             $client = $clientRepository->create($clientData);
+            if($request->has('documents'))
+            {
+                foreach ($request->documents as $document)
+                {
+                    $document['model'] = 'client';
+                    $document['model_id'] = $client->id;
+                    $document = $this->filesrepository->getType($document);
+
+                    $this->filesrepository->create($document);
+                }
+            }
         }
         catch (\Exception $exception)
         {
