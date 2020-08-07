@@ -16,16 +16,11 @@ class CreateFilesTable extends Migration
         Schema::create('files', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
+            $table->string('url');
             $table->string('extension');
-            $table->enum('type',['General','Documento Identidad']);
-            $table->unsignedBigInteger('client_id')->nullable();
-            $table->unsignedBigInteger('policy_id')->nullable();
-            $table->unsignedBigInteger('sinister_id')->nullable();
-
-            //Foreign
-            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
-            $table->foreign('policy_id')->references('id')->on('policies')->onDelete('cascade');
-            $table->foreign('sinister_id')->references('id')->on('sinisters')->onDelete('cascade');
+            $table->string('type');
+            $table->string('model');
+            $table->unsignedBigInteger('model_id');
 
             $table->timestamps();
         });
