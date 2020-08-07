@@ -78,6 +78,11 @@ class BranchRepository implements BranchRepositoryInterface
 
     }
 
+    public function getInsuranceCommission($id)
+    {
+        return  BranchInsurance::find($id);
+    }
+
     public function updateInsuranceCommission($commission,$data)
     {
         $commission = BranchInsurance::whereId($commission)->update(

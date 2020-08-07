@@ -53,9 +53,14 @@ class BranchController extends Controller
      */
     public function addInsuranceCommission(Request $request,$insurance_id)
     {
-
         $this->repository->addInsuranceCommission($insurance_id,$request->except(['insurance_id']));
         return response()->json(['success'=> true,'message' =>'Comisión registrada  correctamente']);
+    }
+
+    public function getInsuranceCommission($commission_id)
+    {
+        $commission = $this->repository->getInsuranceCommission($commission_id);
+        return response()->json(['success'=> true,'commission' => $commission]);
     }
 
     public function updateInsuranceCommission(Request $request, $commission_id)
