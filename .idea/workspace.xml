@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/BranchInsurance.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Exceptions/DuplicateRegistryException.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Branch.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Branch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BranchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BranchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InsuranceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InsuranceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Insurance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Insurance.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/BranchRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BranchRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +207,7 @@
       <workItem from="1595631032032" duration="601000" />
       <workItem from="1595780711164" duration="16072000" />
       <workItem from="1596079808598" duration="14660000" />
-      <workItem from="1596586258271" duration="15499000" />
+      <workItem from="1596586258271" duration="17019000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' into development&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <created>1594841394525</created>
@@ -292,10 +284,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1596511326725" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1596675641060">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1596768718411">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1596675641060" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1596768718411" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -72,7 +72,7 @@ class BranchRepository implements BranchRepositoryInterface
     {
         if(!$this->validateIfCommissionAlreadyExist($insurance,$data['branch_id']))
         {
-            $this->model->commissions()->sync([$insurance => $data]);
+            return $this->model->commissions()->sync([$insurance => $data]);
         }
         throw new DuplicateRegistryException();
 
