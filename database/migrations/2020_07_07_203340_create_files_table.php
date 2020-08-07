@@ -18,7 +18,8 @@ class CreateFilesTable extends Migration
             $table->string('name')->unique();
             $table->string('url');
             $table->string('extension');
-            $table->string('type');
+            $table->string('document_type');
+            $table->string("type")->nullable();
             $table->string('model');
             $table->unsignedBigInteger('model_id');
 
