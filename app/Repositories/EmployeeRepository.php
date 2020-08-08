@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 
 use App\Employee;
+use App\Helpers\General\CollectionHelper;
 use App\Repositories\Interfaces\EmployeeRepositoryInterface;
 
 class EmployeeRepository implements EmployeeRepositoryInterface
@@ -21,7 +22,8 @@ class EmployeeRepository implements EmployeeRepositoryInterface
 
     public function all($per_page)
     {
-        return $this->model->paginate(is_null($per_page) ? 10 : $per_page);
+        $employees = $this->model::with('position')->get();
+        return CollectionHelper::paginate($employees,is_null($per_page) ? 10 : $per_page);
     }
 
     public function create(array $data)
