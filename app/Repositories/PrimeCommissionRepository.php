@@ -4,9 +4,9 @@
 namespace App\Repositories;
 
 
-use App\Repositories\Interfaces\PolicesRepositoryInterface;
+use App\Repositories\Interfaces\PrimeCommissionRepositoryInterface;
 
-class PoliciesRepository implements PolicesRepositoryInterface
+class PrimeCommissionRepository implements PrimeCommissionRepositoryInterface
 {
 
     public function all($per_page)

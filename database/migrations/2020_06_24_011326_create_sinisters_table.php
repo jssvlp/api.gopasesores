@@ -23,7 +23,11 @@ class CreateSinistersTable extends Migration
             $table->string('assigned_provider')->nullable();
             $table->longText('facts_description');
             $table->enum('status',['Objetado','Pagado','En proceso','Solicitado']);
+
+            $table->unsignedBigInteger('policy_id');
             $table->timestamps();
+
+            $table->foreign('policy_id')->references('id')->on('policies');
         });
     }
 
