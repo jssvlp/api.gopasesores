@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
-
+    protected $fillable = ["owner_id","authorize_data_processing","comment","type",""];
     public function owner()
     {
         return $this->belongsTo('App\Employee', 'owner_id');

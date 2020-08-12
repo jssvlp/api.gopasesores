@@ -164,6 +164,7 @@ class ClientController extends Controller
         unset($clientData['user']);
         unset($clientData['company']);
         unset($clientData['contact_info']);
+        unset($clientData['documents']);
 
         $client = $this->clientRepository->update($clientData,$id);
         $clientTypeRepository = ClientFactory::getRepository($request->type);
