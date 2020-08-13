@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/PrimeCommissionPolicyInformation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/PolicyRepositoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/PrimeCommissionRepositoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/PolicyRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/PrimeCommissionRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_08_180238_create_policy_payments_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Client.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PolicyPayment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/PolicesRepositoryInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/PoliciesRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_23_195023_create_policies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_23_195023_create_policies_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_24_011326_create_sinisters_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_24_011326_create_sinisters_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_08_012941_create_sinisters_policies_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_08_022805_create_payments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_08_174520_create_prime_commission_policy_information_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_04_020523_create_branch_insurance_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_22_020523_create_branch_insurance_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/FileRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/FileRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +157,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../practices/Laravel/test-aplication-job-laravel" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -225,7 +210,9 @@
       <workItem from="1595780711164" duration="16072000" />
       <workItem from="1596079808598" duration="14660000" />
       <workItem from="1596586258271" duration="36127000" />
-      <workItem from="1597089632932" duration="7712000" />
+      <workItem from="1597089632932" duration="9016000" />
+      <workItem from="1597250515281" duration="5965000" />
+      <workItem from="1597330849683" duration="1946000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' into development&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <created>1594841394525</created>
@@ -274,10 +261,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="264" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1594841393502" />
-    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1593032831926">
+    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1597249546740">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593032831926" />
+    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597249546740" />
     <state x="370" y="187" key="NewPhpClassDialog" timestamp="1596914157934">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -290,10 +277,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="-219" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597097093035" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1597094039695">
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1597354847143">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1597094039695" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1597354847143" />
     <state x="246" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1596513045592">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -306,10 +293,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1596849500507" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597193050012">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597356143754">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597193050012" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597356143754" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

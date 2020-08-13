@@ -25,8 +25,6 @@ class FileRepository implements FileRepositoryInterface
         return $this->file::all();
     }
 
-
-
     public function create($file)
     {
         return $this->file->create($file);
@@ -34,12 +32,14 @@ class FileRepository implements FileRepositoryInterface
 
     public function update($id, $data)
     {
-        // TODO: Implement update() method.
+        return $this->file->whereId($id)->update(
+            $data
+        );
     }
 
     public function delete($id)
     {
-        // TODO: Implement delete() method.
+        return $this->file->destroy($id);
     }
 
 
