@@ -9,8 +9,9 @@ use App\Repositories\Interfaces\ClientRepositoryInterface;
 use App\Repositories\Interfaces\FileRepositoryInterface;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\User;
-use http\Env\Response;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class ClientController extends Controller
 {
@@ -43,7 +44,7 @@ class ClientController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function index()
     {
@@ -62,7 +63,7 @@ class ClientController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function indexLike($column,$value)
     {
@@ -73,7 +74,7 @@ class ClientController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function store(Request $request)
     {
@@ -138,7 +139,7 @@ class ClientController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function show($id)
     {
@@ -154,7 +155,7 @@ class ClientController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function update(Request $request, $id)
     {
@@ -177,6 +178,7 @@ class ClientController extends Controller
         $contact_info = $request->contact_info;
         $contact_info['email'] = $request->user['email'];
 
+
         if($client->contact_id)
         {
             $contactUpdateResult = $this->contactRepository->update($contact_info, $client->contact_id);
@@ -195,14 +197,30 @@ class ClientController extends Controller
 
         $user = $this->userRepository->update($user_data,$client->user_id);
 
+        if($request->has('documents')){
+            $documents = $request->documents;
+            foreach ($documents as $document){
+                if(Arr::exists($document,'id')){
+                    $this->filesrepository->update($document['id'],$document);
+                }
+                else{
+                    $document['model'] = 'client';
+                    $document['model_id'] = $client->id;
+                    $document = $this->filesrepository->getType($document);
+
+                    $this->filesrepository->create($document);
+                }
+            }
+        }
+
         return response()->json(['success' =>true,'message' =>'Cliente modificado con éxito'],200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse
+     * @param Client $client
+     * @return JsonResponse
      */
     public function destroy(Client $client)
     {
