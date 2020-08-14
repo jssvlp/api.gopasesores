@@ -27,7 +27,7 @@ class CreatePrimeCommissionPolicyInformationTable extends Migration
             $table->enum('payment_type',['Contado','Financiado','Fraccionado']);
             $table->enum('payment_method',['Efectivo','Tarjeta crédito','Transferencia']);
             $table->unsignedBigInteger('bank_id')->nullable();
-            $table->unsignedDouble('policy_id');
+            $table->unsignedBigInteger('policy_id');
             $table->timestamps();
 
             $table->foreign('policy_id')->references('id')->on('policies');
