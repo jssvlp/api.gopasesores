@@ -2,10 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\Interfaces\PolicyRepositoryInterface;
 use Illuminate\Http\Request;
 
-class PolicieController extends Controller
+class PoliciesController extends Controller
 {
+
+    /**
+     * @var PolicyRepositoryInterface
+     */
+    private $repository;
+
+    public function __construct(PolicyRepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,28 +25,23 @@ class PolicieController extends Controller
      */
     public function index()
     {
-        //
+        $per_page = request('per_page');
+        return $this->repository->all($per_page ? $per_page : 10);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
-        //
+        $created =$this->repository->create($request->all());
+
+        return response()->json(['success' =>true, 'message' =>'Poliza creada correctamente']);
     }
 
     /**
@@ -44,17 +51,6 @@ class PolicieController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
     {
         //
     }

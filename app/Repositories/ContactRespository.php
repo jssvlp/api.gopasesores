@@ -43,7 +43,10 @@ class ContactRespository implements RepositoryInterface
 
     public function find($id)
     {
-        // TODO: Implement find() method.
+        if (null == $contact = $this->model->find($id)) {
+            return null;
+        }
+        return $contact;
     }
 
     public function allNotPaginated()

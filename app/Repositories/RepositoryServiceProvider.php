@@ -42,5 +42,10 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repositories\Interfaces\InsuranceRepositoryInterface',
             'App\Repositories\InsuranceRepository'
         );
+
+        $this->app->bind(
+            'App\Repositories\Interfaces\PolicyRepositoryInterface',
+            'App\Repositories\PolicyRepository'
+        );
     }
 }

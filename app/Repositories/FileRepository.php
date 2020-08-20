@@ -42,11 +42,8 @@ class FileRepository implements FileRepositoryInterface
         return $this->file->destroy($id);
     }
 
-
-
     public function getType($document)
     {
-        $document['extension'] = pathinfo($document['name'], PATHINFO_EXTENSION);
         $document['type'] = \GuzzleHttp\Psr7\mimetype_from_filename($document['name']);
 
         return $document;

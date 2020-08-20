@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/PolicyCarBranchDetail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_20_030543_create_policy_car_branch_details_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_08_174520_create_prime_commission_policy_information_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_08_174520_create_prime_commission_policy_information_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/File.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PolicieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PoliciesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ContactRespository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ContactRespository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/FileRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/FileRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/PolicyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/PolicyRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/RepositoryServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/RepositoryServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_07_203340_create_files_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_07_203340_create_files_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,6 +221,8 @@
       <workItem from="1597089632932" duration="9016000" />
       <workItem from="1597250515281" duration="5965000" />
       <workItem from="1597330849683" duration="3449000" />
+      <workItem from="1597539239843" duration="278000" />
+      <workItem from="1597883144469" duration="7177000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' into development&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <created>1594841394525</created>
@@ -248,14 +259,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1593143374954" />
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1596909685169">
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1597888883079">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1596909685169" />
-    <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1594691960762">
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1597888883079" />
+    <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597890904894">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1594691960762" />
+    <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1597890904894" />
     <state x="264" y="0" key="CommitChangelistDialog2" timestamp="1594841393502">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -272,14 +283,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="517" y="288" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1593563850426" />
-    <state x="-219" y="0" key="SettingsEditor" timestamp="1597097093035">
+    <state x="44" y="0" width="938" height="708" key="SettingsEditor" timestamp="1597890881523">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="-219" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597097093035" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1597354847143">
+    <state x="44" y="0" width="938" height="708" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597890881523" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1597883478920">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1597354847143" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1597883478920" />
     <state x="246" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1596513045592">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -292,10 +303,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1596849500507" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597363591369">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597893259193">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597363591369" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597893259193" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
