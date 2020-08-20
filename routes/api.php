@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::resource('roles','RoleController');
     Route::resource('insurances','InsuranceController');
     Route::resource('branches','BranchController');
+    Route::resource('policies','PoliciesController');
 
     //1.orphan routes
     Route::get('clients/{column}/like/{value}','ClientController@indexLike');
@@ -61,8 +62,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     //1.1Roles
     Route::post('roles/{role}/permission/{permission}','RoleController@givePermissionToRole');
     Route::delete('roles/{role}/permission/{permission}','RoleController@revokePermissionToRole');
-
-
+    
 
 
 });
