@@ -10,6 +10,7 @@ class File extends Model
         'name',  'type','document_type', 'model','model_id','url'
     ];
 
+    protected $hidden = ['created_at','updated_at','model','model_id'];
 
     public function client()
     {
