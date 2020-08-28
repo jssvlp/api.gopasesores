@@ -90,7 +90,7 @@ class ClientRepository implements ClientRepositoryInterface
         }
 
         $filesRepository = new FileRepository(new File());
-        $files = $filesRepository->allByModel('client',$client->id);
+        $files = $filesRepository->allByModel($client);
 
         $client['documents'] = $files;
         return $client;

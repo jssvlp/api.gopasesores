@@ -4,8 +4,10 @@
 namespace App\Repositories;
 
 
+use App\File;
 use App\Helpers\General\CollectionHelper;
 use App\Policy;
+use App\PrimeCommissionPolicyInformation;
 use App\Repositories\Interfaces\PolicyRepositoryInterface;
 
 class PolicyRepository implements PolicyRepositoryInterface
@@ -22,7 +24,7 @@ class PolicyRepository implements PolicyRepositoryInterface
     }
     public function all($per_page)
     {
-        $all =  $this->model::all();
+        $all =  $this->model::where('status','!=','Cancelada')->get();
         return CollectionHelper::paginate($all,$per_page);
     }
 
@@ -40,7 +42,9 @@ class PolicyRepository implements PolicyRepositoryInterface
 
     public function delete($id)
     {
-        return $this->model->destroy($id);
+        return $this->model->whereId($id)->update(
+            ['status' => 'Cancelada']
+        );
     }
 
     public function find($id)
@@ -49,11 +53,23 @@ class PolicyRepository implements PolicyRepositoryInterface
         if (null == $policy = $this->model->find($id)) {
             return null;
         }
+        $filesRepository = new FileRepository(new File());
+        $files = $filesRepository->allByModel($policy);
+
+        $policy['documents'] = $files;
         return $policy;
+    }
+
+    public function addCommisionAndPaymentInformation($data, $policy)
+    {
+        $commission_and_information =   PrimeCommissionPolicyInformation::create($data);
+        $commission_and_information->policy()->associate($policy);
     }
 
     public function allNotPaginated()
     {
         // TODO: Implement allNotPaginated() method.
     }
+
+
 }

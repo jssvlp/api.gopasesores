@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\File;
+use App\Helpers\General\DocumentHandler;
+use App\Policy;
+use App\Repositories\FileRepository;
 use App\Repositories\Interfaces\PolicyRepositoryInterface;
 use Illuminate\Http\Request;
 
 class PoliciesController extends Controller
 {
-
     /**
      * @var PolicyRepositoryInterface
      */
@@ -30,7 +33,6 @@ class PoliciesController extends Controller
     }
 
 
-
     /**
      * Store a newly created resource in storage.
      *
@@ -39,10 +41,25 @@ class PoliciesController extends Controller
      */
     public function store(Request $request)
     {
-        $created =$this->repository->create($request->all());
+        $created = $this->repository->create($request->all());
+
+        if($created->id)
+        {
+            $created->genereteInvoinceNumber();
+
+            if($request->has('documents'))
+            {
+                if($request->has('documents')){
+                    $document_handler = new DocumentHandler(new FileRepository(new File()));
+                    $document_handler->addDocuments($request->documents,$created);
+                }
+            }
+        }
+
 
         return response()->json(['success' =>true, 'message' =>'Poliza creada correctamente']);
     }
+
 
     /**
      * Display the specified resource.
@@ -50,9 +67,9 @@ class PoliciesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Policy $policy)
     {
-        //
+        return  $this->repository->find($policy->id);
     }
 
     /**
@@ -60,21 +77,31 @@ class PoliciesController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Policy $policy)
     {
-        //
+        if(!$policy->isActive())
+        {
+            return response()->json(['success' =>false,'message' =>'Esta póliza no puede ser actualizada porque está cancelada']);
+        }
+        $updated = $this->repository->update($request->all(), $policy->id);
+
+        return response()->json(['success' => true, 'message' => 'Poliza actualizada correctamente']);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy($id)
+    public function destroy(Policy $policy)
     {
-        //
+        $destroyed = $this->repository->delete($policy->id);
+
+        return response()->json(['success' => true, 'message' => 'Poliza cancelada correctamente']);
     }
+
+
 }
