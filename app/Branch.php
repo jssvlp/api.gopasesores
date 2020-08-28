@@ -16,6 +16,11 @@ class Branch extends Model
                     ->withTimestamps();
     }
 
+    public function coverages()
+    {
+        return $this->hasMany(Coverage::class);
+    }
+
     public function mainBranch()
     {
         return $this->belongsTo(MainBranch::class);

@@ -15,22 +15,32 @@ class CreatePoliciesTable extends Migration
     {
         Schema::create('policies', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
+            $table->string('policy_number')->nullable();
+            $table->string('invoice_number')->nullable();
             $table->enum('status',['Vencida','Vigente','No renovada','Expedición','Devengada','Cancelada']);
             $table->date('validity_start_date');
             $table->date('validity_end_date');
             $table->boolean('renewable');
-            $table->longText('description_insure_property');
+            $table->longText('description_insured_property');
+            $table->double('insured_amount');
+            $table->enum('currency',['DOP','USD']);
+
+            $table->double('prime');
+            $table->double('isc')->nullable();
+            $table->double('commission_percentage')->nullable();
+            $table->double('commission_percentage_client_owner')->nullable();
+            $table->double('total')->nullable();
+            $table->string('day_of_payment')->nullable();
 
             //Asegurado principal
             $table->unsignedBigInteger('client_id');
-            //Beneficiario secundario
+
+            //Beneficiario secundario, es una persona que no necesariamente es un cliente registrado, sino  una persona externa relacionada al cliente
             $table->string('additional_beneficiary_name');
             $table->string('additional_beneficiary_document');
 
             $table->longText('protected_comment');
             $table->longText('public_comment');
-
 
             $table->unsignedBigInteger('branch_id')->nullable();
 

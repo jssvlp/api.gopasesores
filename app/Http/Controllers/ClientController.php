@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use App\Factories\ClientFactory;
+use App\Helpers\General\DocumentHandler;
 use App\Repositories\ContactRespository;
+use App\Repositories\FileRepository;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
 use App\Repositories\Interfaces\FileRepositoryInterface;
 use App\Repositories\Interfaces\UserRepositoryInterface;
@@ -12,6 +14,7 @@ use App\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use App\File;
 
 class ClientController extends Controller
 {
@@ -115,14 +118,8 @@ class ClientController extends Controller
             $client = $clientRepository->create($clientData);
             if($request->has('documents'))
             {
-                foreach ($request->documents as $document)
-                {
-                    $document['model'] = 'client';
-                    $document['model_id'] = $client->id;
-                    $document = $this->filesrepository->getType($document);
-
-                    $this->filesrepository->create($document);
-                }
+                $document_handler = new DocumentHandler(new FileRepository(new File()));
+                $document_handler->addDocuments($request->documents,$client);
             }
         }
         catch (\Exception $exception)
@@ -198,19 +195,8 @@ class ClientController extends Controller
         $user = $this->userRepository->update($user_data,$client->user_id);
 
         if($request->has('documents')){
-            $documents = $request->documents;
-            foreach ($documents as $document){
-                if(Arr::exists($document,'id')){
-                    $this->filesrepository->update($document['id'],$document);
-                }
-                else{
-                    $document['model'] = 'client';
-                    $document['model_id'] = $client->id;
-                    $document = $this->filesrepository->getType($document);
-
-                    $this->filesrepository->create($document);
-                }
-            }
+            $document_handler = new DocumentHandler(new FileRepository(new File()));
+            $document_handler->addDocuments($request->documents,$client);
         }
 
         return response()->json(['success' =>true,'message' =>'Cliente modificado con éxito'],200);

@@ -17,6 +17,11 @@ class CreatePolicyPaymentsTable extends Migration
             $table->id();
             $table->integer('payment_number');
             $table->date('payment_date');
+
+            $table->enum('payment_type',['Contado','Financiado','Fraccionado']);
+            $table->enum('payment_method',['Efectivo','Tarjeta crédito','Transferencia']);
+            $table->unsignedBigInteger('bank_id')->nullable();
+
             $table->date('limit_payment_date');
             $table->double('value');
             $table->boolean('collected_insurance');

@@ -50,8 +50,9 @@ class FileRepository implements FileRepositoryInterface
     }
 
 
-    public function allByModel($model, $model_id)
+    public function allByModel($model)
     {
-        return $this->file::where('model',$model)->where('model_id',$model_id)->get();
+        $model_name = class_basename($model);
+        return $this->file::where('model',$model_name)->where('model_id',$model->id)->get();
     }
 }
