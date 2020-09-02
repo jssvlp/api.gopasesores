@@ -21,5 +21,17 @@ class BranchSeeder extends Seeder
             $main =  MainBranch::create(['name' =>$branch]);
             $sub = Branch::create(['name' =>$branch,'main_branch_id' => $key +1]);
         }
+
+        //agrega ramo de vehiculos a aseguradora
+        $branch = Branch::find(5);
+        $insurance = \App\Insurance::find(1);
+        $data = [
+                    "isc_percent" => 16.5,
+                    "commission_percentage" => 12,
+                    "multiple_beneficiaries" => false
+            ];
+
+        $branch->commissions()->sync([1 => $data]);
+
     }
 }
