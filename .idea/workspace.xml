@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/BranchSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/BranchSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/PolicyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/PolicyRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +218,7 @@
       <workItem from="1598056108567" duration="6784000" />
       <workItem from="1598118752000" duration="702000" />
       <workItem from="1598204262739" duration="3556000" />
-      <workItem from="1599012299998" duration="4994000" />
+      <workItem from="1599012299998" duration="5692000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' into development&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <created>1594841394525</created>
