@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Branch extends Model
 {
-    protected $fillable = ['name','main_branch_id'];
+    protected $fillable = ['name','main_branch_id','has_detail'];
 
     public function commissions()
     {

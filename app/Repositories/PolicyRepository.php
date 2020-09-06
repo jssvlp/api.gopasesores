@@ -71,15 +71,16 @@ class PolicyRepository implements PolicyRepositoryInterface
         $policy['insurance'] = ['id' => $insurance->id, 'name' => $insurance['name']];
 
         $policy['documents'] = $files;
+
         return $policy;
     }
 
-    private function getInsuranceByBranch($branch)
+    private function getBrachDetail()
     {
 
     }
 
-    public function addCommisionAndPaymentInformation($data, $policy)
+    public function addCommissionAndPaymentInformation($data, $policy)
     {
         $commission_and_information =   PrimeCommissionPolicyInformation::create($data);
         $commission_and_information->policy()->associate($policy);

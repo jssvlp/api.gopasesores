@@ -19,7 +19,7 @@ class BranchSeeder extends Seeder
         foreach ($branches as $key => $branch)
         {
             $main =  MainBranch::create(['name' =>$branch]);
-            $sub = Branch::create(['name' =>$branch,'main_branch_id' => $key +1]);
+            $sub = Branch::create(['name' =>$branch,'main_branch_id' => $key +1,'has_detail' => true]);
         }
 
         //agrega ramo de vehiculos a aseguradora
