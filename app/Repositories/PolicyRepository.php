@@ -4,8 +4,11 @@
 namespace App\Repositories;
 
 
+use App\Branch;
+use App\BranchInsurance;
 use App\File;
 use App\Helpers\General\CollectionHelper;
+use App\Insurance;
 use App\Policy;
 use App\PrimeCommissionPolicyInformation;
 use App\Repositories\Interfaces\PolicyRepositoryInterface;
@@ -61,8 +64,19 @@ class PolicyRepository implements PolicyRepositoryInterface
         $filesRepository = new FileRepository(new File());
         $files = $filesRepository->allByModel($policy);
 
+        $branch = $policy->branch_id;
+
+        $branchInsurance = BranchInsurance::where('branch_id',$branch)->first();
+        $insurance = Insurance::find($branchInsurance->insurance_id);
+        $policy['insurance'] = ['id' => $insurance->id, 'name' => $insurance['name']];
+
         $policy['documents'] = $files;
         return $policy;
+    }
+
+    private function getInsuranceByBranch($branch)
+    {
+
     }
 
     public function addCommisionAndPaymentInformation($data, $policy)
