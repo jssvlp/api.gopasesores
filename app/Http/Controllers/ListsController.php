@@ -6,10 +6,49 @@ use Illuminate\Http\Request;
 
 class ListsController extends Controller
 {
+
+    public function main($list)
+    {
+        $data = [];
+        switch ($list){
+            case 'vehicleTypes':
+                $data =  $this->vehicleTypes();
+                break;
+            case 'brands':
+                $data =  $this->brands();
+                break;
+            case 'models':
+                $data =  $this->models();
+                break;
+            case 'banks':
+                $data =  $this->banks();
+                break;
+            case 'planTypes':
+                $data =  $this->planTypes();
+                break;
+            case 'currencies':
+                $data =  $this->currencies();
+                break;
+            default:
+                $data = null;
+        }
+
+        if(!$data){
+            return response()->json(['success' => false, 'message' =>'No existe una lista con este nombre']);
+        }
+        return response()->json(['success' =>true,'data' =>$data]);
+
+
+    }
+
+    public function currencies()
+    {
+        return ['DOP', 'USD'];
+    }
+
     public function vehicleTypes()
     {
-        $data = ['JEEP', 'AUTOBUS', 'MINIBUS', 'AUTOMOVIL',];
-        return response()->json(['success' =>true, 'data' =>$data]);
+        return ['JEEP', 'AUTOBUS', 'MINIBUS', 'AUTOMOVIL',];
     }
 
     public function brands()
@@ -20,19 +59,16 @@ class ListsController extends Controller
 
     public function models()
     {
-        $data = ['Demio', 'Hilux', 'Corolla', 'Civic',];
-        return response()->json(['success' =>true, 'data' =>$data]);
+       return  ['Demio', 'Hilux', 'Corolla', 'Civic',];
     }
 
     public function banks()
     {
-        $data = ['Banco Popular', 'Banreservas', 'BHD Leon', 'Scotiabank',];
-        return response()->json(['success' =>true, 'data' =>$data]);
+        return ['Banco Popular', 'Banreservas', 'BHD Leon', 'Scotiabank',];
     }
 
     public function planTypes()
     {
-        $data = ['COMPRENSIVO AL 100%','TODO RIESGO','CERO DEDUCIBLE','DAÑOS A TERCEROS','TU PLAN IDEAL'];
-        return response()->json(['success' =>true, 'data' =>$data]);
+        return ['COMPRENSIVO AL 100%','TODO RIESGO','CERO DEDUCIBLE','DAÑOS A TERCEROS','TU PLAN IDEAL'];
     }
 }

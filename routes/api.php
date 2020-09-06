@@ -65,11 +65,14 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::delete('roles/{role}/permission/{permission}','RoleController@revokePermissionToRole');
 
     //Lists
-    Route::get('lists/brands','ListsController@brands');
-    Route::get('lists/models','ListsController@models');
-    Route::get('lists/banks','ListsController@banks');
-    Route::get('lists/vehicleTypes','ListsController@vehicleTypes');
-    Route::get('lists/planTypes','ListsController@planTypes');
+
+
+    Route::get('lists/{type}','ListsController@main');
+   // Route::get('lists/brands','ListsController@brands');
+    //Route::get('lists/models','ListsController@models');
+    //Route::get('lists/banks','ListsController@banks');
+    //Route::get('lists/vehicleTypes','ListsController@vehicleTypes');
+    //Route::get('lists/planTypes','ListsController@planTypes');
 
     //Branchs details
     Route::post('policies/branch/cars/detail','CarBranchPolicyDetailController@cars');
