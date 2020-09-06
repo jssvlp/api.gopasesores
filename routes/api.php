@@ -57,6 +57,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('branches/commission/{commission_id}','BranchController@updateInsuranceCommission');
     Route::get('insurances/{id}/branches','InsuranceController@getBranches');
     Route::get('employees/user/{id}','EmployeeController@getEmployeeByUser');
+    Route::get('statistics','StatisticsController@index');
 
 
     //1.1Roles

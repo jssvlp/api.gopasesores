@@ -15,7 +15,7 @@ class CreatePoliciesTable extends Migration
     {
         Schema::create('policies', function (Blueprint $table) {
             $table->id();
-            $table->string('policy_number')->nullable();
+            $table->string('policy_number');
             $table->string('invoice_number')->nullable();
             $table->enum('status',['Vencida','Vigente','No renovada','Expedición','Devengada','Cancelada']);
             $table->date('validity_start_date');
@@ -36,13 +36,13 @@ class CreatePoliciesTable extends Migration
             $table->unsignedBigInteger('client_id');
 
             //Beneficiario secundario, es una persona que no necesariamente es un cliente registrado, sino  una persona externa relacionada al cliente
-            $table->string('additional_beneficiary_name');
-            $table->string('additional_beneficiary_document');
+            $table->string('additional_beneficiary_name')->nullable();
+            $table->string('additional_beneficiary_document')->nullable();
 
-            $table->longText('protected_comment');
-            $table->longText('public_comment');
+            $table->longText('protected_comment')->nullable();
+            $table->longText('public_comment')->nullable();
 
-            $table->unsignedBigInteger('branch_id')->nullable();
+            $table->unsignedBigInteger('branch_id');
 
             //Foreign
             $table->foreign('branch_id')->references('id')->on('branches');
