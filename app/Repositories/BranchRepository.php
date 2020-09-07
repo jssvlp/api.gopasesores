@@ -110,4 +110,11 @@ class BranchRepository implements BranchRepositoryInterface
 
         return  $result != null ? true: false;
     }
+
+
+
+    public function addPolicyBranchDetail($policy, $branch_detail)
+    {
+
+    }
 }

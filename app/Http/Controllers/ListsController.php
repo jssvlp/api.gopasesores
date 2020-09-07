@@ -54,7 +54,7 @@ class ListsController extends Controller
     public function brands()
     {
         $data = ['Mazda', 'Toyota', 'Honda', 'Mercedes Benz',];
-        return response()->json(['success' =>true, 'data' =>$data]);
+        return $data;
     }
 
     public function models()

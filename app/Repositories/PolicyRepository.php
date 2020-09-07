@@ -80,10 +80,9 @@ class PolicyRepository implements PolicyRepositoryInterface
 
     }
 
-    public function addCommissionAndPaymentInformation($data, $policy)
+    private function addBranchDetail($policy, $branc_detail)
     {
-        $commission_and_information =   PrimeCommissionPolicyInformation::create($data);
-        $commission_and_information->policy()->associate($policy);
+
     }
 
     public function allNotPaginated()
