@@ -47,6 +47,11 @@ class PoliciesController extends Controller
         {
             $created->genereteInvoinceNumber();
 
+            if($request->has('branch_detail'))
+            {
+
+            }
+
             if($request->has('documents'))
             {
                 if($request->has('documents')){
