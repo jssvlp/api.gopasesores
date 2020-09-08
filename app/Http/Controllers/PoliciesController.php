@@ -10,6 +10,7 @@ use App\Repositories\FileRepository;
 use App\Repositories\Interfaces\IBranchRepository;
 use App\Repositories\Interfaces\IPolicyRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class PoliciesController extends Controller
 {
@@ -67,12 +68,9 @@ class PoliciesController extends Controller
 
             }
 
-            if($request->has('documents'))
-            {
-                if($request->has('documents')){
-                    $document_handler = new DocumentHandler(new FileRepository(new File()));
-                    $document_handler->addDocuments($request->documents,$created);
-                }
+            if($request->has('documents')){
+                $document_handler = new DocumentHandler(new FileRepository(new File()));
+                $document_handler->addDocuments($request->documents,$created);
             }
         }
 
@@ -113,7 +111,36 @@ class PoliciesController extends Controller
         {
             return response()->json(['success' =>false,'message' =>'Esta póliza no puede ser actualizada porque está cancelada']);
         }
-        $updated = $this->policyRepository->update($request->all(), $policy->id);
+
+        $policy_data = $request->except(['insurance','documents','branch_detail']);
+        unset($policy_data['id']);
+
+        $updated = $this->policyRepository->update($policy_data, $policy->id);
+
+        if($request->has('documents')){
+            $document_handler = new DocumentHandler(new FileRepository(new File()));
+            $document_handler->addDocuments($request->documents,$policy);
+        }
+
+
+        if($request->has('branch_detail'))
+        {
+            $branch_detail_type = $this->branchRepository->getBranchType($policy->branch_id);
+            $detailRepository = $policy->getBranchDetailRepository($branch_detail_type);
+            $detail = $request->branch_detail;
+
+            //update else create
+            if(Arr::exists($detail,'id'))
+            {
+                $id = $detail['id'];
+                unset($detail['id']);
+                $detailRepository->update($id, $detail);
+            }
+            else{
+                 $detailRepository->add($detail);
+            }
+
+        }
 
         return response()->json(['success' => true, 'message' => 'Poliza actualizada correctamente']);
     }
