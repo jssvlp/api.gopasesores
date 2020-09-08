@@ -32,6 +32,7 @@ class CreatePoliciesTable extends Migration
             $table->double('total')->nullable();
             $table->string('day_of_payment')->nullable();
 
+
             //Asegurado principal
             $table->unsignedBigInteger('client_id');
 

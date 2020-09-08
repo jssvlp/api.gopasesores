@@ -5,20 +5,27 @@ namespace App\Http\Controllers;
 use App\File;
 use App\Helpers\General\DocumentHandler;
 use App\Policy;
+use App\Repositories\BranchDetailRepository;
 use App\Repositories\FileRepository;
-use App\Repositories\Interfaces\PolicyRepositoryInterface;
+use App\Repositories\Interfaces\IBranchRepository;
+use App\Repositories\Interfaces\IPolicyRepository;
 use Illuminate\Http\Request;
 
 class PoliciesController extends Controller
 {
     /**
-     * @var PolicyRepositoryInterface
+     * @var IPolicyRepository
      */
-    private $repository;
+    private $policyRepository;
+    /**
+     * @var IBranchRepository
+     */
+    private $branchRepository;
 
-    public function __construct(PolicyRepositoryInterface $repository)
+    public function __construct(IPolicyRepository $policyRepository, IBranchRepository $branchRepository)
     {
-        $this->repository = $repository;
+        $this->branchRepository = $branchRepository;
+        $this->policyRepository = $policyRepository;
     }
 
     /**
@@ -29,7 +36,7 @@ class PoliciesController extends Controller
     public function index()
     {
         $per_page = request('per_page');
-        return $this->repository->all($per_page ? $per_page : 10);
+        return $this->policyRepository->all($per_page ? $per_page : 10);
     }
 
 
@@ -41,7 +48,10 @@ class PoliciesController extends Controller
      */
     public function store(Request $request)
     {
-        $created = $this->repository->create($request->all());
+        $branch_detail_type = $this->branchRepository->getBranchType($request->branch_id);
+        $request['branch_detail_type'] = $branch_detail_type;
+
+        $created = $this->policyRepository->create($request->all());
 
         if($created->id)
         {
@@ -49,6 +59,11 @@ class PoliciesController extends Controller
 
             if($request->has('branch_detail'))
             {
+                $detailRepository = $created->getBranchDetailRepository($branch_detail_type);
+                $branch_detail = $request->branch_detail;
+                $branch_detail['policy_id'] = $created->id;
+
+                $result = $detailRepository->add($branch_detail);
 
             }
 
@@ -74,7 +89,15 @@ class PoliciesController extends Controller
      */
     public function show(Policy $policy)
     {
-        return  $this->repository->find($policy->id);
+        $branch_detail_type = $this->branchRepository->getBranchType($policy->branch_id);
+        $detailRepository = $policy->getBranchDetailRepository($branch_detail_type);
+
+        $detail = $detailRepository->get($policy->id);
+
+        $policy = $this->policyRepository->find($policy->id);
+        $policy['branch_detail'] = $detail;
+
+        return $policy;
     }
 
     /**
@@ -90,7 +113,7 @@ class PoliciesController extends Controller
         {
             return response()->json(['success' =>false,'message' =>'Esta póliza no puede ser actualizada porque está cancelada']);
         }
-        $updated = $this->repository->update($request->all(), $policy->id);
+        $updated = $this->policyRepository->update($request->all(), $policy->id);
 
         return response()->json(['success' => true, 'message' => 'Poliza actualizada correctamente']);
     }
@@ -103,7 +126,7 @@ class PoliciesController extends Controller
      */
     public function destroy(Policy $policy)
     {
-        $destroyed = $this->repository->delete($policy->id);
+        $destroyed = $this->policyRepository->delete($policy->id);
 
         return response()->json(['success' => true, 'message' => 'Poliza cancelada correctamente']);
     }

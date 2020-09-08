@@ -9,11 +9,11 @@ use App\BranchInsurance;
 use App\Exceptions\DuplicateRegistryException;
 use App\Helpers\General\CollectionHelper;
 use App\Insurance;
-use App\Repositories\Interfaces\BranchRepositoryInterface;
+use App\Repositories\Interfaces\IBranchRepository;
 use Illuminate\Support\Facades\DB;
 
 
-class BranchRepository implements BranchRepositoryInterface
+class BranchRepository implements IBranchRepository
 {
 
     private $model;
@@ -112,9 +112,12 @@ class BranchRepository implements BranchRepositoryInterface
     }
 
 
-
-    public function addPolicyBranchDetail($policy, $branch_detail)
+    public function getBranchType($branch_id)
     {
-
+        $branch = $this->find($branch_id);
+        if(!$branch || !$branch->has_detail){
+            return null;
+        }
+        return str_slug($branch->name, '-');
     }
 }

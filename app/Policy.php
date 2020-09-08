@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Repositories\BranchDetailCarsRepository;
 use Illuminate\Database\Eloquent\Model;
 
 class Policy extends Model
@@ -10,7 +11,14 @@ class Policy extends Model
         'renewable','description_insured_property','client_id','additional_beneficiary_name',
         'additional_beneficiary_document','protected_comment','public_comment','branch_id',
         'insured_amount','currency','total','prime','isc','commission_percentage',
-        'commission_percentage_client_owner','day_of_payment',''];
+        'commission_percentage_client_owner','day_of_payment',];
+
+
+
+    public function carBranchPolicyDetail()
+    {
+        return $this->hasOne(CarBranchPolicyDetail::class);
+    }
 
 
     public  function genereteInvoinceNumber()
@@ -23,5 +31,17 @@ class Policy extends Model
     public function isActive()
     {
         return $this->status != 'Cancelada';
+    }
+
+
+    public function getBranchDetailRepository($branch_detail_type)
+    {
+        switch ($branch_detail_type){
+            case 'vehiculos-de-motor':
+                return new BranchDetailCarsRepository(new CarBranchPolicyDetail());
+            default:
+                return null;
+                break;
+        }
     }
 }

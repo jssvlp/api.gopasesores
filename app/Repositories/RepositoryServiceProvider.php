@@ -44,13 +44,18 @@ class RepositoryServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
-            'App\Repositories\Interfaces\PolicyRepositoryInterface',
+            'App\Repositories\Interfaces\IPolicyRepository',
             'App\Repositories\PolicyRepository'
         );
 
         $this->app->bind(
             'App\Repositories\Interfaces\StatisticsRepositoryInterface',
             'App\Repositories\StatisticsRepository'
+        );
+
+        $this->app->bind(
+            'App\Repositories\Interfaces\IBranchRepository',
+            'App\Repositories\BranchRepository'
         );
     }
 }
