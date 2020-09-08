@@ -27,6 +27,11 @@ class CreateCarBranchPolicyDetailsTable extends Migration
             $table->double('inferable')->nullable();
             $table->string('endorsement_of_assignment'); //Lista de bancos;
             $table->string('plan_type'); //Lista de planes
+            $table->unsignedBigInteger('policy_id');
+
+            $table->foreign('policy_id')->references('id')->on('policies');
+
+
             $table->timestamps();
         });
     }

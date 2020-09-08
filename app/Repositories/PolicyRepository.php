@@ -11,11 +11,11 @@ use App\Helpers\General\CollectionHelper;
 use App\Insurance;
 use App\Policy;
 use App\PrimeCommissionPolicyInformation;
-use App\Repositories\Interfaces\PolicyRepositoryInterface;
+use App\Repositories\Interfaces\IPolicyRepository;
 
 use Illuminate\Support\Facades\DB;
 
-class PolicyRepository implements PolicyRepositoryInterface
+class PolicyRepository implements IPolicyRepository
 {
 
     /**
@@ -63,6 +63,8 @@ class PolicyRepository implements PolicyRepositoryInterface
         }
         $filesRepository = new FileRepository(new File());
         $files = $filesRepository->allByModel($policy);
+
+
 
         $branch = $policy->branch_id;
 
