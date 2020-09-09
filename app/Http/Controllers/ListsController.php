@@ -29,6 +29,9 @@ class ListsController extends Controller
             case 'currencies':
                 $data =  $this->currencies();
                 break;
+            case 'policyStatus':
+                $data =  $this->policyStatus();
+                break;
             default:
                 $data = null;
         }
