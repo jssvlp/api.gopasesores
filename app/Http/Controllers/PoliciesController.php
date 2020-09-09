@@ -57,11 +57,12 @@ class PoliciesController extends Controller
         if($created->id)
         {
             $created->genereteInvoinceNumber();
+            $branch_detail = $request->branch_detail;
 
-            if($request->has('branch_detail'))
+            if($branch_detail)
             {
                 $detailRepository = $created->getBranchDetailRepository($branch_detail_type);
-                $branch_detail = $request->branch_detail;
+
                 $branch_detail['policy_id'] = $created->id;
 
                 $result = $detailRepository->add($branch_detail);
@@ -121,13 +122,13 @@ class PoliciesController extends Controller
             $document_handler = new DocumentHandler(new FileRepository(new File()));
             $document_handler->addDocuments($request->documents,$policy);
         }
+        $detail = $request->branch_detail;
 
-
-        if($request->has('branch_detail'))
+        if($detail)
         {
             $branch_detail_type = $this->branchRepository->getBranchType($policy->branch_id);
             $detailRepository = $policy->getBranchDetailRepository($branch_detail_type);
-            $detail = $request->branch_detail;
+
 
             //update else create
             if(Arr::exists($detail,'id'))
