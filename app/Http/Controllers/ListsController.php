@@ -41,6 +41,11 @@ class ListsController extends Controller
 
     }
 
+    public function policyStatus()
+    {
+        return ['Vencida','Vigente','No renovada','Expedición','Devengada','Cancelada'];
+    }
+
     public function currencies()
     {
         return ['DOP', 'USD'];
