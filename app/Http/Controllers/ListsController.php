@@ -29,6 +29,9 @@ class ListsController extends Controller
             case 'currencies':
                 $data =  $this->currencies();
                 break;
+            case 'policyStatus':
+                $data =  $this->policyStatus();
+                break;
             default:
                 $data = null;
         }
@@ -39,6 +42,11 @@ class ListsController extends Controller
         return response()->json(['success' =>true,'data' =>$data]);
 
 
+    }
+
+    public function policyStatus()
+    {
+        return ['Vencida','Vigente','No renovada','Expedición','Devengada','Cancelada'];
     }
 
     public function currencies()

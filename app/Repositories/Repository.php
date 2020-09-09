@@ -5,10 +5,10 @@ namespace App\Repositories;
 
 
 use App\Helpers\General\CollectionHelper;
-use App\Repositories\Interfaces\RepositoryInterface;
+use App\Repositories\Interfaces\IRepository;
 use Illuminate\Database\Eloquent\Model;
 
-class Repository implements RepositoryInterface
+class Repository implements IRepository
 {
 
     /**

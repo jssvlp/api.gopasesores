@@ -5,10 +5,10 @@ namespace App\Repositories;
 
 
 use App\Helpers\General\CollectionHelper;
-use App\Repositories\Interfaces\PermissionRepositoryInterface;
+use App\Repositories\Interfaces\IPermissionRepository;
 use Spatie\Permission\Models\Permission;
 
-class PermissionRepository implements PermissionRepositoryInterface
+class PermissionRepository implements IPermissionRepository
 {
     /**
      * @var Permission

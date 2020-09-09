@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCarBranchPolicyDetailsTable extends Migration
+class CreateBranchDetailCarsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCarBranchPolicyDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('car_branch_policy_details', function (Blueprint $table) {
+        Schema::create('branch_detail_cars', function (Blueprint $table) {
             $table->id();
             $table->string('vehicle_type'); //Lista de tipo de vehiculos
             $table->string('brand'); //Lista de marcas
@@ -43,6 +43,6 @@ class CreateCarBranchPolicyDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('car_branch_policy_details');
+        Schema::dropIfExists('branch_detail_cars');
     }
 }

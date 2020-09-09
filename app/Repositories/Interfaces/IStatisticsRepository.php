@@ -4,7 +4,7 @@
 namespace App\Repositories\Interfaces;
 
 
-interface StatisticsRepositoryInterface
+interface IStatisticsRepository
 {
     public function all();
 }

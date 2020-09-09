@@ -6,9 +6,9 @@ namespace App\Repositories;
 
 use App\Employee;
 use App\Helpers\General\CollectionHelper;
-use App\Repositories\Interfaces\EmployeeRepositoryInterface;
+use App\Repositories\Interfaces\IEmployeeRepository;
 
-class EmployeeRepository implements EmployeeRepositoryInterface
+class EmployeeRepository implements IEmployeeRepository
 {
     /**
      * @var Employee

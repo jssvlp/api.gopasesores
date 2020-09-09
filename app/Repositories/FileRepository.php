@@ -6,9 +6,9 @@ namespace App\Repositories;
 
 use App\Client;
 use App\File;
-use App\Repositories\Interfaces\FileRepositoryInterface;
+use App\Repositories\Interfaces\IFileRepository;
 
-class FileRepository implements FileRepositoryInterface
+class FileRepository implements IFileRepository
 {
     /**
      * @var File

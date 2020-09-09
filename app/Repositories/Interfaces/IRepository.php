@@ -4,7 +4,7 @@
 namespace App\Repositories\Interfaces;
 
 
-interface RepositoryInterface
+interface IRepository
 {
     public function all($per_page);
 

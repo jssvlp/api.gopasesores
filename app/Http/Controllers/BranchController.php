@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Branch;
 use App\MainBranch;
 use App\Repositories\BranchRepository;
-use App\Repositories\Interfaces\IBranchRepository;
+use App\Repositories\Interfaces\IBranchIRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -16,7 +16,7 @@ class BranchController extends Controller
      */
     private $repository;
 
-    public function __construct(IBranchRepository $branchRepository)
+    public function __construct(IBranchIRepository $branchRepository)
     {
         $this->repository = $branchRepository;
     }

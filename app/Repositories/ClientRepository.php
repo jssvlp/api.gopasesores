@@ -8,11 +8,11 @@ use App\Client;
 use App\Contact;
 use App\File;
 use App\Helpers\General\CollectionHelper;
-use App\Repositories\Interfaces\ClientRepositoryInterface;
+use App\Repositories\Interfaces\IClientRepository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class ClientRepository implements ClientRepositoryInterface
+class ClientRepository implements IClientRepository
 {
 
     protected $model;

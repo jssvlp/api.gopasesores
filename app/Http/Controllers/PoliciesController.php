@@ -7,7 +7,7 @@ use App\Helpers\General\DocumentHandler;
 use App\Policy;
 use App\Repositories\BranchDetailRepository;
 use App\Repositories\FileRepository;
-use App\Repositories\Interfaces\IBranchRepository;
+use App\Repositories\Interfaces\IBranchIRepository;
 use App\Repositories\Interfaces\IPolicyRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -19,11 +19,11 @@ class PoliciesController extends Controller
      */
     private $policyRepository;
     /**
-     * @var IBranchRepository
+     * @var IBranchIRepository
      */
     private $branchRepository;
 
-    public function __construct(IPolicyRepository $policyRepository, IBranchRepository $branchRepository)
+    public function __construct(IPolicyRepository $policyRepository, IBranchIRepository $branchRepository)
     {
         $this->branchRepository = $branchRepository;
         $this->policyRepository = $policyRepository;

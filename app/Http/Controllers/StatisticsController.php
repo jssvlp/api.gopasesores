@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Interfaces\StatisticsRepositoryInterface;
+use App\Repositories\Interfaces\IStatisticsRepository;
 use Illuminate\Http\Request;
 
 class StatisticsController extends Controller
 {
-    public function __construct(StatisticsRepositoryInterface $repository)
+    public function __construct(IStatisticsRepository $repository)
     {
         $this->repository = $repository;
     }

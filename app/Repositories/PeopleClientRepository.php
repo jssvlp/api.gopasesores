@@ -6,12 +6,12 @@ namespace App\Repositories;
 
 use App\Client;
 use App\People;
-use App\Repositories\Interfaces\ClientRepositoryInterface;
+use App\Repositories\Interfaces\IClientRepository;
 use App\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Arr;
 
-class ClientPeopleRepository implements ClientRepositoryInterface
+class PeopleClientRepository implements IClientRepository
 {
     protected $model;
 

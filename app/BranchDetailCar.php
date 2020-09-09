@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CarBranchPolicyDetail extends Model
+class BranchDetailCar extends Model
 {
     protected   $fillable = ['vehicle_type','brand','model','year','chassis','registry','passengers_quantity',
         'cylinders','tons','inferable','endorsement_of_assignment','plan_type','policy_id'];

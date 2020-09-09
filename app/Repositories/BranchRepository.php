@@ -9,11 +9,11 @@ use App\BranchInsurance;
 use App\Exceptions\DuplicateRegistryException;
 use App\Helpers\General\CollectionHelper;
 use App\Insurance;
-use App\Repositories\Interfaces\IBranchRepository;
+use App\Repositories\Interfaces\IBranchIRepository;
 use Illuminate\Support\Facades\DB;
 
 
-class BranchRepository implements IBranchRepository
+class BranchRepository implements IBranchIRepository
 {
 
     private $model;

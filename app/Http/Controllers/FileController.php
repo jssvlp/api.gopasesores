@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Client;
-use App\Repositories\Interfaces\FileRepositoryInterface;
+use App\Repositories\Interfaces\IFileRepository;
 use Illuminate\Http\Request;
 
 class FileController extends Controller
@@ -11,14 +11,14 @@ class FileController extends Controller
     private $image_ext = ['jpg', 'jpeg', 'png', 'gif'];
     private $document_ext = ['doc', 'docx', 'pdf', 'odt'];
     /**
-     * @var FileRepositoryInterface
+     * @var IFileRepository
      */
     private $repository;
 
     /**
      * Constructor
      */
-    public function __construct(FileRepositoryInterface $repository)
+    public function __construct(IFileRepository $repository)
     {
         $this->repository = $repository;
 //        $this->middleware('auth');
@@ -61,5 +61,13 @@ class FileController extends Controller
                 $data[] = $name;
             }
         }
+    }
+
+    public function delete($id)
+    {
+        $this->repository->delete($id);
+
+
+        return response()->json(['success' => true,'message' =>'Archivo eliminado correctamente']);
     }
 }

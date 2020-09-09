@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Employee;
-use App\Repositories\Interfaces\EmployeeRepositoryInterface;
-use App\Repositories\Interfaces\UserRepositoryInterface;
+use App\Repositories\Interfaces\IEmployeeRepository;
+use App\Repositories\Interfaces\IUserRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -13,11 +13,11 @@ class EmployeeController extends Controller
 {
 
     /**
-     * @var EmployeeRepositoryInterface
+     * @var IEmployeeRepository
      */
     private $repository;
 
-    public function __construct(EmployeeRepositoryInterface $repository, UserRepositoryInterface $userRepository)
+    public function __construct(IEmployeeRepository $repository, IUserRepository $userRepository)
     {
         $this->repository = $repository;
         $this->userRepository = $userRepository;
