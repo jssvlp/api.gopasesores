@@ -20,11 +20,12 @@ class StatisticsRepository implements IStatisticsRepository
         $clients = $this->clients();
         $birthdays = $this->clientsBirthdayOnThisWeek();
         $policies = $this->policies();
+        $commissioners = $this->commissioners();
 
-        return ['clients' => $clients, 'birthdays' => $birthdays,'policies' => $policies];
+        return ['clients' => $clients, 'birthdays' => $birthdays,'policies' => $policies, 'commissioners' =>$commissioners];
     }
 
-    public function clients(){
+    private function clients(){
         $clients = Client::all()->count();
         $peoples = People::all()->count();
         $companies = Company::all()->count();
@@ -48,7 +49,7 @@ class StatisticsRepository implements IStatisticsRepository
         ];
     }
 
-    public function clientsBirthdayOnThisWeek()
+    private function clientsBirthdayOnThisWeek()
     {
         $month = Carbon::now()->month;
 
@@ -58,7 +59,7 @@ class StatisticsRepository implements IStatisticsRepository
             ->get();
     }
 
-    public function policies()
+    private function policies()
     {
         $total = Policy::all()->count();
 
@@ -91,5 +92,16 @@ class StatisticsRepository implements IStatisticsRepository
             'by_branches' => $byBranches,
             'with_opened_sinister' => $withOpenedSinister[0]->withOpenedSinister
         ];
+    }
+
+    private function commissioners()
+    {
+        $total =  DB::table('employees')
+            ->select(DB::raw('count(employees.id) as cnt'))
+            ->where('commissioner','=', 1)
+            ->get();
+
+        return  $total[0]->cnt;
+
     }
 }
