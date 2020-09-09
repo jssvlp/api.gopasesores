@@ -17,7 +17,7 @@ class Policy extends Model
 
     public function carBranchPolicyDetail()
     {
-        return $this->hasOne(CarBranchPolicyDetail::class);
+        return $this->hasOne(BranchDetailCar::class);
     }
 
 
@@ -38,7 +38,7 @@ class Policy extends Model
     {
         switch ($branch_detail_type){
             case 'vehiculos-de-motor':
-                return new BranchDetailCarsRepository(new CarBranchPolicyDetail());
+                return new BranchDetailCarsRepository(new BranchDetailCar());
             default:
                 return null;
                 break;

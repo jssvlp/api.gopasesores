@@ -8,11 +8,11 @@ use App\Client;
 use App\Company;
 use App\People;
 use App\Policy;
-use App\Repositories\Interfaces\StatisticsRepositoryInterface;
+use App\Repositories\Interfaces\IStatisticsRepository;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
-class StatisticsRepository implements StatisticsRepositoryInterface
+class StatisticsRepository implements IStatisticsRepository
 {
 
     public function all()

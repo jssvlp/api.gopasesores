@@ -6,7 +6,7 @@ namespace App\Repositories\Interfaces;
 
 use App\User;
 
-interface UserRepositoryInterface extends RepositoryInterface
+interface IUserRepository extends IRepository
 {
     public function activate(int $id );
     public function deactivate(int $id);

@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Interfaces\RepositoryInterface;
+use App\Repositories\Interfaces\IRepository;
 use App\Route;
 use Illuminate\Http\Request;
 
 class RouteController extends Controller
 {
     /**
-     * @var RepositoryInterface
+     * @var IRepository
      */
     private $repository;
 
-    public function __construct(RepositoryInterface $repository)
+    public function __construct(IRepository $repository)
     {
         $this->repository = $repository;
     }

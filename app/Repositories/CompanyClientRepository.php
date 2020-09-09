@@ -6,9 +6,9 @@ namespace App\Repositories;
 
 use App\Client;
 use App\Company;
-use App\Repositories\Interfaces\ClientRepositoryInterface;
+use App\Repositories\Interfaces\IClientRepository;
 
-class ClientCompanyRepository implements ClientRepositoryInterface
+class CompanyClientRepository implements IClientRepository
 {
     protected  $client;
 

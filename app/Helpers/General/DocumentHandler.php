@@ -6,18 +6,18 @@ namespace App\Helpers\General;
 
 use App\File;
 use App\Repositories\FileRepository;
-use App\Repositories\Interfaces\FileRepositoryInterface;
+use App\Repositories\Interfaces\IFileRepository;
 use Illuminate\Support\Arr;
 
 class DocumentHandler
 {
 
     /**
-     * @var FileRepositoryInterface
+     * @var IFileRepository
      */
     private $repository;
 
-    public function __construct(FileRepositoryInterface $fileRepository)
+    public function __construct(IFileRepository $fileRepository)
     {
         $this->repository = $fileRepository;
     }

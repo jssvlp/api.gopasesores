@@ -6,7 +6,7 @@ namespace App\Repositories\Interfaces;
 
 use App\Client;
 
-interface FileRepositoryInterface
+interface IFileRepository
 {
     public function all();
     public function allByModel($model);

@@ -4,12 +4,12 @@
 namespace App\Repositories;
 
 
-use App\Repositories\Interfaces\UserRepositoryInterface;
+use App\Repositories\Interfaces\IUserRepository;
 use App\User;
 use Illuminate\Support\Arr;
 use Spatie\Permission\Models\Role;
 
-class UserRepository implements UserRepositoryInterface
+class UserRepository implements IUserRepository
 {
     protected $model;
 

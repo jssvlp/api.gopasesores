@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Interfaces\RepositoryInterface;
-use App\Repositories\Interfaces\RoleRepositoryInterface;
+use App\Repositories\Interfaces\IRepository;
+use App\Repositories\Interfaces\IRoleRepository;
 use App\Repositories\PermissionRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -15,11 +15,11 @@ class RoleController extends Controller
 {
 
     /**
-     * @var RepositoryInterface
+     * @var IRepository
      */
     private $repository;
 
-    public function __construct(RoleRepositoryInterface $repository)
+    public function __construct(IRoleRepository $repository)
     {
         $this->repository = $repository;
     }

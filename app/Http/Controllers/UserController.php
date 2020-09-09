@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Interfaces\UserRepositoryInterface;
+use App\Repositories\Interfaces\IUserRepository;
 use App\Repositories\UserRepository;
 use App\User;
 use Illuminate\Http\Request;
@@ -11,7 +11,7 @@ class UserController extends Controller
 {
 
     protected $repository;
-    public function __construct(UserRepositoryInterface $repository)
+    public function __construct(IUserRepository $repository)
     {
         $this->repository = $repository;
     }

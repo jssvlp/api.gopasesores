@@ -8,9 +8,9 @@ use App\Client;
 use App\Company;
 use App\ClientPartnership;
 use App\People;
-use App\Repositories\ClientCompanyRepository;
+use App\Repositories\CompanyClientRepository;
 use App\Repositories\ClientPartnershipRepository;
-use App\Repositories\ClientPeopleRepository;
+use App\Repositories\PeopleClientRepository;
 
 class ClientFactory
 {
@@ -18,11 +18,11 @@ class ClientFactory
     {
         if($type == "people")
         {
-            return new ClientPeopleRepository(new People());
+            return new PeopleClientRepository(new People());
         }
         elseif ($type == "company")
         {
-            return new ClientCompanyRepository(new Company());
+            return new CompanyClientRepository(new Company());
         }
         return null;
 

@@ -6,10 +6,10 @@ namespace App\Repositories;
 
 use App\Helpers\General\CollectionHelper;
 use App\Insurance;
-use App\Repositories\Interfaces\InsuranceRepositoryInterface;
+use App\Repositories\Interfaces\IInsuranceRepository;
 
 
-class InsuranceRepository implements  InsuranceRepositoryInterface
+class InsuranceRepository implements  IInsuranceRepository
 {
 
     /**

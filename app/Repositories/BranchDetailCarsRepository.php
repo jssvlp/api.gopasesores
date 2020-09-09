@@ -4,7 +4,7 @@
 namespace App\Repositories;
 
 
-use App\CarBranchPolicyDetail;
+use App\BranchDetailCar;
 use App\Repositories\Interfaces\IBranchDetailRepository;
 
 class BranchDetailCarsRepository implements IBranchDetailRepository
@@ -15,7 +15,7 @@ class BranchDetailCarsRepository implements IBranchDetailRepository
      */
     private $model;
 
-    public function __construct(CarBranchPolicyDetail $model)
+    public function __construct(BranchDetailCar $model)
     {
         $this->model = $model;
     }

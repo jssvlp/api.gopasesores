@@ -58,6 +58,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('insurances/{id}/branches','InsuranceController@getBranches');
     Route::get('employees/user/{id}','EmployeeController@getEmployeeByUser');
     Route::get('statistics','StatisticsController@index');
+    Route::delete('files/{id}   ','FileController@delete');
 
 
     //1.1Roles

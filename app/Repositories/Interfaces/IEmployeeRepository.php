@@ -4,7 +4,6 @@
 namespace App\Repositories\Interfaces;
 
 
-interface IPolicyRepository extends IRepository
+interface IEmployeeRepository extends IRepository
 {
-
 }

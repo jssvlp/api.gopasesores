@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Interfaces\PermissionRepositoryInterface;
-use App\Repositories\Interfaces\RepositoryInterface;
+use App\Repositories\Interfaces\IPermissionRepository;
+use App\Repositories\Interfaces\IRepository;
 use App\Repositories\PermissionRepository;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -12,11 +12,11 @@ class PermissionController extends Controller
 {
 
     /**
-     * @var RepositoryInterface
+     * @var IRepository
      */
     private $repository;
 
-    public function  __construct(PermissionRepositoryInterface $repository)
+    public function  __construct(IPermissionRepository $repository)
     {
         $this->repository = $repository;
     }

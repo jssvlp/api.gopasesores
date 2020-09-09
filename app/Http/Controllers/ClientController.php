@@ -7,9 +7,9 @@ use App\Factories\ClientFactory;
 use App\Helpers\General\DocumentHandler;
 use App\Repositories\ContactRespository;
 use App\Repositories\FileRepository;
-use App\Repositories\Interfaces\ClientRepositoryInterface;
-use App\Repositories\Interfaces\FileRepositoryInterface;
-use App\Repositories\Interfaces\UserRepositoryInterface;
+use App\Repositories\Interfaces\IClientRepository;
+use App\Repositories\Interfaces\IFileRepository;
+use App\Repositories\Interfaces\IUserRepository;
 use App\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -19,7 +19,7 @@ use App\File;
 class ClientController extends Controller
 {
 
-    /** @var ClientRepositoryInterface */
+    /** @var IClientRepository */
     private $clientRepository;
     private $userRepository;
     /**
@@ -27,16 +27,16 @@ class ClientController extends Controller
      */
     private $contactRepository;
     /**
-     * @var FileRepositoryInterface
+     * @var IFileRepository
      */
     private $filesrepository;
 
     /**
      * ClientController constructor.
-     * @param ClientRepositoryInterface $clientRepository
-     * @param UserRepositoryInterface $userRepository
+     * @param IClientRepository $clientRepository
+     * @param IUserRepository $userRepository
      */
-    public function __construct(ClientRepositoryInterface $clientRepository, UserRepositoryInterface $userRepository, ContactRespository $contactRespository, FileRepositoryInterface $filesrepository)
+    public function __construct(IClientRepository $clientRepository, IUserRepository $userRepository, ContactRespository $contactRespository, IFileRepository $filesrepository)
     {
         $this->clientRepository = $clientRepository;
         $this->userRepository = $userRepository;

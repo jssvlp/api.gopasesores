@@ -2,8 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/IEmployeeRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/IInsuranceRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/IPermissionRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/IPrimeCommissionRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/IRoleRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/ISinisterIRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_08_231047_create_branch_detail_cars_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/CarBranchPolicyDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/BranchDetailCar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Factories/ClientFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Factories/ClientFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/General/DocumentHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/General/DocumentHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BranchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BranchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InsuranceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InsuranceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PermissionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PermissionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PoliciesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PoliciesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RouteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RouteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StatisticsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StatisticsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/BranchDetailCarsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BranchDetailCarsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/BranchRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BranchRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ClientCompanyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/CompanyClientRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ClientPeopleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/PeopleClientRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ClientRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ClientRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ContactRespository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ContactRespository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/EmployeeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/EmployeeRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/FileRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/FileRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/InsuranceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/InsuranceRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/ClientRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/IClientRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/EmployeeRepositoryInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/FileRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/IFileRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/IBranchRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/IBranchIRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/IPolicyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/IPolicyRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/InsuranceRepositoryInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/PermissionRepositoryInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/PrimeCommissionRepositoryInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/RepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/IRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/RoleRepositoryInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/StatisticsRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/IStatisticsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/UserRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/IUserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/PermissionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/PermissionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/PolicyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/PolicyPolicyRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/PrimeCommissionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/PrimeCommissionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Repository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Repository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/RepositoryServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/RepositoryServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/RoleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/RoleRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/StatisticsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/StatisticsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_22_015749_create_car_branch_policy_details_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +272,8 @@
       <workItem from="1598118752000" duration="702000" />
       <workItem from="1598204262739" duration="3556000" />
       <workItem from="1599012299998" duration="8096000" />
-      <workItem from="1599402295269" duration="28811000" />
+      <workItem from="1599402295269" duration="33181000" />
+      <workItem from="1599609071456" duration="1696000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' into development&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <created>1594841394525</created>
@@ -257,10 +310,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="274" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1599574049058" />
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1599571922285">
+    <state x="363" y="101" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1599608579830">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1599571922285" />
+    <state x="363" y="101" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1599608579830" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1599608137541">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1599608137541" />
     <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599599804717">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -273,10 +330,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597249546740" />
-    <state x="314" y="33" key="NewPhpClassDialog" timestamp="1599573213164">
+    <state x="314" y="33" key="NewPhpClassDialog" timestamp="1599607577323">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="314" y="33" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1599573213164" />
+    <state x="314" y="33" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1599607577323" />
     <state x="517" y="288" key="NewPhpFileDialog" timestamp="1599264931411">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -285,10 +342,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="44" y="0" width="938" height="708" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597890881523" />
-    <state x="183" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1599402299651">
+    <state x="183" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1599615043859">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="183" y="164" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1599402299651" />
+    <state x="183" y="164" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1599615043859" />
     <state x="246" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599264990246">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -301,10 +358,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1596849500507" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599599212910">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599615910998">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1599599212910" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1599615910998" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

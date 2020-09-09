@@ -3,19 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Insurance;
-use App\Repositories\Interfaces\InsuranceRepositoryInterface;
-use App\Repositories\Interfaces\RepositoryInterface;
+use App\Repositories\Interfaces\IInsuranceRepository;
+use App\Repositories\Interfaces\IRepository;
 use Illuminate\Http\Request;
 
 class InsuranceController extends Controller
 {
 
     /**
-     * @var RepositoryInterface
+     * @var IRepository
      */
     private $insuranceRepository;
 
-    public function __construct(InsuranceRepositoryInterface $insuranceRepository)
+    public function __construct(IInsuranceRepository $insuranceRepository)
     {
         $this->insuranceRepository = $insuranceRepository;
     }

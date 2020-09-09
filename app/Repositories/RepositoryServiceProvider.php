@@ -11,50 +11,50 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            'App\Repositories\Interfaces\ClientRepositoryInterface',
+            'App\Repositories\Interfaces\IClientRepository',
             'App\Repositories\ClientRepository');
 
         $this->app->bind(
-            'App\Repositories\Interfaces\UserRepositoryInterface',
+            'App\Repositories\Interfaces\IUserRepository',
             'App\Repositories\UserRepository');
 
         $this->app->bind(
-            'App\Repositories\Interfaces\EmployeeRepositoryInterface',
+            'App\Repositories\Interfaces\IEmployeeRepository',
             'App\Repositories\EmployeeRepository'
         );
 
         $this->app->bind(
-            'App\Repositories\Interfaces\FileRepositoryInterface',
+            'App\Repositories\Interfaces\IFileRepository',
             'App\Repositories\FileRepository'
         );
 
         $this->app->bind(
-            'App\Repositories\Interfaces\PermissionRepositoryInterface',
+            'App\Repositories\Interfaces\IPermissionRepository',
             'App\Repositories\PermissionRepository'
         );
 
         $this->app->bind(
-            'App\Repositories\Interfaces\RoleRepositoryInterface',
+            'App\Repositories\Interfaces\IRoleRepository',
             'App\Repositories\RoleRepository'
         );
 
         $this->app->bind(
-            'App\Repositories\Interfaces\InsuranceRepositoryInterface',
+            'App\Repositories\Interfaces\IInsuranceRepository',
             'App\Repositories\InsuranceRepository'
         );
 
         $this->app->bind(
             'App\Repositories\Interfaces\IPolicyRepository',
-            'App\Repositories\PolicyRepository'
+            'App\Repositories\PolicyPolicyRepository'
         );
 
         $this->app->bind(
-            'App\Repositories\Interfaces\StatisticsRepositoryInterface',
+            'App\Repositories\Interfaces\IStatisticsRepository',
             'App\Repositories\StatisticsRepository'
         );
 
         $this->app->bind(
-            'App\Repositories\Interfaces\IBranchRepository',
+            'App\Repositories\Interfaces\IBranchIRepository',
             'App\Repositories\BranchRepository'
         );
     }

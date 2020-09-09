@@ -5,9 +5,9 @@ namespace App\Repositories;
 
 
 use App\Contact;
-use App\Repositories\Interfaces\RepositoryInterface;
+use App\Repositories\Interfaces\IRepository;
 
-class ContactRespository implements RepositoryInterface
+class ContactRespository implements IRepository
 {
 
     /**
