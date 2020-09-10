@@ -41,13 +41,24 @@ class StatisticsRepository implements IStatisticsRepository
 
         $currentMonth = Carbon::now()->month;
 
-        $labels = $collection->filter(function($item, $key) use ($currentMonth){
-            return $key+1 <= $currentMonth;
+        $labels = $collection->map(function($item, $key) use ($currentMonth){
+            return $item->Mes;
+        });
+
+        $labels = $labels->filter(function ($item,$key)  use ($currentMonth){
+            $key++;
+            return $key <= $currentMonth;
         });
 
         $series = $collection->map(function($item,$key){
-            return $item->total_mes == null ? 0 : $item->total_mes;
+           return $item->total_mes;
         });
+
+        $series = $series->filter(function ($item,$key) use ($currentMonth){
+            $key++;
+            return $key <= $currentMonth;
+        });
+
         $struct = [
           'labels' => $labels,
           'series' =>[
