@@ -114,7 +114,7 @@ class StatisticsRepository implements IStatisticsRepository
         $total = $byInsurances->sum('cnt');
 
         $percentages = $byInsurances->map(function($item) use ($total){
-            return ($item->cnt / $total) * 100 .'%' ;
+            return round(($item->cnt / $total) * 100,2) .'%' ;
         });
 
 
@@ -145,7 +145,7 @@ class StatisticsRepository implements IStatisticsRepository
         $total = $byBranches->sum('cnt');
 
         $percentages = $byBranches->map(function($item) use ($total){
-            return ($item->cnt / $total) * 100 .'%' ;
+            return round(($item->cnt / $total) * 100,2)  .'%' ;
         });
 
         $labels = $byBranches->map(function($item){
