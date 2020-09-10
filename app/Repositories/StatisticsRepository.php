@@ -42,7 +42,7 @@ class StatisticsRepository implements IStatisticsRepository
         $currentMonth = Carbon::now()->month;
 
         $labels = $collection->map(function($item, $key) use ($currentMonth){
-            return $item->Mes;
+            return substr($item->Mes,0,3);
         });
 
         $labels = $labels->filter(function ($item,$key)  use ($currentMonth){
