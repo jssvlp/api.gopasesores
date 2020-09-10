@@ -51,7 +51,7 @@ class StatisticsRepository implements IStatisticsRepository
         });
 
         $series = $collection->map(function($item,$key){
-           return $item->total_mes;
+           return $item->total_mes == null ? 0 : $item->total_mes;
         });
 
         $series = $series->filter(function ($item,$key) use ($currentMonth){
