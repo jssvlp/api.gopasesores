@@ -66,7 +66,6 @@ class StatisticsRepository implements IStatisticsRepository
           ]
         ];
 
-
         return [
             'total' => $clients,
             'by_type' => $by_type,
@@ -78,10 +77,24 @@ class StatisticsRepository implements IStatisticsRepository
     {
         $month = Carbon::now()->month;
 
-        return DB::table('people')
+        $result  = DB::table('people')
             ->wheremonth('birth_date',$month)
             ->select(['people.id','people.first_name','people.last_name','people.birth_date'])
             ->get();
+        $collection = collect($result);
+
+        $today = Carbon::now()->day;
+
+        $collection = $collection->map(function($item) use ($today){
+            $birth_date = $item->birth_date;
+            $day = Carbon::create($birth_date)->day;
+            $item->is_today= $day == $today;
+            $item->is_tomorrow = $day == $today + 1;
+
+            return $item;
+        });
+
+        return $collection;
     }
 
     private function policies()
@@ -94,13 +107,43 @@ class StatisticsRepository implements IStatisticsRepository
                         ->groupBy('insurances.name')
                         ->select('insurances.name',DB::raw('COUNT(policies.id) as cnt'))
                         ->get();
+        $byInsurances = collect($byInsurances);
 
+        $labels = $byInsurances->map(function($item){
+            return $item->name;
+        });
+
+        $series = $byInsurances->map(function ($item){
+            return $item->cnt;
+        });
+
+        $by_insurances_struct = [
+            'labels' => $labels,
+            'series' => $series
+        ];
 
         $byBranches = DB::table('policies')
             ->join('branches','policies.branch_id','=','branches.id')
             ->groupBy('branches.name')
             ->select('branches.name',DB::raw('COUNT(policies.id) as cnt'))
             ->get();
+
+
+        $byBranches = collect($byBranches);
+
+        $labels = $byBranches->map(function($item){
+            return $item->name;
+        });
+
+        $series = $byBranches->map(function ($item){
+            return $item->cnt;
+        });
+
+        $by_branches_struct = [
+            'labels' => $labels,
+            'series' => $series
+        ];
+
 
         //select count(p.id) quantity from policies p
         // join sinisters s on p.id = s.policy_id where s.status != 'Pagado';
@@ -113,8 +156,8 @@ class StatisticsRepository implements IStatisticsRepository
 
         return [
             'total' => $total,
-            'by_insurances' => $byInsurances,
-            'by_branches' => $byBranches,
+            'by_insurances' => $by_insurances_struct,
+            'by_branches' => $by_branches_struct,
             'with_opened_sinister' => $withOpenedSinister[0]->withOpenedSinister
         ];
     }
