@@ -60,7 +60,11 @@ class StatisticsRepository implements IStatisticsRepository
             return $key <= $currentMonth;
         });
 
-        $struct = [
+        $percentages = [
+            round($peoples/ ($peoples + $companies),2) * 100 . '%',
+            round($companies/ ($peoples + $companies),2) * 100 . '%'
+        ];
+        $new_by_month_in_this_year = [
           'labels' => $labels,
           'series' =>[
               $series
@@ -75,15 +79,17 @@ class StatisticsRepository implements IStatisticsRepository
         $seriesClients = [
             $peoples,$companies
         ];
-        $clientStruct = [
+
+        $by_type_struct = [
             'labels' => $labelsClients,
+            'percentages' => $percentages,
             'series' => $seriesClients
         ];
 
         return [
             'total' => $clients,
-            'by_type' => $clientStruct,
-            'new_by_month_in_this_year' => $struct
+            'by_type' => $by_type_struct,
+            'new_by_month_in_this_year' => $new_by_month_in_this_year
         ];
     }
 
