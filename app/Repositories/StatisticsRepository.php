@@ -107,6 +107,8 @@ class StatisticsRepository implements IStatisticsRepository
                         ->join('insurances','branch_insurance.insurance_id','=','insurances.id')
                         ->groupBy('insurances.name')
                         ->select('insurances.name',DB::raw('COUNT(policies.id) as cnt'))
+                        ->take(5)
+                        ->orderBy('cnt','desc')
                         ->get();
 
         $byInsurances = collect($byInsurances);
@@ -126,18 +128,19 @@ class StatisticsRepository implements IStatisticsRepository
             return $item->cnt;
         });
 
-        $colors = $this->generateArrayColors($byInsurances->count());
+
         $by_insurances_struct = [
             'labels' => $labels,
             'percentages' => $percentages,
-            'series' => $series,
-            'colors'=> $colors
+            'series' => $series
         ];
 
         $byBranches = DB::table('policies')
             ->join('branches','policies.branch_id','=','branches.id')
             ->groupBy('branches.name')
             ->select('branches.name',DB::raw('COUNT(policies.id) as cnt'))
+            ->orderBy('cnt','desc')
+            ->take(5)
             ->get();
 
 
@@ -156,13 +159,12 @@ class StatisticsRepository implements IStatisticsRepository
             return $item->cnt;
         });
 
-        $colors = $this->generateArrayColors($byBranches->count());
+
 
         $by_branches_struct = [
             'labels' => $labels,
             'percentages' => $percentages,
             'series' => $series,
-            'colors'=> $colors
         ];
 
 
@@ -202,5 +204,11 @@ class StatisticsRepository implements IStatisticsRepository
             array_push($colors,ColorGenerator::random_color());
         }
         return $colors;
+    }
+
+
+    private function toCollection($collection)
+    {
+
     }
 }
