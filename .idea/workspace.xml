@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Helpers/General/ColorGenerator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/StatisticsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/StatisticsRepository.php" afterDir="false" />
     </list>
@@ -221,7 +222,7 @@
       <workItem from="1598204262739" duration="3556000" />
       <workItem from="1599012299998" duration="8096000" />
       <workItem from="1599402295269" duration="33181000" />
-      <workItem from="1599609071456" duration="16067000" />
+      <workItem from="1599609071456" duration="18133000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' into development&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <created>1594841394525</created>
@@ -278,10 +279,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597249546740" />
-    <state x="314" y="33" key="NewPhpClassDialog" timestamp="1599607577323">
+    <state x="314" y="33" key="NewPhpClassDialog" timestamp="1599705484964">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="314" y="33" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1599607577323" />
+    <state x="314" y="33" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1599705484964" />
     <state x="517" y="288" key="NewPhpFileDialog" timestamp="1599264931411">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -306,10 +307,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1596849500507" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599696825856">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599705846336">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1599696825856" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1599705846336" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
