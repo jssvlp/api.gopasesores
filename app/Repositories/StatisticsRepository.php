@@ -67,9 +67,22 @@ class StatisticsRepository implements IStatisticsRepository
           ]
         ];
 
+        $labelsClients = [
+            'Persona',
+            'Empresa'
+        ];
+
+        $seriesClients = [
+            $peoples,$companies
+        ];
+        $clientStruct = [
+            'labels' => $labelsClients,
+            'series' => $seriesClients
+        ];
+
         return [
             'total' => $clients,
-            'by_type' => $by_type,
+            'by_type' => $clientStruct,
             'new_by_month_in_this_year' => $struct
         ];
     }
