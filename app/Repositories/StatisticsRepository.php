@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Client;
 use App\Company;
+use App\Helpers\General\ColorGenerator;
 use App\People;
 use App\Policy;
 use App\Repositories\Interfaces\IStatisticsRepository;
@@ -107,7 +108,15 @@ class StatisticsRepository implements IStatisticsRepository
                         ->groupBy('insurances.name')
                         ->select('insurances.name',DB::raw('COUNT(policies.id) as cnt'))
                         ->get();
+
         $byInsurances = collect($byInsurances);
+
+        $total = $byInsurances->sum('cnt');
+
+        $percentages = $byInsurances->map(function($item) use ($total){
+            return ($item->cnt / $total) * 100 .'%' ;
+        });
+
 
         $labels = $byInsurances->map(function($item){
             return $item->name;
@@ -117,9 +126,12 @@ class StatisticsRepository implements IStatisticsRepository
             return $item->cnt;
         });
 
+        $colors = $this->generateArrayColors($byInsurances->count());
         $by_insurances_struct = [
             'labels' => $labels,
-            'series' => $series
+            'percentages' => $percentages,
+            'series' => $series,
+            'colors'=> $colors
         ];
 
         $byBranches = DB::table('policies')
@@ -130,6 +142,11 @@ class StatisticsRepository implements IStatisticsRepository
 
 
         $byBranches = collect($byBranches);
+        $total = $byBranches->sum('cnt');
+
+        $percentages = $byBranches->map(function($item) use ($total){
+            return ($item->cnt / $total) * 100 .'%' ;
+        });
 
         $labels = $byBranches->map(function($item){
             return $item->name;
@@ -139,9 +156,13 @@ class StatisticsRepository implements IStatisticsRepository
             return $item->cnt;
         });
 
+        $colors = $this->generateArrayColors($byBranches->count());
+
         $by_branches_struct = [
             'labels' => $labels,
-            'series' => $series
+            'percentages' => $percentages,
+            'series' => $series,
+            'colors'=> $colors
         ];
 
 
@@ -171,5 +192,15 @@ class StatisticsRepository implements IStatisticsRepository
 
         return  $total[0]->cnt;
 
+    }
+
+    private function generateArrayColors($quantity)
+    {
+        $colors = [];
+
+        for ($i = 1; $i <= $quantity; $i++) {
+            array_push($colors,ColorGenerator::random_color());
+        }
+        return $colors;
     }
 }
