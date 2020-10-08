@@ -20,7 +20,10 @@ class Policy extends Model
         return $this->hasOne(BranchDetailCar::class);
     }
 
-
+    public function sinisters()
+    {
+        return $this->hasMany(Sinister::class);
+    }
     public  function genereteInvoinceNumber()
     {
         $invoice_number = env('INVOICE_PREFIX','GOP') . $this->id;

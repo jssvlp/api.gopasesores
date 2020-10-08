@@ -15,7 +15,7 @@ use App\Repositories\Interfaces\IPolicyRepository;
 
 use Illuminate\Support\Facades\DB;
 
-class PolicyPolicyRepository implements IPolicyRepository
+class PolicyRepository implements IPolicyRepository
 {
 
     /**

@@ -7,7 +7,7 @@ use App\Helpers\General\DocumentHandler;
 use App\Policy;
 use App\Repositories\BranchDetailRepository;
 use App\Repositories\FileRepository;
-use App\Repositories\Interfaces\IBranchIRepository;
+use App\Repositories\Interfaces\IBranchRepository;
 use App\Repositories\Interfaces\IPolicyRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -19,11 +19,11 @@ class PoliciesController extends Controller
      */
     private $policyRepository;
     /**
-     * @var IBranchIRepository
+     * @var IBranchRepository
      */
     private $branchRepository;
 
-    public function __construct(IPolicyRepository $policyRepository, IBranchIRepository $branchRepository)
+    public function __construct(IPolicyRepository $policyRepository, IBranchRepository $branchRepository)
     {
         $this->branchRepository = $branchRepository;
         $this->policyRepository = $policyRepository;
@@ -37,6 +37,7 @@ class PoliciesController extends Controller
     public function index()
     {
         $per_page = request('per_page');
+        $filter_by_client = request('client');
         return $this->policyRepository->all($per_page ? $per_page : 10);
     }
 
