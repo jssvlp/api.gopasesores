@@ -38,6 +38,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::resource('insurances','InsuranceController');
     Route::resource('branches','BranchController');
     Route::resource('policies','PoliciesController');
+    Route::resource('sinisters','SinisterController');
 
     //1.orphan routes
     Route::get('clients/{column}/like/{value}','ClientController@indexLike');

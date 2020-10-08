@@ -4,7 +4,7 @@
 namespace App\Repositories\Interfaces;
 
 
-interface IBranchIRepository extends IRepository
+interface IBranchRepository extends IRepository
 {
 
 }
