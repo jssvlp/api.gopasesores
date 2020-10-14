@@ -37,7 +37,12 @@ class PoliciesController extends Controller
     public function index()
     {
         $per_page = request('per_page');
-        $filter_by_client = request('client');
+        $client = request('client');
+        if($client)
+        {
+            return $this->policyRepository->filterByClient($client);
+        }
+
         return $this->policyRepository->all($per_page ? $per_page : 10);
     }
 

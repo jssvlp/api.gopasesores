@@ -125,13 +125,12 @@ class ClientRepository implements IClientRepository
         $clientsPeople = DB::table('clients')
             ->join('people', 'clients.people_id', '=', 'people.id')
             ->leftJoin('contacts', 'clients.contact_id', '=', 'contacts.id')
-            ->select(DB::raw('clients.id, "people" as type, people.first_name as name,people.last_name,people.document_number,people.birth_date,contacts.cell_phone_number,contacts.email,clients.status,clients.created_at'));
-
+            ->select(DB::raw('clients.id, "people" as type, people.first_name as name,people.last_name,people.document_number,people.birth_date,contacts.cell_phone_number,contacts.email,clients.status,clients.created_at, (select CASE WHEN count(policies.id) > 0 THEN 1 ELSE 0 END from policies where policies.client_id = clients.id) as has_policies'));
 
         return  DB::table('clients')
             ->join('companies', 'clients.company_id', '=', 'companies.id')
             ->leftJoin('contacts', 'clients.contact_id', '=', 'contacts.id')
-            ->select(DB::raw('clients.id, "company" as type, companies.business_name as name,"" as last_name,companies.rnc as document_number,companies.constitution_date as birth_date,contacts.cell_phone_number,contacts.email,clients.status,clients.created_at'))
+            ->select(DB::raw('clients.id, "company" as type, companies.business_name as name,"" as last_name,companies.rnc as document_number,companies.constitution_date as birth_date,contacts.cell_phone_number,contacts.email,clients.status,clients.created_at, (select CASE WHEN count(policies.id) > 0 THEN 1 ELSE 0 END from policies where policies.client_id = clients.id) as has_policies'))
             ->unionAll($clientsPeople)
             ->orderBy('id','DESC')
             ->get();
