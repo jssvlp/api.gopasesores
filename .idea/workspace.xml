@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SinisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SinisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PoliciesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PoliciesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ClientRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ClientRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/PolicyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/PolicyRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +226,7 @@
       <workItem from="1599609071456" duration="22293000" />
       <workItem from="1601509416410" duration="5126000" />
       <workItem from="1602110525732" duration="3331000" />
-      <workItem from="1602636318578" duration="2828000" />
+      <workItem from="1602636318578" duration="6013000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' into development&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <created>1594841394525</created>
@@ -293,14 +295,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="424" y="8" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1596849632867" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1596849500507">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1602642577628">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1596849500507" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1602638269930">
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1602642577628" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1602643224685">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1602638269930" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1602643224685" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -316,7 +318,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/app/Repositories/ClientRepository.php</url>
-          <line>140</line>
+          <line>139</line>
           <properties>
             <option name="className" value="\App\Repositories\ClientRepository" />
             <option name="methodName" value="people" />

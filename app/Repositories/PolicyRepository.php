@@ -23,7 +23,7 @@ class PolicyRepository implements IPolicyRepository
      */
     private $model;
 
-    private $query = "select p.id,p.policy_number,p.description_insured_property,i.name 'insurance_name',b.name 'branch',concat(IFNULL(pp.document_number,''),IFNULL(c2.rnc,''))'client_document_id',concat(IFNULL(c2.business_name,''),IFNULL(concat(pp.first_name, ' ',pp.last_name),'')) 'client_name',concat(e.first_name, ' ',e.last_name) client_owner,'Pendiente por pagar' payment_status,p.public_comment,0 'has_sinister',p.validity_start_date,p.validity_end_date from policies p join branch_insurance bi on p.branch_id = bi.branch_id join insurances i on bi.insurance_id = i.id join branches b on p.branch_id = b.id join clients c on p.client_id = c.id left join people pp on c.people_id = pp.id left join  companies c2 on c.company_id = c2.id join employees e on c.owner_id = e.id where p.status != 'Cancelada';";
+    private $query = "select p.id,p.policy_number,p.description_insured_property,i.name 'insurance_name',b.name 'branch',concat(IFNULL(pp.document_number,''),IFNULL(c2.rnc,''))'client_document_id',concat(IFNULL(c2.business_name,''),IFNULL(concat(pp.first_name, ' ',pp.last_name),'')) 'client_name',concat(e.first_name, ' ',e.last_name) client_owner,'Pendiente por pagar' payment_status,p.public_comment,0 'has_sinister',p.validity_start_date,p.validity_end_date from policies p join branch_insurance bi on p.branch_id = bi.branch_id join insurances i on bi.insurance_id = i.id join branches b on p.branch_id = b.id join clients c on p.client_id = c.id left join people pp on c.people_id = pp.id left join  companies c2 on c.company_id = c2.id join employees e on c.owner_id = e.id where p.status != 'Cancelada'";
 
     public function __construct(Policy $policy)
     {
@@ -92,5 +92,12 @@ class PolicyRepository implements IPolicyRepository
         // TODO: Implement allNotPaginated() method.
     }
 
+    public function filterByClient($client)
+    {
+        $query = $this->query ." and c.id =$client";
+        $all = DB::select($query);
+        $collection = Collect($all);
+        return CollectionHelper::paginate($collection,10);
+    }
 
 }
