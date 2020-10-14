@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/General/DocumentHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/General/DocumentHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SinisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SinisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/SinisterRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/SinisterRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +224,7 @@
       <workItem from="1599609071456" duration="22293000" />
       <workItem from="1601509416410" duration="5126000" />
       <workItem from="1602110525732" duration="3331000" />
-      <workItem from="1602636318578" duration="2120000" />
+      <workItem from="1602636318578" duration="2828000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' into development&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <created>1594841394525</created>

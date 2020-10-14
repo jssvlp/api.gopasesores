@@ -73,7 +73,7 @@ class SinisterController extends Controller
      */
     public function update(Request $request, Sinister $sinister)
     {
-        $this->repository->update($request->all(),$sinister->id);
+        $this->repository->update($request->except(['documents','policy_id']),$sinister->id);
         if($request->has('documents')){
             $document_handler = new DocumentHandler(new FileRepository(new File()));
             $document_handler->addDocuments($request->documents,$sinister);
