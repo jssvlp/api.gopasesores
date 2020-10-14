@@ -26,14 +26,15 @@ class DocumentHandler
     {
         $type =  class_basename($model);
         foreach ($documents as $document){
-            if(Arr::exists($document,'id')){
+            if(Arr::exists($document,'id'))
+            {
                 $this->repository->update($document['id'],$document);
             }
-            else{
+            else
+            {
                 $document['model'] = $type;
                 $document['model_id'] = $model->id;
                 $document = $this->repository->getType($document);
-
                 $this->repository->create($document);
             }
         }

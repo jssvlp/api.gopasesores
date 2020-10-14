@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 
+use App\File;
 use App\Helpers\General\CollectionHelper;
 use App\Repositories\Interfaces\ISinisterRepository;
 use App\Sinister;
@@ -45,7 +46,15 @@ class SinisterRepository implements ISinisterRepository
 
     public function find($id)
     {
-       return $this->model->find($id);
+        if (null == $sinister = $this->model->find($id)) {
+            return null;
+        }
+        $filesRepository = new FileRepository(new File());
+        $files = $filesRepository->allByModel($sinister);
+
+        $sinister['documents'] = $files;
+
+        return $sinister;
     }
 
     public function allNotPaginated()

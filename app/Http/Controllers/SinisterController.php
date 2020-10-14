@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\File;
+use App\Helpers\General\DocumentHandler;
+use App\Repositories\FileRepository;
 use App\Repositories\Interfaces\ISinisterRepository;
 use App\Sinister;
 use Illuminate\Http\Request;
@@ -40,34 +43,40 @@ class SinisterController extends Controller
      */
     public function store(Request $request)
     {
-        $this->repository->create($request->all());
+        $created = $this->repository->create($request->all());
+
+        if($request->has('documents')){
+            $document_handler = new DocumentHandler(new FileRepository(new File()));
+            $document_handler->addDocuments($request->documents,$created);
+        }
         return response()->json(['success'=> true,'message' =>'Siniestro creado correctamente']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param Sinister $sinister
      * @return \Illuminate\Http\JsonResponse
      */
     public function show(Sinister $sinister)
     {
+        $sinister = $this->repository->find($sinister->id);
         return response()->json(['success' => true, 'sinister' => $sinister]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param Sinister $sinister
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Sinister $sinister)
     {
-        $updated = $this->repository->update($request->all(),$id);
-        if($updated === 0)
-        {
-            return response()->json(['success' =>false, 'message' => 'Siniestro no encontrado']);
+        $this->repository->update($request->all(),$sinister->id);
+        if($request->has('documents')){
+            $document_handler = new DocumentHandler(new FileRepository(new File()));
+            $document_handler->addDocuments($request->documents,$sinister);
         }
         return response()->json(['success' =>true,'message' =>'Siniestro actualizado corrrectamente']);
     }
