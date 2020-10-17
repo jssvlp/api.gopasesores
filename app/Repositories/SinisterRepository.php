@@ -23,8 +23,9 @@ class SinisterRepository implements ISinisterRepository
     }
     public function all($per_page)
     {
-        $all =  $this->model::all();
+        $all =  $this->model::with('policy:id,policy_number,insured_amount,currency,prime')->get();
         return CollectionHelper::paginate($all,$per_page);
+
     }
 
     public function create(array $data)
