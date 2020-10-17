@@ -40,10 +40,10 @@ class PoliciesController extends Controller
         $client = request('client');
         if($client === null || $client === "null")
         {
-            return $this->policyRepository->filterByClient($client);
+            return $this->policyRepository->all($per_page ? $per_page : 10);
         }
+        return $this->policyRepository->filterByClient($client);
 
-        return $this->policyRepository->all($per_page ? $per_page : 10);
     }
 
 
