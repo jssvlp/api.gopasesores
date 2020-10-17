@@ -38,7 +38,7 @@ class PoliciesController extends Controller
     {
         $per_page = request('per_page');
         $client = request('client');
-        if($client)
+        if($client === null || $client === "null")
         {
             return $this->policyRepository->filterByClient($client);
         }
