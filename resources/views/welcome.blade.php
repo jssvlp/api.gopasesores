@@ -71,7 +71,7 @@
                 <div class="title m-b-md">
                     api.gopasesores.com
                 </div>
-                <h2>Environment: <strong> {{env('APP_ENV')}}</strong></h2>
+                <h2>Environment: <strong> {{env('APP_ENV')}} - rocketmind.com.do</strong></h2>
 
             </div>
         </div>
