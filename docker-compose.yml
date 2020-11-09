@@ -2,9 +2,6 @@ version: "3.7"
 services:
   api:
     build:
-      args:
-        user: joshadow
-        uid: 1000
       context: ./
       dockerfile: Dockerfile
     image: joshadow/gopasesores
