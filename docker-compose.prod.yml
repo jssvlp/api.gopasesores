@@ -1,0 +1,43 @@
+version: "3.7"
+services:
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: joshadow/gopasesores
+    container_name: gop-api
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - gop
+
+  db:
+    image: mysql:5.7
+    container_name: gop-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: secret_password!
+      MYSQL_DATABASE: gopasesores
+    volumes:
+      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+    networks:
+      - gop
+
+  nginx:
+    image: nginx:1.17-alpine
+    container_name: gop-nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d
+    networks:
+      - gop
+
+networks:
+  gop:
+    driver: bridge
