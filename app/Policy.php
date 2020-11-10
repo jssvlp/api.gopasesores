@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Repositories\BranchDetailCarsRepository;
+use App\Repositories\BranchDetailCivilRiskRepository;
 use Illuminate\Database\Eloquent\Model;
 
 class Policy extends Model
@@ -42,6 +43,9 @@ class Policy extends Model
         switch ($branch_detail_type){
             case 'vehiculos-de-motor':
                 return new BranchDetailCarsRepository(new BranchDetailCar());
+                break;
+            case 'riesgo-civil':
+                return new BranchDetailCivilRiskRepository(new BranchDetailCivilRisk());
             default:
                 return null;
                 break;

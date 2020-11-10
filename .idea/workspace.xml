@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/BranchDetailCivilRiskRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/SinisterRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/SinisterRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/BranchSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/BranchSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,9 +16,7 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -149,11 +151,11 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -165,7 +167,9 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -179,6 +183,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -226,6 +231,7 @@
       <workItem from="1602110525732" duration="3331000" />
       <workItem from="1602636318578" duration="6013000" />
       <workItem from="1602902102921" duration="3550000" />
+      <workItem from="1604968097804" duration="3807000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' into development&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <created>1594841394525</created>
@@ -238,7 +244,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -250,30 +256,33 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="274" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1599574049058" />
+    <state x="489" y="82" width="377" height="637" key="#com.intellij.ide.util.MemberChooser" timestamp="1604975851408">
+      <screen x="0" y="30" width="1366" height="738" />
+    </state>
+    <state x="489" y="82" width="377" height="637" key="#com.intellij.ide.util.MemberChooser/0.30.1366.738@0.30.1366.738" timestamp="1604975851408" />
     <state x="363" y="101" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1599608579830">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="363" y="101" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1599608579830" />
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1602114541282">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="0" y="30" width="606" height="738" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604976106875">
+      <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1602114541282" />
-    <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602637315024">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="0" y="30" width="606" height="738" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.30.1366.738@0.30.1366.738" timestamp="1604976106875" />
+    <state x="413" y="152" width="524" height="487" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604975880896">
+      <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1602637315024" />
-    <state x="264" y="0" key="CommitChangelistDialog2" timestamp="1594841393502">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="264" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1594841393502" />
+    <state x="413" y="152" width="524" height="487" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.30.1366.738@0.30.1366.738" timestamp="1604975880896" />
     <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1597249546740">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597249546740" />
-    <state x="314" y="33" key="NewPhpClassDialog" timestamp="1601510003369">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="314" y="63" width="697" height="556" key="NewPhpClassDialog" timestamp="1604975832142">
+      <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="314" y="33" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1601510003369" />
+    <state x="314" y="63" width="697" height="556" key="NewPhpClassDialog/0.30.1366.738@0.30.1366.738" timestamp="1604975832142" />
     <state x="517" y="288" key="NewPhpFileDialog" timestamp="1599264931411">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -298,10 +307,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1602642577628" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1602905655548">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="346" y="80" width="672" height="688" key="search.everywhere.popup" timestamp="1604977628147">
+      <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1602905655548" />
+    <state x="346" y="80" width="672" height="688" key="search.everywhere.popup/0.30.1366.738@0.30.1366.738" timestamp="1604977628147" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
