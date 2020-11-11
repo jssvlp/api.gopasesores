@@ -40,4 +40,4 @@ services:
 
 networks:
   gop:
-    driver: bridge
+    driver: bridge  
