@@ -36,6 +36,8 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' =>'crear aseguradora','action' =>'create','path' =>'/insurances']);
 
         Permission::create(['name' =>'Ver dashboard','action' =>'all','path' =>'/dashboard']);
+        Permission::create(['name' =>'Ver polizas','action' =>'all','path' =>'/polices']);
+        Permission::create(['name' =>'Ver siniestros','action' =>'all','path' =>'/sinisters']);
         //Api permisions
 
     }

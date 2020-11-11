@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docker-compose.prod.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/PermissionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PermissionSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.prod.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +232,8 @@
       <workItem from="1602110525732" duration="3331000" />
       <workItem from="1602636318578" duration="6013000" />
       <workItem from="1602902102921" duration="3550000" />
-      <workItem from="1604968097804" duration="4564000" />
+      <workItem from="1604968097804" duration="5818000" />
+      <workItem from="1605063370091" duration="181000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' into development&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <created>1594841394525</created>
@@ -306,11 +309,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1602642577628" />
-    <state x="346" y="80" width="672" height="688" key="search.everywhere.popup" timestamp="1604977628147">
+    <state x="346" y="80" width="672" height="688" key="search.everywhere.popup" timestamp="1605063380363">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1602905655548" />
-    <state x="346" y="80" width="672" height="688" key="search.everywhere.popup/0.30.1366.738@0.30.1366.738" timestamp="1604977628147" />
+    <state x="346" y="80" width="672" height="688" key="search.everywhere.popup/0.30.1366.738@0.30.1366.738" timestamp="1605063380363" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
