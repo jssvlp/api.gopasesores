@@ -1,36 +1,31 @@
-version: '3.5'
-services:
-  blackcloset_db:
-    container_name: blackcloset_db
-    image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
-    networks:
-      blackcloset_fs:
-        aliases:
-          - db
-    environment:
-      MYSQL_ROOT_PASSWORD: by86yZLsx8HEBhG6
-    volumes:
-      - ./mysql:/var/lib/mysql
-    #ports:
-      #- 8098:3306
+FROM php:7.4-fpm
 
-  365_food_facturascripts:
-    container_name: blackcloset_app
-    image: facturascripts/facturascripts:latest
-    restart: always
-    ports:
-      - 83:80
-    networks:
-      blackcloset_fs:
-       aliases:
-         - app
-    volumes:
-      - ./facturascripts:/var/www/html
 
-#Docker Networks
-networks:
-  blackcloset_fs:
-    name: blackcloset-fs-network
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip \
+    unzip
 
+# Clear cache
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Install PHP extensions
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
+
+# Get latest Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+
+# Add user for laravel application
+RUN groupadd -g 1000 www
+RUN useradd -u 1000 -ms /bin/bash -g www www
+
+COPY --chown=www:www . /var/www
+
+# Set working directory
+WORKDIR /var/www
