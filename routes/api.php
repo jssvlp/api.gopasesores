@@ -98,3 +98,9 @@ Route::group([
 
 });
 
+
+//DEVELOPMENT ROUTES OUT FROM API MIDDLEWARE
+
+Route::post('payments','PaymentsController@create');
+Route::get('payments','PaymentsController@getPolicyPayments');
+

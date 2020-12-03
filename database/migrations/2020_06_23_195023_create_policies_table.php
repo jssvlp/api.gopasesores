@@ -31,7 +31,8 @@ class CreatePoliciesTable extends Migration
             $table->double('commission_percentage_client_owner')->nullable();
             $table->double('total')->nullable();
             $table->string('day_of_payment')->nullable();
-
+            $table->enum('payment_type',['Contado', 'Financiado'])->default('Contado');
+            $table->string('bank_payment')->nullable();
 
             //Asegurado principal
             $table->unsignedBigInteger('client_id');
