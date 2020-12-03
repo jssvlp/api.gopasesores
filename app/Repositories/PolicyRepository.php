@@ -100,4 +100,5 @@ class PolicyRepository implements IPolicyRepository
         return CollectionHelper::paginate($collection,10);
     }
 
+
 }

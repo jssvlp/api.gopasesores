@@ -67,5 +67,10 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repositories\Interfaces\ISinisterRepository',
             'App\Repositories\SinisterRepository'
         );
+
+        $this->app->bind(
+            'App\Repositories\Interfaces\IPolicyPaymentRepository',
+            'App\Repositories\PolicyPaymentRepository'
+        );
     }
 }

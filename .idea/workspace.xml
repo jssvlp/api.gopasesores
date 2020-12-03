@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/IPolicyPaymentRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/PolicyPaymentRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/PolicyPayment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PolicyPayment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/PolicyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/PolicyRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/RepositoryServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/RepositoryServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_23_195023_create_policies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_23_195023_create_policies_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_08_180238_create_policy_payments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_08_180238_create_policy_payments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,12 +176,12 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Concentra\Documents\pprojects\Serius\api.geopasesores.com\app\Helpers\General" />
       <recent name="C:\Users\Concentra\Documents\pprojects\Serius\api.geopasesores.com\app\Repositories\Interfaces" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
@@ -232,6 +241,8 @@
       <workItem from="1604968097804" duration="5818000" />
       <workItem from="1605063370091" duration="1749000" />
       <workItem from="1606426923951" duration="26000" />
+      <workItem from="1606793248371" duration="10365000" />
+      <workItem from="1606948622124" duration="4048000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' into development&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <created>1594841394525</created>
@@ -256,10 +267,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="274" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1599574049058" />
-    <state x="489" y="82" width="377" height="637" key="#com.intellij.ide.util.MemberChooser" timestamp="1604975851408">
+    <state x="489" y="82" width="377" height="637" key="#com.intellij.ide.util.MemberChooser" timestamp="1606876922073">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
-    <state x="489" y="82" width="377" height="637" key="#com.intellij.ide.util.MemberChooser/0.30.1366.738@0.30.1366.738" timestamp="1604975851408" />
+    <state x="489" y="82" width="377" height="637" key="#com.intellij.ide.util.MemberChooser/0.30.1366.738@0.30.1366.738" timestamp="1606876922073" />
     <state x="363" y="101" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1599608579830">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -278,19 +289,15 @@
       <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="466" y="157" width="424" height="487" key="FileChooserDialogImpl/0.30.1366.738@0.30.1366.738" timestamp="1606426947619" />
-    <state x="314" y="63" width="697" height="556" key="NewPhpClassDialog" timestamp="1604975832142">
+    <state x="314" y="63" width="774" height="556" key="NewPhpClassDialog" timestamp="1606876881339">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="314" y="33" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1601510003369" />
-    <state x="314" y="63" width="697" height="556" key="NewPhpClassDialog/0.30.1366.738@0.30.1366.738" timestamp="1604975832142" />
+    <state x="314" y="63" width="774" height="556" key="NewPhpClassDialog/0.30.1366.738@0.30.1366.738" timestamp="1606876881339" />
     <state x="517" y="288" key="NewPhpFileDialog" timestamp="1599264931411">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="517" y="288" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1599264931411" />
-    <state x="44" y="0" width="938" height="708" key="SettingsEditor" timestamp="1597890881523">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="44" y="0" width="938" height="708" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597890881523" />
     <state x="183" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1602902102101">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -303,11 +310,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1602642577628" />
-    <state x="346" y="80" width="672" height="688" key="search.everywhere.popup" timestamp="1605063886325">
+    <state x="346" y="80" width="672" height="688" key="search.everywhere.popup" timestamp="1606961095168">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1602905655548" />
-    <state x="346" y="80" width="672" height="688" key="search.everywhere.popup/0.30.1366.738@0.30.1366.738" timestamp="1605063886325" />
+    <state x="346" y="80" width="672" height="688" key="search.everywhere.popup/0.30.1366.738@0.30.1366.738" timestamp="1606961095168" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
