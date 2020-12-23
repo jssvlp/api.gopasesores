@@ -27,4 +27,4 @@ class DatabaseSeeder extends Seeder
         $this->call(CoveragesSeeder::class);
 
     }
-}
+}   
