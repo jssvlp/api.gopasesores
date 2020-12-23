@@ -32,6 +32,9 @@ class ListsController extends Controller
             case 'policyStatus':
                 $data =  $this->policyStatus();
                 break;
+            case 'civilRisk':
+                $data =  $this->civilRisk();
+                break;
             default:
                 $data = null;
         }
@@ -43,7 +46,10 @@ class ListsController extends Controller
 
 
     }
-
+    public function civilRisk()
+    {
+        return ['Contractual','Extracontractual'];
+    }
     public function policyStatus()
     {
         return ['Vencida','Vigente','No renovada','Expedición','Devengada','Cancelada'];
