@@ -35,6 +35,9 @@ class ListsController extends Controller
             case 'civilRisk':
                 $data =  $this->civilRisk();
                 break;
+            case 'commercialActivity':
+                $data =  $this->commercialActivity();
+                break;
             default:
                 $data = null;
         }
@@ -46,6 +49,11 @@ class ListsController extends Controller
 
 
     }
+    public function commercialActivity()
+    {
+        return ['Finanzas','Ingenieria','Servicios','Salud','Comercio'];
+    }
+
     public function civilRisk()
     {
         return ['Contractual','Extracontractual'];
