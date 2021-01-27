@@ -51,8 +51,8 @@ class PaymentsController extends Controller
             $start_month = Carbon::parse($payments[0]['limit_payment_date'])->floorMonth(); // returns 2019-06-01
             $months = $start_month->diffInMonths($this_month);  // returns 1
         }
-        $response = ['dues' => count($payments),'months' => $months, 'payments' => $payments];
-        return response()->json(['success' =>true, $response]);
+
+        return response()->json(['success' =>true, 'data' => ['dues' => count($payments),'months' => $months, 'payments' => $payments]]);
     }
 
     public function create(Request  $request)
@@ -82,6 +82,7 @@ class PaymentsController extends Controller
             ];
             //dd($payment);
             $created = $this->repository->create($payment);
+            return response()->json(['success' => true, 'message' => 'Pagos creados correctamente']);
         }
 
     }
