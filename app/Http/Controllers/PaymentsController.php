@@ -42,17 +42,8 @@ class PaymentsController extends Controller
     public function getPolicyPayments()
     {
         $policy = request('policy');
-        $payments = $this->repository->getPolicyPayments($policy);
-        $months = 0;
 
-        if(count($payments) > 1)
-        {
-            $this_month = Carbon::parse($payments[1])->floorMonth(); // returns 2019-07-01
-            $start_month = Carbon::parse($payments[0])->floorMonth(); // returns 2019-06-01
-            $months = $start_month->diffInMonths($this_month);  // returns 1
-        }
-        $response = ['dues' => count($payments),'months' => $months, 'payments' => $payments];
-        return response()->json(['success' =>true, $response]);
+        return response()->json(['success' =>true, 'payments' =>$this->repository->getPolicyPayments($policy)]);
     }
 
     public function create(Request  $request)
