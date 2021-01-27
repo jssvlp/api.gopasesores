@@ -47,8 +47,8 @@ class PaymentsController extends Controller
 
         if(count($payments) > 1)
         {
-            $this_month = Carbon::parse($payments[1])->floorMonth(); // returns 2019-07-01
-            $start_month = Carbon::parse($payments[0])->floorMonth(); // returns 2019-06-01
+            $this_month = Carbon::parse($payments[1]['limit_payment_date'])->floorMonth(); // returns 2019-07-01
+            $start_month = Carbon::parse($payments[0]['limit_payment_date'])->floorMonth(); // returns 2019-06-01
             $months = $start_month->diffInMonths($this_month);  // returns 1
         }
         $response = ['dues' => count($payments),'months' => $months, 'payments' => $payments];
