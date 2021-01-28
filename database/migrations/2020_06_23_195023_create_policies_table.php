@@ -17,7 +17,7 @@ class CreatePoliciesTable extends Migration
             $table->id();
             $table->string('policy_number');
             $table->string('invoice_number')->nullable();
-            $table->enum('status',['Vencida','Vigente','No renovada','Expedición','Devengada','Cancelada']);
+            $table->enum('status',['Vencida','Vigente','No renovada','Expedición','Devengada','Cancelada','Renovada']);
             $table->date('validity_start_date');
             $table->date('validity_end_date');
             $table->boolean('renewable');
