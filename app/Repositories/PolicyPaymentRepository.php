@@ -51,7 +51,7 @@ class PolicyPaymentRepository implements IPolicyPaymentRepository
 
     public function getPolicyPayments($policy_id)
     {
-        return $this->model::select('limit_payment_date','value_to_paid','commissioned_mount','receipt_number','collected_in_office_date','collected_insurance_date','commissioned_date')
+        return $this->model::select('limit_payment_date','collected_insurance','collected_insurance','value_to_paid','commissioned_mount','receipt_number','collected_in_office_date','collected_insurance_date','commissioned_date')
                                 ->where('policy_id','=', $policy_id)
                                 ->where('collected_in_office','',false)->get();
 
