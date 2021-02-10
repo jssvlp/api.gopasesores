@@ -6,6 +6,9 @@ namespace App\Repositories;
 
 use App\PolicyPayment;
 use App\Repositories\Interfaces\IPolicyPaymentRepository;
+use Carbon\Carbon;
+use Dotenv\Result\Result;
+use Illuminate\Support\Facades\DB;
 
 class PolicyPaymentRepository implements IPolicyPaymentRepository
 {
@@ -53,7 +56,29 @@ class PolicyPaymentRepository implements IPolicyPaymentRepository
     {
         return $this->model::select('limit_payment_date','collected_insurance','collected_insurance','value_to_paid','commissioned_mount','receipt_number','collected_in_office_date','collected_insurance_date','commissioned_date')
                                 ->where('policy_id','=', $policy_id)
-                                ->where('collected_in_office','',false)->get();
+                                ->get();
+
+    }
+
+    public function getUpcomingPaymentsToBeDue($policy_id)
+    {
+        $today = Carbon::now();
+        $until = $today->addDay(7)->format('Y-m-d');
+
+        $sql = "select concat(coalesce(pe.first_name, comp.business_name),' ',coalesce(pe.last_name, '') ) client_name, co.cell_phone_number, co.email,
+                p.limit_payment_date, pl.policy_number, CASE WHEN p.limit_payment_date < curdate() THEN 'Vencido' WHEN p.limit_payment_date > curdate() THEN 'Próximo a vencer' END as status from gopasesores.policy_payments p 
+                JOIN policies pl ON (pl.id = p.policy_id)
+                JOIN clients c ON (c.id = pl.client_id)
+                LEFT JOIN people pe ON (pe.id = c.people_id)
+                LEFT JOIN contacts co ON (co.id = c.contact_id)
+                LEFT JOIN companies comp ON (comp.id = c.company_id)
+                where p.limit_payment_date between curdate() and '$until' 
+                OR p.limit_payment_date < curdate()
+                AND p.collected_in_office = 0;";
+      
+        $result = DB::select($sql);
+
+        return $result;
 
     }
 }
