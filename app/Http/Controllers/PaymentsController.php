@@ -42,9 +42,10 @@ class PaymentsController extends Controller
         //TODO: actualiza el pago de la poliza hacia la aseguradora
     }
 
-    public function getUpcomingPaymentsToBeDue()
+    public function getUpcomingPaymentsToBeDue($policy)
     {
         //TODO: traer todos los pagos que estan proximos a vencer en los siguientes N dias (n < 10)
+        return response()->json(['success' => true, 'data' => $this->repository->getUpcomingPaymentsToBeDue($policy)]);
     }
 
     public function getPolicyPayments()
