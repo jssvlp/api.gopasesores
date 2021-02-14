@@ -42,8 +42,7 @@ class PoliciesController extends Controller
         {
             return $this->policyRepository->all($per_page ? $per_page : 10);
         }
-        return $this->policyRepository->filterByClient($client);
-
+       return $this->policyRepository->filterByClient($client);
     }
 
 

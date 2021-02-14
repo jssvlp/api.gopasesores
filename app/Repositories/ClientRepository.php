@@ -9,6 +9,7 @@ use App\Contact;
 use App\File;
 use App\Helpers\General\CollectionHelper;
 use App\Repositories\Interfaces\IClientRepository;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -29,10 +30,15 @@ class ClientRepository implements IClientRepository
 
     public function all($per_page)
     {
-        $allClient = $this->getAllClients();
-        $collection = collect($allClient);
-
-        return CollectionHelper::paginate($collection,is_null($per_page) ? 10 : $per_page );
+        $items = $this->getAllClients();
+        $current_page = LengthAwarePaginator::resolveCurrentPage();
+        return new LengthAwarePaginator(
+            collect($items)->forPage($current_page, $per_page)->values(),
+            count($items),
+            $per_page,
+            $current_page,
+            ['path' => url('api/clients')]
+        );
     }
 
     public function allLike(string $column, $value,$per_page)
