@@ -12,7 +12,7 @@ use App\Insurance;
 use App\Policy;
 use App\PrimeCommissionPolicyInformation;
 use App\Repositories\Interfaces\IPolicyRepository;
-
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 
 class PolicyRepository implements IPolicyRepository
@@ -31,9 +31,17 @@ class PolicyRepository implements IPolicyRepository
     }
     public function all($per_page)
     {
-        $all = DB::select($this->query);
-        $collection = Collect($all);
-        return CollectionHelper::paginate($collection,$per_page);
+        $items = DB::select($this->query);
+
+        $current_page = LengthAwarePaginator::resolveCurrentPage();
+        return new LengthAwarePaginator(
+            collect($items)->forPage($current_page, $per_page)->values(),
+            count($items),
+            $per_page,
+            $current_page,
+            ['path' => url('api/policies')]
+        );
+
     }
 
     public function create(array $data)

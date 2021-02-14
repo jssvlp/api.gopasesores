@@ -12,12 +12,12 @@ class PaymentsController extends Controller
     /**
      * @var IPolicyPaymentRepository
      */
-    private $repository;
+    private $paymentRepository;
     private $policyRepository;
 
-    public function  __construct(IPolicyPaymentRepository $policyPaymentRepository, IPolicyRepository $policyRepository)
+    public function  __construct(IPolicyPaymentRepository $paymentRepository, IPolicyRepository $policyRepository)
     {
-        $this->repository  = $policyPaymentRepository;
+        $this->paymentRepository  = $paymentRepository;
         $this->policyRepository = $policyRepository;
     }
 
@@ -51,7 +51,7 @@ class PaymentsController extends Controller
     public function getPolicyPayments()
     {
         $policy = request('policy');
-        $payments = $this->repository->getPolicyPayments($policy);
+        $payments = $this->paymentRepository->getPolicyPayments($policy);
         $months = 0;
 
         if(count($payments) > 1)
@@ -70,7 +70,7 @@ class PaymentsController extends Controller
         //1. Validar si hay pagos creados
         //2. Si hay pagos creados solo se puede permitir crear un nuevo pago si el total de la poliza ya fue pagada y tiene estatus renovada
         $policy = $this->policyRepository->find($request->policy_id);
-        $payments = collect($this->repository->getPolicyPayments($request->policy_id));
+        $payments = collect($this->paymentRepository->getPolicyPayments($request->policy_id));
         
         if(count($payments) > 0)
         {

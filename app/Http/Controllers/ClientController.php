@@ -53,7 +53,7 @@ class ClientController extends Controller
     {
         $per_page = request('per_page');
 
-        return $clients = $this->clientRepository->all($per_page);
+        return $clients = $this->clientRepository->all($per_page ? $per_page : 10);
     }
 
 
