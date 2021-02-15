@@ -55,12 +55,7 @@ class RepositoryServiceProvider extends ServiceProvider
 
         $this->app->bind(
             'App\Repositories\Interfaces\IBranchRepository',
-            'App\Repositories\BranchBranchRepository'
-        );
-
-        $this->app->bind(
-            'App\Repositories\Interfaces\IBranchRepository',
-            'App\Repositories\BranchBranchRepository'
+            'App\Repositories\BranchRepository'
         );
 
         $this->app->bind(

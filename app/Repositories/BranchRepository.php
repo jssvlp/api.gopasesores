@@ -13,7 +13,7 @@ use App\Repositories\Interfaces\IBranchRepository;
 use Illuminate\Support\Facades\DB;
 
 
-class BranchBranchRepository implements IBranchRepository
+class BranchRepository implements IBranchRepository
 {
 
     private $model;

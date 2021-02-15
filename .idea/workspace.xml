@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BranchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BranchController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PoliciesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PoliciesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/ClientRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ClientRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/IPolicyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/IPolicyRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/PolicyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/PolicyRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/BranchBranchRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BranchRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/RepositoryServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/RepositoryServiceProvider.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,7 +248,8 @@
       <workItem from="1606948622124" duration="4866000" />
       <workItem from="1607037595636" duration="16000" />
       <workItem from="1608686998663" duration="1546000" />
-      <workItem from="1613323254287" duration="1154000" />
+      <workItem from="1613323254287" duration="2238000" />
+      <workItem from="1613419948907" duration="373000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' into development&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <created>1594841394525</created>
@@ -264,6 +263,18 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

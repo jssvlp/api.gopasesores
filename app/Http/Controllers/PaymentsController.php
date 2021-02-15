@@ -42,13 +42,13 @@ class PaymentsController extends Controller
         //TODO: actualiza el pago de la poliza hacia la aseguradora
     }
 
-    public function getUpcomingPaymentsToBeDue($policy)
+    public function getUpcomingPaymentsToBeDue($policy): \Illuminate\Http\JsonResponse
     {
         //TODO: traer todos los pagos que estan proximos a vencer en los siguientes N dias (n < 10)
         return response()->json(['success' => true, 'data' => $this->repository->getUpcomingPaymentsToBeDue($policy)]);
     }
 
-    public function getPolicyPayments()
+    public function getPolicyPayments(): \Illuminate\Http\JsonResponse
     {
         $policy = request('policy');
         $payments = $this->paymentRepository->getPolicyPayments($policy);
@@ -66,18 +66,18 @@ class PaymentsController extends Controller
 
     public function create(Request  $request)
     {
-        
+
         //1. Validar si hay pagos creados
         //2. Si hay pagos creados solo se puede permitir crear un nuevo pago si el total de la poliza ya fue pagada y tiene estatus renovada
         $policy = $this->policyRepository->find($request->policy_id);
         $payments = collect($this->paymentRepository->getPolicyPayments($request->policy_id));
-        
+
         if(count($payments) > 0)
         {
             $pendingPayments = $payments->filter(function ($payment){
                 return $payment->collected_insurance == 0;
             });
-            
+
             if(count($pendingPayments) > 0 && $policy->status == 'Vigente')
             {
                 return response()->json(['success' => false, 'message' => 'Esta poliza posee pagos pendietes y no tiene estatus renovada. No es posible crear nuevos pagos ']);
@@ -87,7 +87,7 @@ class PaymentsController extends Controller
             {
                 return response()->json(['success' => false, 'message' => 'Esta poliza no posee estatus Renovada. Antes de aplicar un nuevo pago es necesario renovarla']);
             }
-           
+
         }
         //TODO: con la fecha de pago inicial y el numero de cuotas se puede establecer las fechas de las proximas cuotas
 
@@ -113,7 +113,7 @@ class PaymentsController extends Controller
                 'policy_id' => $request->policy_id
             ];
             //dd($payment);
-            $created = $this->repository->create($payment);
+            $created = $this->paymentRepository->create($payment);
         }
         return response()->json(['success' => true, 'message' => 'Pagos creados correctamente']);
 

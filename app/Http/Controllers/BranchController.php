@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Branch;
 use App\MainBranch;
-use App\Repositories\BranchBranchRepository;
+use App\Repositories\BranchRepository;
 use App\Repositories\Interfaces\IBranchRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class BranchController extends Controller
 {
     /**
-     * @var BranchBranchRepository
+     * @var BranchRepository
      */
     private $repository;
 
