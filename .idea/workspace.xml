@@ -3,10 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="d79afd54-ea94-4b75-9409-01689e117189" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BranchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BranchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Client.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/BranchBranchRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BranchRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/RepositoryServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/RepositoryServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/People.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/People.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/PolicyPayment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PolicyPayment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/IPolicyPaymentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/IPolicyPaymentRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/PolicyPaymentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/PolicyPaymentRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +253,7 @@
       <workItem from="1607037595636" duration="16000" />
       <workItem from="1608686998663" duration="1546000" />
       <workItem from="1613323254287" duration="2238000" />
-      <workItem from="1613419948907" duration="373000" />
+      <workItem from="1613419948907" duration="7158000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' into development&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <created>1594841394525</created>

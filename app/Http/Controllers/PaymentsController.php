@@ -21,17 +21,7 @@ class PaymentsController extends Controller
         $this->policyRepository = $policyRepository;
     }
 
-    public function getPaymentsPendingToCollectFromClient()
-    {
-        //TODO: get all the payments where collected_client = false
-    }
-
-    public function getPaymentsPendingToPayToInsurances()
-    {
-        //TODO: get all the payments where collected_client = true and collected_insurance = false
-    }
-
-    public function recollectPaymentFromClient(Request $request)
+    public function collectPaymentFromClient(Request $request)
     {
         //TODO: Se puede hacer un pago parcial o total. Cuando el  valor a pagar es menor
         //Este valor se adiciona al siguiente pago, si no hay pagos pendientes, se creará un pago para este saldo.
@@ -42,15 +32,24 @@ class PaymentsController extends Controller
         //TODO: actualiza el pago de la poliza hacia la aseguradora
     }
 
-    public function getUpcomingPaymentsToBeDue($policy): \Illuminate\Http\JsonResponse
-    {
-        //TODO: traer todos los pagos que estan proximos a vencer en los siguientes N dias (n < 10)
-        return response()->json(['success' => true, 'data' => $this->repository->getUpcomingPaymentsToBeDue($policy)]);
-    }
-
     public function getPolicyPayments(): \Illuminate\Http\JsonResponse
     {
         $policy = request('policy');
+        $filter = request('filter');
+
+        if($filter == 'upcoming')
+        {
+            //TODO: traer todos los pagos que estan proximos a vencer en los siguientes N dias (n < 10)
+            return response()->json(['success' => true, 'filter' => $filter, 'data' => $this->paymentRepository->getUpcomingPaymentsToBeDue()]);
+        }
+        else if($filter == 'pendingClient' )
+        {
+            return response()->json(['success' => true, 'filter' => $filter,  'data' => $this->paymentRepository->getPaymentsPendingToCollectFromClient()]);
+        }
+        else if($filter == 'pendingInsurance')
+        {
+            return response()->json(['success' => true, 'filter' => $filter,  'data' => $this->paymentRepository->getPaymentsPendingToPayToInsurances()]);
+        }
         $payments = $this->paymentRepository->getPolicyPayments($policy);
         $months = 0;
 

@@ -14,6 +14,7 @@ class People extends Model
 
     public function client()
     {
-        return $this->belongsToMany(Client::class,'clients');
+        //return $this->belongsToMany(Client::class,'clients');
+        return $this->belongsTo(Client::class);
     }
 }

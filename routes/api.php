@@ -103,5 +103,5 @@ Route::group([
 
 Route::post('payments','PaymentsController@create');
 Route::get('payments','PaymentsController@getPolicyPayments');
-Route::get('/payments/{policy}/upcoming','PaymentsController@getUpcomingPaymentsToBeDue');
+Route::get('/payments/upcoming','PaymentsController@getUpcomingPaymentsToBeDue');
 

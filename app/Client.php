@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     protected $fillable = ["owner_id","authorize_data_processing","comment","type",""];
+    protected $appends = [];
     public function owner()
     {
         return $this->belongsTo('App\Employee', 'owner_id');
@@ -17,11 +18,6 @@ class Client extends Model
         return $this->belongsTo('App\Client','related_client_id');
     }
 
-    public function clients()
-    {
-        return $this->hasMany(Client::class,'related_client_id');
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -29,7 +25,7 @@ class Client extends Model
 
     public function people()
     {
-        return $this->belongsTo(People::class);
+        return $this->hasOne(People::class);
     }
 
     public function company()
@@ -47,4 +43,20 @@ class Client extends Model
         return $this->belongsToMany(Category::class,'client_has_categories','category_id','client_id');
     }
 
+    public function policies()
+    {
+        return $this->hasMany(Policy::class);
+    }
+
+
+    public function getLastClientNameAttribute()
+    {
+        $clientType = $this->people_id;
+        return $clientType;
+        if($clientType == 'poeple')
+        {
+            return $this->people->firtst_name + ' ' + $this->peoplw->last_name;
+        }
+        return $this->company->bussiness_name;
+    }
 }

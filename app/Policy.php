@@ -21,10 +21,21 @@ class Policy extends Model
         return $this->hasOne(BranchDetailCar::class);
     }
 
+    public function payments()
+    {
+        return $this->hasMany(PolicyPayment::class);
+    }
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
+
     public function sinisters()
     {
         return $this->hasMany(Sinister::class);
     }
+
     public  function genereteInvoinceNumber()
     {
         $invoice_number = env('INVOICE_PREFIX','GOP') . $this->id;

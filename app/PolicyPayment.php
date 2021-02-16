@@ -27,4 +27,9 @@ class PolicyPayment extends Model
         'accounting_code',
         'policy_id'
     ];
+
+    public function policy()
+    {
+        return $this->belongsTo(Policy::class);
+    }
 }
